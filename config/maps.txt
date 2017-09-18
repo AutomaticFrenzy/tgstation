@@ -48,3 +48,6 @@ endmap
 map nssfrenzy
 	maxplayers 20
 endmap
+
+map junglestation
+endmap

@@ -2650,6 +2650,7 @@
 #include "code\superbox\geoscape.dm"
 #include "code\superbox\howl.dm"
 #include "code\superbox\hullrot.dm"
+#include "code\superbox\junglestation.dm"
 #include "code\superbox\medals.dm"
 #include "code\superbox\plaques.dm"
 #include "code\superbox\sabotage.dm"
