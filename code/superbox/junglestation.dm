@@ -68,7 +68,7 @@
 	. = ..()
 	underlay_appearance.icon_state = "grass"
 
-// ---------- Objects
+// ---------- Mapping Helpers
 
 /obj/effect/baseturf_helper/jungle_surface
 	name = "jungle baseturf editor"
@@ -93,6 +93,8 @@
 	GLOB.gravity_generators["[T.z]"] |= "planet"
 	qdel(src)
 
+// ---------- Storage closets
+
 /obj/item/storage/secure/safe/rcd
 	name = "RCD safe"
 	max_combined_w_class = 15
@@ -101,3 +103,69 @@
 	new /obj/item/construction/rcd(src)
 	for(var/i in 1 to 4)
 		new /obj/item/rcd_ammo(src)
+
+// ---------- Atmos z-leveller
+
+GLOBAL_LIST_EMPTY(vertical_pipes)
+
+/obj/machinery/atmospherics/pipe/vertical
+	name = "vertical pipe"
+	desc = "Transmits gas between levels of the station."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "ladder11"
+	density = FALSE
+	can_unwrench = FALSE // maybe change later
+	level = 1
+
+	dir = SOUTH
+	initialize_directions = SOUTH
+	device_type = UNARY
+	can_buckle = FALSE
+
+	var/obj/machinery/atmospherics/pipe/vertical/down = null
+	var/obj/machinery/atmospherics/pipe/vertical/up = null
+
+/obj/machinery/atmospherics/pipe/vertical/New()
+	GLOB.vertical_pipes += src
+	..()
+
+/obj/machinery/atmospherics/pipe/vertical/Destroy()
+	GLOB.vertical_pipes -= src
+	if (up && up.down == src)
+		up.down = null
+		QDEL_NULL(up.parent)
+		up.build_network()
+	if (down && down.up == src)
+		down.up = null
+		QDEL_NULL(down.parent)
+		down.build_network()
+	return ..()
+
+/obj/machinery/atmospherics/pipe/vertical/SetInitDirections()
+	initialize_directions = dir
+
+/obj/machinery/atmospherics/pipe/vertical/pipeline_expansion()
+	. = ..()
+	if (up)
+		. += up
+	if (down)
+		. += down
+
+/obj/machinery/atmospherics/pipe/vertical/update_icon()
+	icon_state = "ladder" + (up ? "1" : "0") + (down ? "1" : "0")
+
+/obj/machinery/atmospherics/pipe/vertical/hide()
+	update_icon()
+
+/obj/machinery/atmospherics/pipe/vertical/atmosinit()
+	for (var/obj/machinery/atmospherics/pipe/vertical/L in GLOB.vertical_pipes)
+		// TODO: restrict Z-levels to prevent shenanigans
+		if (L.x == x && L.y == y)
+			if (L.z == z + 1)
+				down = L
+			else if (L.z == z - 1)
+				up = L
+			if (up && down) // if both connections are filled
+				break
+	. = ..()
+	update_icon()
