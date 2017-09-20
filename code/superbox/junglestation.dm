@@ -160,7 +160,7 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 /obj/machinery/atmospherics/pipe/vertical/atmosinit()
 	for (var/obj/machinery/atmospherics/pipe/vertical/L in GLOB.vertical_pipes)
 		// TODO: restrict Z-levels to prevent shenanigans
-		if (L.x == x && L.y == y)
+		if (L.x == x && L.y == y && L.dir == dir)
 			if (L.z == z + 1)
 				down = L
 			else if (L.z == z - 1)
@@ -169,3 +169,87 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 				break
 	. = ..()
 	update_icon()
+
+// Powernet z-leveller
+
+GLOBAL_LIST_EMPTY(vertical_power_conduits)
+
+/obj/machinery/power/vertical
+	name = "vertical power conduit"
+	desc = "A length of inflexible, insulated cabling for moving power between levels of the station."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "ladder11"
+	density = FALSE
+	layer = WIRE_TERMINAL_LAYER
+
+	var/obj/machinery/power/vertical/down = null
+	var/obj/machinery/power/vertical/up = null
+
+/obj/machinery/power/vertical/Initialize(mapload)
+	GLOB.vertical_power_conduits += src
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/power/vertical/LateInitialize()
+	for (var/obj/machinery/power/vertical/L in GLOB.vertical_power_conduits)
+		// TODO: restrict Z-levels to prevent shenanigans
+		if (L.x == x && L.y == y)
+			if (L.z == z + 1)
+				down = L
+			else if (L.z == z - 1)
+				up = L
+			if (up && down) // if both connections are filled
+				break
+	merge_with()
+	update_icon()
+
+/obj/machinery/power/vertical/Destroy()
+	GLOB.vertical_power_conduits -= src
+	if (up && up.down == src)
+		up.split_from(src)
+		up.down = null
+		up.update_icon()
+	if (down && down.up == src)
+		down.split_from(src)
+		down.up = null
+		down.update_icon()
+	return ..()
+
+/obj/machinery/power/vertical/update_icon()
+	icon_state = "ladder" + (up ? "1" : "0") + (down ? "1" : "0")
+
+/obj/machinery/power/vertical/proc/split_from(obj/machinery/power/vertical/V)
+	// TODO
+	return
+
+/obj/machinery/power/vertical/proc/merge_with()
+	if (up)
+		if (!up.powernet)
+			var/datum/powernet/newPN = new()
+			newPN.add_machine(up)
+		if (powernet)
+			merge_powernets(powernet, up.powernet)
+		else
+			up.powernet.add_machine(src)
+
+	if (down)
+		if (!down.powernet)
+			var/datum/powernet/newPN = new()
+			newPN.add_machine(down)
+		if (powernet)
+			merge_powernets(powernet, down.powernet)
+		else
+			down.powernet.add_machine(src)
+
+/obj/machinery/power/vertical/connect_to_network()
+	. = ..()
+	if (.)
+		spawn(1) // TODO: is this sleep needed
+			merge_with()
+
+/obj/machinery/power/vertical/disconnect_from_network()
+	// TODO: is this method needed
+	. = ..()
+	if (.)
+		spawn(1) // TODO: is this sleep needed
+			merge_with()
