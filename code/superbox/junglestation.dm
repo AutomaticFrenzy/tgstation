@@ -104,6 +104,37 @@
 	for(var/i in 1 to 4)
 		new /obj/item/rcd_ammo(src)
 
+// ---------- Z-leveller helper
+
+#define ZLEVEL_HELPER(rest...) \
+	var/list/_zlevel_helper = zlevel_helper(up, down, ##rest); \
+	up = _zlevel_helper[1]; \
+	down = _zlevel_helper[2];
+
+/obj/proc/zlevel_helper(up, down, list/obj/others, requires_dir = FALSE)
+	var/static/list/allowed_zlevels = list(2, 3)
+	if (!(z in allowed_zlevels) || (up && down))
+		return
+
+	for (var/obj/O in others)
+		if ((!requires_dir || O.dir == dir) && O.x == x && O.y == y && O.z in allowed_zlevels)
+			if (O.z == z + 1)
+				down = O
+			else if (O.z == z - 1)
+				up = O
+			if (up && down)
+				break
+	return list(up, down)
+
+// ---------- Ladder which matches behavior with the rest of this stuff
+
+/obj/structure/ladder/jungle
+	anchored = TRUE
+
+/obj/structure/ladder/jungle/LateInitialize()
+	ZLEVEL_HELPER(GLOB.ladders)
+	update_icon()
+
 // ---------- Atmos z-leveller
 
 GLOBAL_LIST_EMPTY(vertical_pipes)
@@ -161,15 +192,7 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 	update_icon()
 
 /obj/machinery/atmospherics/pipe/vertical/atmosinit()
-	for (var/obj/machinery/atmospherics/pipe/vertical/L in GLOB.vertical_pipes)
-		// TODO: restrict Z-levels to prevent shenanigans
-		if (L.x == x && L.y == y && L.dir == dir)
-			if (L.z == z + 1)
-				down = L
-			else if (L.z == z - 1)
-				up = L
-			if (up && down) // if both connections are filled
-				break
+	ZLEVEL_HELPER(GLOB.vertical_pipes, TRUE)
 	. = ..()
 	update_icon()
 
@@ -194,15 +217,7 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/power/vertical/LateInitialize()
-	for (var/obj/machinery/power/vertical/L in GLOB.vertical_power_conduits)
-		// TODO: restrict Z-levels to prevent shenanigans
-		if (L.x == x && L.y == y)
-			if (L.z == z + 1)
-				down = L
-			else if (L.z == z - 1)
-				up = L
-			if (up && down) // if both connections are filled
-				break
+	ZLEVEL_HELPER(GLOB.vertical_power_conduits)
 	merge_with()
 	update_icon()
 
@@ -250,15 +265,13 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 /obj/machinery/power/vertical/connect_to_network()
 	. = ..()
 	if (.)
-		spawn(1) // TODO: is this sleep needed
-			merge_with()
+		merge_with()
 
 /obj/machinery/power/vertical/disconnect_from_network()
 	// TODO: is this method needed
 	. = ..()
 	if (.)
-		spawn(1) // TODO: is this sleep needed
-			merge_with()
+		merge_with()
 
 // ---------- Cosmetic z-leveller for housing vertical conduits
 
