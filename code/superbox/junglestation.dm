@@ -111,8 +111,8 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 /obj/machinery/atmospherics/pipe/vertical
 	name = "vertical pipe"
 	desc = "Transmits gas between levels of the station."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "ladder11"
+	icon = 'icons/obj/junglestation/vertical-piping.dmi'
+	icon_state = "pipe01"
 	density = FALSE
 	can_unwrench = FALSE // maybe change later
 	level = 1
@@ -152,7 +152,10 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 		. += down
 
 /obj/machinery/atmospherics/pipe/vertical/update_icon()
-	icon_state = "ladder" + (up ? "1" : "0") + (down ? "1" : "0")
+	icon_state = "pipe" + (up ? "1" : "0") + (down ? "1" : "0")
+	var/turf/T = get_turf(src)
+	for (var/obj/structure/vertical_housing/V in T)
+		V.update_icon()
 
 /obj/machinery/atmospherics/pipe/vertical/hide()
 	update_icon()
@@ -170,15 +173,15 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 	. = ..()
 	update_icon()
 
-// Powernet z-leveller
+// ---------- Powernet z-leveller
 
 GLOBAL_LIST_EMPTY(vertical_power_conduits)
 
 /obj/machinery/power/vertical
 	name = "vertical power conduit"
 	desc = "A length of inflexible, insulated cabling for moving power between levels of the station."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "ladder11"
+	icon = 'icons/obj/junglestation/vertical-wiring.dmi'
+	icon_state = "map"
 	density = FALSE
 	layer = WIRE_TERMINAL_LAYER
 
@@ -216,7 +219,10 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	return ..()
 
 /obj/machinery/power/vertical/update_icon()
-	icon_state = "ladder" + (up ? "1" : "0") + (down ? "1" : "0")
+	//icon_state = "ladder" + (up ? "1" : "0") + (down ? "1" : "0")
+	var/turf/T = get_turf(src)
+	for (var/obj/structure/vertical_housing/V in T)
+		V.update_icon()
 
 /obj/machinery/power/vertical/proc/split_from(obj/machinery/power/vertical/V)
 	// TODO
@@ -253,3 +259,30 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	if (.)
 		spawn(1) // TODO: is this sleep needed
 			merge_with()
+
+// ---------- Cosmetic z-leveller for housing vertical conduits
+
+/obj/structure/vertical_housing
+	name = "vertical conduit housing"
+	desc = "A sturdy metal housing for multilevel conduits."
+	icon = 'icons/obj/junglestation/vertical-housing.dmi'
+	icon_state = "map"
+	layer = 3
+	density = TRUE
+	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE
+
+/obj/structure/vertical_housing/Initialize()
+	update_icon()
+
+/obj/structure/vertical_housing/update_icon()
+	icon_state = "short"
+	var/turf/T = get_turf(src)
+	for (var/obj/machinery/atmospherics/pipe/vertical/V in T)
+		if (V.up)
+			icon_state = "tall"
+			return
+	for (var/obj/machinery/power/vertical/V in T)
+		if (V.up)
+			icon_state = "tall"
+			return
