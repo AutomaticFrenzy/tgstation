@@ -172,6 +172,9 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 		down.build_network()
 	return ..()
 
+/obj/machinery/atmospherics/pipe/vertical/attackby(obj/item/W, mob/user, params)
+	build_vertical_housing(W, user, params)
+
 /obj/machinery/atmospherics/pipe/vertical/SetInitDirections()
 	initialize_directions = dir
 
@@ -189,6 +192,10 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 		V.update_icon()
 
 /obj/machinery/atmospherics/pipe/vertical/hide()
+	update_icon()
+
+/obj/machinery/atmospherics/pipe/vertical/proc/vhide(hidden)
+	invisibility = hidden ? INVISIBILITY_MAXIMUM : 0
 	update_icon()
 
 /obj/machinery/atmospherics/pipe/vertical/atmosinit()
@@ -223,14 +230,10 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 
 /obj/machinery/power/vertical/Destroy()
 	GLOB.vertical_power_conduits -= src
-	if (up && up.down == src)
+	if (up)
 		up.split_from(src)
-		up.down = null
-		up.update_icon()
-	if (down && down.up == src)
+	if (down)
 		down.split_from(src)
-		down.up = null
-		down.update_icon()
 	return ..()
 
 /obj/machinery/power/vertical/update_icon()
@@ -239,9 +242,22 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	for (var/obj/structure/vertical_housing/V in T)
 		V.update_icon()
 
+/obj/machinery/power/vertical/attackby(obj/item/W, mob/user, params)
+	build_vertical_housing(W, user, params)
+
+/obj/machinery/power/vertical/proc/vhide(hidden)
+	invisibility = hidden ? INVISIBILITY_MAXIMUM : 0
+	update_icon()
+
 /obj/machinery/power/vertical/proc/split_from(obj/machinery/power/vertical/V)
-	// TODO
-	return
+	if (up == V)
+		up = null
+	else if (down == V)
+		down = null
+	else
+		return
+
+	update_icon()
 
 /obj/machinery/power/vertical/proc/merge_with()
 	if (up)
@@ -283,10 +299,15 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	layer = 3
 	density = TRUE
 	anchored = TRUE
-	resistance_flags = INDESTRUCTIBLE
 
 /obj/structure/vertical_housing/Initialize()
+	vhide(1)
 	update_icon()
+	return ..()
+
+/obj/structure/vertical_housing/Destroy()
+	vhide(0)
+	return ..()
 
 /obj/structure/vertical_housing/update_icon()
 	icon_state = "short"
@@ -299,3 +320,66 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 		if (V.up)
 			icon_state = "tall"
 			return
+
+/obj/structure/vertical_housing/proc/vhide(hidden)
+	var/turf/T = get_turf(src)
+	for (var/obj/machinery/atmospherics/pipe/vertical/V in T)
+		V.vhide(hidden)
+	for (var/obj/machinery/power/vertical/V in T)
+		V.vhide(hidden)
+
+/obj/structure/vertical_housing/proc/dismantle()
+	playsound(src, 'sound/items/welder.ogg', 100, 1)
+	new /obj/item/stack/sheet/metal(get_turf(src), 2)
+	qdel(src)
+
+/obj/structure/vertical_housing/attackby(obj/item/W, mob/user, params)
+	user.changeNext_move(CLICK_CD_MELEE)
+	if (!user.IsAdvancedToolUser())
+		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		return
+
+	// get the user's location
+	if(!isturf(user.loc))
+		return // can't do this stuff whilst inside objects and such
+
+	add_fingerprint(user)
+
+	var/turf/T = user.loc
+	if (istype(W, /obj/item/weldingtool))
+		var/obj/item/weldingtool/WT = W
+		if (WT.remove_fuel(0, user))
+			to_chat(user, "<span class='notice'>You begin slicing through the conduit housing...</span>")
+			playsound(src, W.usesound, 100, 1)
+			if (do_after(user, 50 * W.toolspeed, target = src))
+				if (!src || QDELETED(src) || !user || !WT || !WT.isOn() || !T)
+					return 1
+				if (user.loc == T && user.get_active_held_item() == WT)
+					to_chat(user, "<span class='notice'>You remove the conduit housing.</span>")
+					dismantle()
+					return 1
+	else if (istype(W, /obj/item/gun/energy/plasmacutter))
+		to_chat(user, "<span class='notice'>You begin slicing through the conduit housing...</span>")
+		playsound(src, W.usesound, 100, 1)
+		if (do_after(user, 40 * W.toolspeed, target = src))
+			if (!src || QDELETED(src) || !user || !W || !T)
+				return 1
+			if (user.loc == T && user.get_active_held_item() == W)
+				to_chat(user, "<span class='notice'>You remove the conduit housing.</span>")
+				dismantle()
+				visible_message("The housing was sliced apart by [user]!", "<span class='italics'>You hear metal being sliced apart.</span>")
+				return 1
+
+/obj/machinery/proc/build_vertical_housing(obj/item/W, mob/user, params)
+	var/obj/item/stack/sheet/S = W
+	if (istype(W, /obj/item/stack/sheet/metal))
+		if(S.get_amount() < 2)
+			to_chat(user, "<span class='warning'>You need two sheets of metal to build a conduit housing!</span>")
+			return
+		to_chat(user, "<span class='notice'>You start adding plating...</span>")
+		if (do_after(user, 40, target = src))
+			if (loc == null || S.get_amount() < 2)
+				return
+			S.use(2)
+			to_chat(user, "<span class='notice'>You add the plating.</span>")
+			new /obj/structure/vertical_housing(get_turf(src))
