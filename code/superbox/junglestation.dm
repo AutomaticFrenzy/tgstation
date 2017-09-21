@@ -18,6 +18,7 @@
 	icon_state = "green"
 	safe = TRUE
 
+	power_light = TRUE
 	blob_allowed = TRUE
 	valid_territory = TRUE
 
@@ -383,3 +384,22 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 			S.use(2)
 			to_chat(user, "<span class='notice'>You add the plating.</span>")
 			new /obj/structure/vertical_housing(get_turf(src))
+
+// ---------- Door button device for the "toggle" controller
+
+/obj/item/device/assembly/control/toggle
+	name = "toggling blast door controller"
+
+/obj/item/device/assembly/control/toggle/activate()
+	cooldown = 1
+	for (var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if (M.id == src.id)
+			spawn(0)
+				if (M)
+					if (M.density)
+						M.open()
+					else
+						M.close()
+				return
+	sleep(10)
+	cooldown = 0
