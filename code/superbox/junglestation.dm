@@ -92,7 +92,21 @@
 	if (!GLOB.gravity_generators["[T.z]"])
 		GLOB.gravity_generators["[T.z]"] = list()
 	GLOB.gravity_generators["[T.z]"] |= "planet"
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
+
+// adds this Z-level to station_z_levels
+/obj/effect/mapping_helpers/station_z_level
+	name = "station z-level helper"
+	icon = 'icons/obj/items_and_weapons.dmi'
+	icon_state = "syndballoon"
+	layer = POINT_LAYER
+
+/obj/effect/mapping_helpers/station_z_level/New()
+	. = ..()
+	GLOB.station_z_levels |= z
+
+/obj/effect/mapping_helpers/station_z_level/Initialize()
+	return INITIALIZE_HINT_QDEL
 
 // ---------- Storage closets
 
