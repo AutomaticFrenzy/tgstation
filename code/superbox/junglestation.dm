@@ -52,6 +52,7 @@
 	update_icon()
 
 /turf/open/chasm/straight_down/jungle_surface
+	icon = 'icons/turf/floors/junglechasm.dmi'
 	baseturf = /turf/open/chasm/straight_down/jungle_surface
 	planetary_atmos = TRUE
 	light_power = JUNGLE_LIGHT_POWER
@@ -62,6 +63,7 @@
 	underlay_appearance.icon_state = "grass"
 
 /turf/open/chasm/straight_down/lava_land_surface/jungle
+	icon = 'icons/turf/floors/junglechasm.dmi'
 	baseturf = /turf/open/chasm/straight_down/lava_land_surface/jungle
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 
@@ -417,3 +419,50 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 				return
 	sleep(10)
 	cooldown = 0
+
+// ---------- Compact elevator control console
+
+// Based on shuttle/pod, without the pod-specific stuff
+/obj/machinery/computer/shuttle/compact
+	name = "compact control computer"
+	admin_controlled = 1
+	shuttleId = "elevator"
+	possible_destinations = "elevator_bottom;elevator_top"
+	icon = 'icons/obj/terminals.dmi'
+	icon_state = "dorm_available"
+	light_color = LIGHT_COLOR_BLUE
+	density = FALSE
+	clockwork = TRUE // prevent icon problems if cult'd
+
+/obj/machinery/computer/shuttle/compact/update_icon()
+	return
+
+// ---------- Shuttle door interlock controller
+
+// TODO: maybe replace this with a machine and use it for the other shuttles
+// (transport, space elevator) too, to control door bolts.
+
+// Combination of poddoor/shuttledock and poddoor/shutters
+/obj/machinery/door/poddoor/shuttledock/shutters
+	gender = PLURAL
+	name = "shutters"
+	desc = "Heavy duty metal shutters that open mechanically."
+	icon = 'icons/obj/doors/shutters.dmi'
+	layer = CLOSED_DOOR_LAYER
+	damage_deflection = 20
+
+/obj/machinery/door/poddoor/shuttledock/shutters/New()
+	..()
+	layer = CLOSED_DOOR_LAYER
+
+/obj/machinery/door/poddoor/shuttledock/shutters/Initialize()
+	check()
+	. = ..()
+
+/obj/machinery/door/poddoor/shuttledock/shutters/open(ignorepower = 0)
+	..()
+	layer = CLOSED_DOOR_LAYER
+
+/obj/machinery/door/poddoor/shuttledock/shutters/close(ignorepower = 0)
+	..()
+	layer = CLOSED_DOOR_LAYER
