@@ -2,7 +2,6 @@ SUBSYSTEM_DEF(minimap)
 	name = "Minimap"
 	init_order = INIT_ORDER_MINIMAP
 	flags = SS_NO_FIRE
-	var/const/MINIMAP_SIZE = 2048
 	var/const/TILE_SIZE = 8
 
 	var/list/z_levels
@@ -28,11 +27,11 @@ SUBSYSTEM_DEF(minimap)
 		var/fileloc = 0
 		if(check_files(0))	//Let's first check if we have maps cached in the data folder. NOTE: This will override the backup files even if this map is older.
 			if(hash != trim(file2text(hash_path())))
-				to_chat(world, "<span class='boldannounce'>Loaded cached minimap is outdated. There may be minor discrepancies in layout.</span>"	)
+				to_chat(world, "<span class='boldannounce'>Loaded cached minimap is outdated. There may be minor discrepancies in layout.</span>")
 			fileloc = 0
 		else
 			if(!check_files(1))
-				to_chat(world, "<span class='boldannounce'>Failed to load backup minimap file. Aborting.</span>"	)
+				to_chat(world, "<span class='boldannounce'>Failed to load backup minimap file. Aborting.</span>")
 				return
 			fileloc = 1	//No map image cached with the current map, and we have a backup. Let's fall back to it.
 			to_chat(world, "<span class='boldannounce'>No cached minimaps detected. Backup files loaded.</span>")
@@ -69,18 +68,18 @@ SUBSYSTEM_DEF(minimap)
 	// Load the background.
 	var/icon/minimap = new /icon('icons/minimap.dmi')
 	// Scale it up to our target size.
-	minimap.Scale(MINIMAP_SIZE, MINIMAP_SIZE)
+	minimap.Scale(TILE_SIZE * (x2 - x1 + 1), TILE_SIZE * (y2 - y1 + 1))
 
 	// Loop over turfs and generate icons.
 	for(var/T in block(locate(x1, y1, z), locate(x2, y2, z)))
-		generate_tile(T, minimap)
+		generate_tile(T, minimap, x1, y1)
 
 	// Create a new icon and insert the generated minimap, so that BYOND doesn't generate different directions.
 	var/icon/final = new /icon()
 	final.Insert(minimap, "", SOUTH, 1, 0)
 	fcopy(final, map_path(z))
 
-/datum/controller/subsystem/minimap/proc/generate_tile(turf/tile, icon/minimap)
+/datum/controller/subsystem/minimap/proc/generate_tile(turf/tile, icon/minimap, x1, y1)
 	var/icon/tile_icon
 	var/obj/obj
 	var/list/obj_icons
@@ -122,4 +121,4 @@ SUBSYSTEM_DEF(minimap)
 		// Scale the icon.
 		tile_icon.Scale(TILE_SIZE, TILE_SIZE)
 		// Add the tile to the minimap.
-		minimap.Blend(tile_icon, ICON_OVERLAY, ((tile.x - 1) * TILE_SIZE), ((tile.y - 1) * TILE_SIZE))
+		minimap.Blend(tile_icon, ICON_OVERLAY, ((tile.x - x1) * TILE_SIZE), ((tile.y - y1) * TILE_SIZE))
