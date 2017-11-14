@@ -5,6 +5,8 @@
 	icon_state = "space"
 	has_gravity = TRUE
 	outdoors = TRUE
+	requires_power = TRUE
+	always_unpowered = TRUE
 	power_light = FALSE
 	power_equip = FALSE
 	power_environ = FALSE
@@ -18,12 +20,16 @@
 	icon_state = "green"
 	safe = TRUE
 
+	always_unpowered = FALSE
 	power_light = TRUE
 	blob_allowed = TRUE
 	valid_territory = TRUE
 
 /area/shuttle/elevator
 	name = "Space Elevator"
+
+/area/shuttle/mech_bay
+	name = "Mech Bay Elevator"
 
 /area/engine/atmos/secondary
 	name = "Satellite Atmos"
@@ -34,7 +40,7 @@
 #define JUNGLE_LIGHT_POWER 0.4
 
 /turf/open/floor/jungle
-	parent_type = /turf/open/floor/plating/asteroid
+	//parent_type = /turf/open/floor/plating/asteroid
 	baseturf = /turf/open/chasm/straight_down/jungle_surface
 
 	name = "jungle floor"
@@ -73,23 +79,17 @@
 
 // ---------- Mapping Helpers
 
-/obj/effect/baseturf_helper/jungle_surface
-	name = "jungle baseturf editor"
-	baseturf = /turf/open/chasm/straight_down/jungle_surface
-
-/obj/effect/baseturf_helper/jungle_underground
-	name = "jungle underground baseturf editor"
-	baseturf = /turf/open/chasm/straight_down/lava_land_surface/jungle
-
-// marks this entire z-level as permanently having gravity
-/obj/effect/mapping_helpers/planet_gravity
-	name = "planet gravity helper"
+/obj/effect/mapping_helpers
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "syndballoon"
 	layer = POINT_LAYER
 
-/obj/effect/mapping_helpers/planet_gravity/Initialize()
-	. = ..()
+// marks this entire z-level as permanently having gravity
+/obj/effect/mapping_helpers/z_gravity
+	name = "z-level gravity helper"
+
+/obj/effect/mapping_helpers/z_gravity/Initialize()
+	..()
 	var/turf/T = get_turf(src)
 	if (!GLOB.gravity_generators["[T.z]"])
 		GLOB.gravity_generators["[T.z]"] = list()
@@ -97,17 +97,27 @@
 	return INITIALIZE_HINT_QDEL
 
 // adds this Z-level to station_z_levels
-/obj/effect/mapping_helpers/station_z_level
-	name = "station z-level helper"
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "syndballoon"
-	layer = POINT_LAYER
+/obj/effect/mapping_helpers/z_station
+	name = "z-level station helper"
 
-/obj/effect/mapping_helpers/station_z_level/New()
+/obj/effect/mapping_helpers/z_station/New()
 	. = ..()
 	GLOB.station_z_levels |= z
 
-/obj/effect/mapping_helpers/station_z_level/Initialize()
+/obj/effect/mapping_helpers/z_station/Initialize()
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/mapping_helpers/z_baseturf
+	name = "z-level baseturf editor"
+	var/baseturf = null
+
+/obj/effect/mapping_helpers/z_baseturf/Initialize()
+	..()
+	var/turf/T1 = get_turf(src)
+	if (baseturf)
+		for (var/turf/T in block(locate(1, 1, T1.z), locate(world.maxx, world.maxy, T1.z)))
+			if (T.baseturf != T.type) // Don't break indestructible walls and the like
+				T.baseturf = baseturf
 	return INITIALIZE_HINT_QDEL
 
 // ---------- Storage closets
