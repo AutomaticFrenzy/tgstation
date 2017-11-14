@@ -441,7 +441,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "bk" = (
-/obj/machinery/doomsday_device,
+/obj/machinery/nuclearbomb/selfdestruct,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "bl" = (
@@ -863,8 +863,6 @@
 /turf/closed/wall/r_wall,
 /area/science/robotics/mechbay)
 "cv" = (
-/obj/machinery/recharge_station,
-/obj/effect/landmark/start/cyborg,
 /obj/machinery/computer/shuttle/compact{
 	name = "elevator control computer";
 	pixel_x = -30;
@@ -872,7 +870,7 @@
 	possible_destinations = "robotics_elevator_bottom;robotics_elevator_top";
 	shuttleId = "robotics_elevator"
 	},
-/turf/open/floor/circuit/green,
+/turf/open/floor/plasteel,
 /area/science/robotics/mechbay)
 "cw" = (
 /turf/open/floor/plasteel,
@@ -936,11 +934,6 @@
 /area/hallway/primary/central)
 "cH" = (
 /obj/effect/turf_decal/delivery,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/open/floor/plasteel,
 /area/science/robotics/mechbay)
 "cI" = (
@@ -5454,14 +5447,6 @@
 	pixel_y = 3
 	},
 /obj/item/storage/toolbox/electrical,
-/obj/machinery/power/apc{
-	areastring = "/area/science/robotics/lab";
-	dir = 2;
-	name = "Robotics Lab APC";
-	pixel_x = 0;
-	pixel_y = -26
-	},
-/obj/structure/cable/yellow,
 /turf/open/floor/plasteel/white,
 /area/science/robotics/lab)
 "oD" = (
@@ -6313,7 +6298,6 @@
 /turf/closed/wall,
 /area/science/robotics/mechbay)
 "qB" = (
-/obj/structure/falsewall,
 /turf/open/floor/plating,
 /area/science/robotics/mechbay)
 "qC" = (
@@ -6427,22 +6411,12 @@
 	icon_state = "warningline";
 	dir = 1
 	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/open/floor/plasteel/white,
 /area/science/robotics/lab)
 "qR" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Mech Bay Maintenance";
 	req_access_txt = "29"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel/black,
 /area/science/robotics/lab)
@@ -6517,11 +6491,6 @@
 /turf/open/floor/plasteel/black,
 /area/science/robotics/lab)
 "qZ" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/open/floor/plasteel/black,
 /area/science/robotics/lab)
 "ra" = (
@@ -6576,11 +6545,6 @@
 /turf/open/floor/plasteel/white,
 /area/science/robotics/lab)
 "rg" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
 /turf/open/floor/plasteel/whiteblue/side{
 	dir = 4
 	},
@@ -6702,12 +6666,46 @@
 /turf/open/floor/plasteel/white,
 /area/science/robotics/lab)
 "ru" = (
-/obj/structure/closet/wardrobe/robotics_black,
-/obj/item/clothing/suit/fire/firefighter,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/whiteblue/side{
 	dir = 4
 	},
 /area/science/robotics/lab)
+"rv" = (
+/turf/open/floor/plasteel/asteroid,
+/area/mine/unexplored)
+"rw" = (
+/turf/open/floor/plasteel/asteroid,
+/area/mine/explored)
+"rx" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/obj/machinery/power/apc{
+	areastring = "/area/science/robotics/mechbay";
+	dir = 2;
+	name = "Mech Bay APC";
+	pixel_x = 0;
+	pixel_y = -26
+	},
+/turf/open/floor/plating,
+/area/mine/explored)
+"ry" = (
+/obj/structure/closet/wardrobe/robotics_black,
+/obj/machinery/power/apc{
+	areastring = "/area/science/robotics/lab";
+	dir = 2;
+	name = "Robotics Lab APC";
+	pixel_x = 0;
+	pixel_y = -26
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/turf/open/floor/plating,
+/area/mine/explored)
 
 (1,1,1) = {"
 aa
@@ -96533,10 +96531,10 @@ eD
 eD
 eD
 eD
-eD
-eD
-eE
-eE
+rv
+rv
+rw
+rw
 eE
 eE
 eE
@@ -96789,12 +96787,12 @@ eD
 eD
 eD
 eD
-eD
-eD
-eD
-eE
-eE
-eE
+rv
+rv
+rv
+rw
+rw
+rw
 cu
 cu
 cu
@@ -97045,13 +97043,13 @@ eD
 eD
 eD
 eD
-eD
-eD
-eD
-eD
-eE
-eE
-eE
+rv
+rv
+rv
+rv
+rw
+rw
+rw
 cu
 fr
 ft
@@ -97302,13 +97300,13 @@ eD
 eD
 eD
 eD
-eD
-eD
-eD
-eD
-eE
-eE
-eE
+rv
+rv
+rv
+rv
+rw
+rw
+rw
 cu
 fs
 fu
@@ -97559,12 +97557,12 @@ eD
 eD
 eD
 eD
-eD
-eD
-eD
-eD
-fn
-fo
+rv
+rv
+rv
+rv
+rw
+rw
 qA
 cu
 qE
@@ -97817,11 +97815,11 @@ eD
 eD
 eD
 eD
-eD
-eD
-eD
-fn
-fo
+rv
+rv
+rv
+rw
+rw
 qB
 cv
 cw
@@ -98074,14 +98072,14 @@ eD
 eD
 eD
 eD
-eD
-eD
-eD
-fn
+rv
+rv
+rv
+rw
 fo
-qA
-fp
-qF
+qB
+cw
+cw
 cw
 qI
 qP
@@ -98332,12 +98330,12 @@ eD
 eD
 eD
 eD
-eD
-eD
-fn
+rv
+rv
 fo
-qA
-qC
+fo
+qB
+cw
 cw
 cw
 qM
@@ -98591,17 +98589,17 @@ eD
 eD
 eD
 eD
-fn
-qw
-qA
-fq
-qG
-qG
+fo
+fo
+qB
+cw
+cw
+cw
 cH
 qQ
-qV
-re
-qV
+rt
+rt
+rt
 oC
 qO
 eE
@@ -98849,15 +98847,15 @@ eD
 eD
 eD
 fn
-qx
+rx
 qA
 qD
-qH
-qI
-qN
+qC
+fp
+qC
 qO
 qW
-rf
+rt
 rt
 oD
 qO
@@ -99368,10 +99366,10 @@ qz
 qz
 qz
 qJ
-fo
+ry
 qO
 qY
-rh
+qZ
 ox
 qO
 qO
@@ -99625,10 +99623,10 @@ fn
 fn
 fn
 qK
-qz
+rp
 qR
 qZ
-ri
+qZ
 rk
 qO
 eE
