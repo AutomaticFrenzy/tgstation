@@ -41,7 +41,7 @@
 
 /turf/open/floor/jungle
 	//parent_type = /turf/open/floor/plating/asteroid
-	baseturf = /turf/open/chasm/straight_down/jungle_surface
+	baseturfs = /turf/open/chasm/straight_down/jungle_surface
 
 	name = "jungle floor"
 	icon_state = "grass"
@@ -59,7 +59,7 @@
 
 /turf/open/chasm/straight_down/jungle_surface
 	icon = 'icons/turf/floors/junglechasm.dmi'
-	baseturf = /turf/open/chasm/straight_down/jungle_surface
+	baseturfs = /turf/open/chasm/straight_down/jungle_surface
 	planetary_atmos = TRUE
 	light_power = JUNGLE_LIGHT_POWER
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE
@@ -70,7 +70,7 @@
 
 /turf/open/chasm/straight_down/lava_land_surface/jungle
 	icon = 'icons/turf/floors/junglechasm.dmi'
-	baseturf = /turf/open/chasm/straight_down/lava_land_surface/jungle
+	baseturfs = /turf/open/chasm/straight_down/lava_land_surface/jungle
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 
 /turf/open/chasm/straight_down/lava_land_surface/jungle/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
@@ -100,11 +100,10 @@
 /obj/effect/mapping_helpers/z_station
 	name = "z-level station helper"
 
-/obj/effect/mapping_helpers/z_station/New()
-	. = ..()
-	GLOB.station_z_levels |= z
-
 /obj/effect/mapping_helpers/z_station/Initialize()
+	. = ..()
+	var/datum/space_level/S = SSmapping.get_level(z)
+	S.traits[ZTRAIT_STATION] = TRUE
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/mapping_helpers/z_baseturf
@@ -116,8 +115,7 @@
 	var/turf/T1 = get_turf(src)
 	if (baseturf)
 		for (var/turf/T in block(locate(1, 1, T1.z), locate(world.maxx, world.maxy, T1.z)))
-			if (T.baseturf != T.type) // Don't break indestructible walls and the like
-				T.baseturf = baseturf
+			T.PlaceOnBottom(baseturf)
 	return INITIALIZE_HINT_QDEL
 
 // ---------- Storage closets
