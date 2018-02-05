@@ -1,5 +1,16 @@
 {
     "map_name": "JungleStation",
     "map_path": "map_files/JungleStation",
-    "map_file": "Surface.dmm"
+    "map_file": "Surface.dmm",
+    "shuttles": {
+	    "ferry": "ferry_fancy",
+	    "cargo": "cargo_sb",
+        "emergency": "emergency_sb",
+        "whiteship": "whiteship_meta"
+    },
+    "traits": [
+        {"Down": 1},
+        {"Up": -1},
+        {"Linkage": "Cross", "Space Ruins": true}
+    ]
 }

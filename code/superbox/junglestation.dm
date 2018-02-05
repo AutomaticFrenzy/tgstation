@@ -36,9 +36,6 @@
 
 // ---------- Turfs
 
-// the jungle is in a low twilight
-#define JUNGLE_LIGHT_POWER 0.4
-
 /turf/open/floor/jungle
 	//parent_type = /turf/open/floor/plating/asteroid
 	baseturfs = /turf/open/chasm/straight_down/jungle_surface
@@ -50,8 +47,6 @@
 	flags_1 = NONE
 
 	planetary_atmos = TRUE
-	light_power = JUNGLE_LIGHT_POWER
-	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 
 /turf/open/floor/jungle/Initialize()
 	..()
@@ -61,8 +56,6 @@
 	icon = 'icons/turf/floors/junglechasm.dmi'
 	baseturfs = /turf/open/chasm/straight_down/jungle_surface
 	planetary_atmos = TRUE
-	light_power = JUNGLE_LIGHT_POWER
-	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 
 /turf/open/chasm/straight_down/jungle_surface/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	. = ..()
@@ -96,16 +89,6 @@
 	GLOB.gravity_generators["[T.z]"] |= "planet"
 	return INITIALIZE_HINT_QDEL
 
-// adds this Z-level to station_z_levels
-/obj/effect/mapping_helpers/z_station
-	name = "z-level station helper"
-
-/obj/effect/mapping_helpers/z_station/Initialize()
-	. = ..()
-	var/datum/space_level/S = SSmapping.get_level(z)
-	S.traits[ZTRAIT_STATION] = TRUE
-	return INITIALIZE_HINT_QDEL
-
 /obj/effect/mapping_helpers/z_baseturf
 	name = "z-level baseturf editor"
 	var/baseturf = null
@@ -128,37 +111,6 @@
 	new /obj/item/construction/rcd(src)
 	for(var/i in 1 to 4)
 		new /obj/item/rcd_ammo(src)
-
-// ---------- Z-leveller helper
-
-#define ZLEVEL_HELPER(rest...) \
-	var/list/_zlevel_helper = zlevel_helper(up, down, ##rest); \
-	up = _zlevel_helper[1]; \
-	down = _zlevel_helper[2];
-
-/obj/proc/zlevel_helper(up, down, list/obj/others, requires_dir = FALSE)
-	var/static/list/allowed_zlevels = list(2, 3)
-	if (!(z in allowed_zlevels) || (up && down))
-		return
-
-	for (var/obj/O in others)
-		if ((!requires_dir || O.dir == dir) && O.x == x && O.y == y && O.z in allowed_zlevels)
-			if (O.z == z + 1)
-				down = O
-			else if (O.z == z - 1)
-				up = O
-			if (up && down)
-				break
-	return list(up, down)
-
-// ---------- Ladder which matches behavior with the rest of this stuff
-
-/obj/structure/ladder/jungle
-	anchored = TRUE
-
-/obj/structure/ladder/jungle/LateInitialize()
-	ZLEVEL_HELPER(GLOB.ladders)
-	update_icon()
 
 // ---------- Atmos z-leveller
 
@@ -224,7 +176,7 @@ GLOBAL_LIST_EMPTY(vertical_pipes)
 	update_icon()
 
 /obj/machinery/atmospherics/pipe/vertical/atmosinit()
-	ZLEVEL_HELPER(GLOB.vertical_pipes, TRUE)
+	//ZLEVEL_HELPER(GLOB.vertical_pipes, TRUE)
 	. = ..()
 	update_icon()
 
@@ -249,7 +201,7 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/power/vertical/LateInitialize()
-	ZLEVEL_HELPER(GLOB.vertical_power_conduits)
+	//ZLEVEL_HELPER(GLOB.vertical_power_conduits)
 	merge_with()
 	update_icon()
 
