@@ -1013,6 +1013,7 @@
 #include "code\game\turfs\baseturf_skipover.dm"
 #include "code\game\turfs\change_turf.dm"
 #include "code\game\turfs\closed.dm"
+#include "code\game\turfs\mirage.dm"
 #include "code\game\turfs\open.dm"
 #include "code\game\turfs\turf.dm"
 #include "code\game\turfs\simulated\chasm.dm"
