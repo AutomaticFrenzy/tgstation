@@ -105,7 +105,7 @@
 
 /obj/item/storage/secure/safe/rcd
 	name = "RCD safe"
-	max_combined_w_class = 15
+	//max_combined_w_class = 15
 
 /obj/item/storage/secure/safe/PopulateContents()
 	new /obj/item/construction/rcd(src)
@@ -325,7 +325,7 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 	var/turf/T = user.loc
 	if (istype(W, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
-		if (WT.remove_fuel(0, user))
+		if (WT.use_tool(src, user))
 			to_chat(user, "<span class='notice'>You begin slicing through the conduit housing...</span>")
 			playsound(src, W.usesound, 100, 1)
 			if (do_after(user, 50 * W.toolspeed, target = src))
@@ -363,10 +363,10 @@ GLOBAL_LIST_EMPTY(vertical_power_conduits)
 
 // ---------- Door button device for the "toggle" controller
 
-/obj/item/device/assembly/control/toggle
+/obj/item/assembly/control/toggle
 	name = "toggling blast door controller"
 
-/obj/item/device/assembly/control/toggle/activate()
+/obj/item/assembly/control/toggle/activate()
 	cooldown = 1
 	for (var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if (M.id == src.id)

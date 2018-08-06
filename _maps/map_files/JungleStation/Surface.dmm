@@ -304,7 +304,6 @@
 	height = 9;
 	id = "space_elevator_planet";
 	name = "Planet Surface";
-	turf_type = /turf/open/floor/plating;
 	width = 9
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -431,7 +430,7 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "bj" = (
 /obj/structure/table/reinforced,
-/obj/item/device/aicard,
+/obj/item/aicard,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 2;
 	pixel_y = 4
@@ -463,7 +462,7 @@
 /area/crew_quarters/heads/captain)
 "bn" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /obj/item/card/id/captains_spare,
 /obj/item/lighter,
 /turf/open/floor/wood,
@@ -911,13 +910,11 @@
 "cE" = (
 /obj/docking_port/stationary{
 	area_type = /area/science/robotics/mechbay;
-	baseturf_type = /turf/open/chasm/straight_down/jungle_surface;
 	dir = 8;
 	dwidth = 0;
 	height = 2;
 	id = "robotics_elevator_top";
 	name = "surface";
-	turf_type = /turf/closed/mineral;
 	width = 2
 	},
 /turf/closed/mineral,
@@ -930,7 +927,7 @@
 /area/jungle/within_compound)
 "cG" = (
 /obj/structure/table,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 5
 	},
 /turf/open/floor/plasteel,
@@ -997,8 +994,8 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/device/flashlight/seclite,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/seclite,
+/obj/item/flashlight/lamp/green{
 	on = 0;
 	pixel_x = -3;
 	pixel_y = -8
@@ -1191,7 +1188,7 @@
 /area/security/checkpoint)
 "dN" = (
 /obj/structure/table/wood,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /obj/item/storage/secure/safe/HoS{
 	pixel_x = 5;
 	pixel_y = -26
@@ -1260,7 +1257,7 @@
 /area/security/checkpoint)
 "dZ" = (
 /obj/machinery/button/door{
-	device_type = "/obj/item/device/assembly/control/toggle";
+	device_type = "/obj/item/assembly/control/toggle";
 	id = "security_checkpoint";
 	name = "Security Checkpoint Doors";
 	pixel_x = 24;
@@ -1346,7 +1343,7 @@
 "ek" = (
 /obj/structure/table,
 /obj/item/restraints/handcuffs,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /turf/open/floor/plasteel,
 /area/security/main)
 "el" = (
@@ -1357,16 +1354,16 @@
 	},
 /obj/structure/table,
 /obj/machinery/recharger,
-/obj/item/device/assembly/flash/handheld,
-/obj/item/device/assembly/flash/handheld,
-/obj/item/device/assembly/flash/handheld,
+/obj/item/assembly/flash/handheld,
+/obj/item/assembly/flash/handheld,
+/obj/item/assembly/flash/handheld,
 /turf/open/floor/plasteel,
 /area/security/main)
 "em" = (
 /obj/structure/table,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/open/floor/plasteel,
 /area/security/main)
 "en" = (
@@ -1514,7 +1511,7 @@
 "eS" = (
 /obj/structure/table,
 /obj/item/tank/internals/oxygen/yellow,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /obj/item/wrench,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
@@ -1550,8 +1547,8 @@
 /area/engine/atmos)
 "eZ" = (
 /obj/structure/table,
-/obj/item/device/flashlight/seclite,
-/obj/item/device/t_scanner/adv_mining_scanner,
+/obj/item/flashlight/seclite,
+/obj/item/t_scanner/adv_mining_scanner,
 /turf/open/floor/plasteel,
 /area/maintenance/department/bridge)
 "fa" = (
@@ -1687,13 +1684,11 @@
 	},
 /obj/docking_port/stationary{
 	area_type = /area/science/robotics/mechbay;
-	baseturf_type = /turf/open/chasm/straight_down/lava_land_surface/jungle;
 	dir = 8;
 	dwidth = 0;
 	height = 2;
 	id = "robotics_elevator_bottom";
 	name = "robotics lab";
-	turf_type = /turf/closed/mineral;
 	width = 2
 	},
 /turf/open/floor/plasteel/elevatorshaft,
@@ -1899,7 +1894,7 @@
 /area/maintenance/department/security/brig)
 "gd" = (
 /obj/machinery/button/door{
-	device_type = "/obj/item/device/assembly/control/toggle";
+	device_type = "/obj/item/assembly/control/toggle";
 	id = "armory";
 	name = "Armory Shutters";
 	pixel_x = -24;
@@ -2270,8 +2265,8 @@
 /area/tcommsat/computer)
 "hg" = (
 /obj/structure/table/reinforced,
-/obj/item/device/radio,
-/obj/item/device/multitool{
+/obj/item/radio,
+/obj/item/multitool{
 	pixel_x = -4
 	},
 /obj/item/paper/monitorkey{
@@ -2310,7 +2305,7 @@
 /area/ai_monitored/turret_protected/ai)
 "hm" = (
 /obj/effect/landmark/start/ai,
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	anyai = 1;
 	broadcasting = 0;
 	freerange = 1;
@@ -2319,14 +2314,14 @@
 	pixel_x = 28;
 	pixel_y = -31
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	anyai = 1;
 	freerange = 1;
 	listening = 0;
 	name = "Custom Channel";
 	pixel_y = -31
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	broadcasting = 0;
 	freerange = 1;
 	listening = 1;
@@ -2735,7 +2730,7 @@
 /area/hallway/secondary/exit)
 "in" = (
 /obj/structure/table,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 5
 	},
 /obj/structure/sign/logo{
@@ -2997,7 +2992,7 @@
 /obj/structure/table,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/tubes,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "iU" = (
@@ -3070,7 +3065,7 @@
 /area/hallway/secondary/exit)
 "jd" = (
 /obj/structure/table,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 5
 	},
 /turf/open/floor/plasteel,
@@ -3083,7 +3078,6 @@
 	height = 13;
 	id = "ferry_home";
 	name = "Satellite Ferry Dock";
-	turf_type = /turf/open/space;
 	width = 5
 	},
 /obj/docking_port/mobile{
@@ -3473,7 +3467,6 @@
 	height = 9;
 	id = "space_elevator_satellite";
 	name = "Support Satellite";
-	turf_type = /turf/open/space;
 	width = 9
 	},
 /obj/docking_port/mobile{
@@ -3768,7 +3761,7 @@
 "kO" = (
 /obj/structure/table,
 /obj/item/tank/internals/oxygen/yellow,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /obj/item/wrench,
 /obj/structure/cable{
 	d2 = 8;
@@ -3846,7 +3839,7 @@
 /turf/open/floor/plating,
 /area/engine/atmos/secondary)
 "kY" = (
-/obj/machinery/atmospherics/components/binary/valve/open{
+/obj/machinery/atmospherics/components/binary/valve/on{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -3939,7 +3932,6 @@
 	name = "emergency shuttle";
 	port_direction = 4;
 	preferred_direction = 8;
-	timid = 0;
 	width = 19
 	},
 /obj/docking_port/stationary{
@@ -3949,7 +3941,6 @@
 	height = 18;
 	id = "emergency_home";
 	name = "Satellite Evac Bay";
-	turf_type = /turf/open/space;
 	width = 30
 	},
 /turf/closed/wall/mineral/titanium,
@@ -4003,7 +3994,7 @@
 /obj/structure/chair{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	name = "Station Intercom";
 	pixel_x = -30;
 	pixel_y = 0
@@ -4560,7 +4551,7 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "na" = (
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	name = "Station Intercom";
 	pixel_x = 30;
 	pixel_y = 0
@@ -4769,10 +4760,10 @@
 "nN" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/belt/utility,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/effect/turf_decal/bot,
 /obj/item/stock_parts/cell/high,
 /obj/item/stock_parts/cell/high,
@@ -5107,20 +5098,20 @@
 /obj/item/stack/sheet/plasteel{
 	amount = 15
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/obj/item/device/assembly/flash/handheld,
-/obj/item/device/assembly/flash/handheld,
+/obj/item/assembly/flash/handheld,
+/obj/item/assembly/flash/handheld,
 /obj/item/stack/cable_coil/white,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 0;
@@ -5233,7 +5224,7 @@
 /area/security/detectives_office)
 "qi" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 0;
 	pixel_y = 11
 	},
@@ -5246,7 +5237,7 @@
 /area/security/detectives_office)
 "qj" = (
 /obj/structure/table/wood,
-/obj/item/device/camera/detective,
+/obj/item/camera/detective,
 /obj/item/restraints/handcuffs,
 /turf/open/floor/carpet,
 /area/security/detectives_office)
@@ -5304,7 +5295,7 @@
 "qq" = (
 /obj/structure/closet/lawcloset,
 /obj/item/storage/briefcase,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /turf/open/floor/wood,
 /area/security/detectives_office)
 "qr" = (
@@ -5507,7 +5498,7 @@
 /obj/structure/rack,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/glasses/welding,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/open/floor/plasteel/white,
 /area/science/robotics/lab)
 "qX" = (
@@ -5523,8 +5514,8 @@
 /area/science/robotics/lab)
 "qY" = (
 /obj/structure/rack,
-/obj/item/device/mmi,
-/obj/item/device/mmi,
+/obj/item/mmi,
+/obj/item/mmi,
 /obj/item/storage/box/bodybags,
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -6095,7 +6086,7 @@
 /area/crew_quarters/bar)
 "sO" = (
 /obj/structure/table,
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	freerange = 0;
 	frequency = 1459;
 	name = "Station Intercom (General)";
@@ -6245,7 +6236,7 @@
 /area/crew_quarters/bar)
 "tm" = (
 /obj/structure/table/wood,
-/obj/item/device/paicard,
+/obj/item/paicard,
 /turf/open/floor/plasteel/bar,
 /area/crew_quarters/bar)
 "tn" = (
@@ -6329,9 +6320,9 @@
 /area/crew_quarters/bar)
 "ty" = (
 /obj/structure/table/wood,
-/obj/item/device/camera,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
+/obj/item/camera,
+/obj/item/camera_film,
+/obj/item/camera_film,
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "tz" = (
@@ -6410,12 +6401,12 @@
 /obj/structure/table,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/tubes,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /turf/open/floor/plasteel,
 /area/jungle/within_compound)
 "tQ" = (
 /obj/structure/table,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 5
 	},
 /obj/item/airlock_painter,
@@ -6440,7 +6431,7 @@
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /turf/open/floor/plasteel,
 /area/jungle/within_compound)
 "tU" = (
@@ -6463,7 +6454,7 @@
 /obj/structure/table,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = 26
@@ -6492,7 +6483,7 @@
 "ua" = (
 /obj/structure/closet/l3closet/janitor,
 /obj/effect/turf_decal/bot,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/open/floor/plasteel,
 /area/janitor)
 "ub" = (
@@ -6514,7 +6505,7 @@
 	anchored = 1;
 	welded = 1
 	},
-/obj/item/device/radio/beacon,
+/obj/item/beacon,
 /turf/open/floor/plating,
 /area/hallway/secondary/service)
 "ue" = (
@@ -6535,7 +6526,7 @@
 /turf/open/floor/plating,
 /area/hallway/secondary/service)
 "uh" = (
-/obj/item/device/radio/intercom{
+/obj/item/radio/intercom{
 	name = "Station Intercom";
 	pixel_x = -28
 	},
@@ -6887,7 +6878,7 @@
 	icon_state = "warn_end_red";
 	dir = 8
 	},
-/obj/machinery/rnd/protolathe/department/service,
+/obj/machinery/rnd/production/protolathe/department/service,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/service)
 "vc" = (
@@ -7042,7 +7033,7 @@
 /area/crew_quarters/theatre)
 "vu" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/bananalamp{
+/obj/item/flashlight/lamp/bananalamp{
 	pixel_y = 5
 	},
 /obj/structure/mirror{
@@ -7117,7 +7108,7 @@
 "vB" = (
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder,
-/obj/item/book/manual/barman_recipes,
+/obj/item/book/manual/wiki/barman_recipes,
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
 "vC" = (
@@ -7191,7 +7182,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/stack/cable_coil/white,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/sheet/metal{
 	amount = 50
@@ -7263,7 +7254,7 @@
 /turf/open/floor/plasteel,
 /area/ai_monitored/storage/eva)
 "CF" = (
-/obj/item/device/radio/beacon,
+/obj/item/beacon,
 /turf/open/floor/plasteel,
 /area/bridge)
 "CN" = (
