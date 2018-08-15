@@ -155,6 +155,12 @@
 	if (!SShullrot.can_fire || !client)
 		return
 
+	// Permissions
+	var/admin = check_rights_for(src, R_ADMIN)
+	if (hullrot_cache["admin"] != admin)
+		hullrot_cache["admin"] = admin
+		SShullrot.set_admin(client, admin)
+
 	// Mob-level speaking and hearing
 	var/can_speak = (can_speak_basic(ignore_spam = TRUE) && can_speak_vocal() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0
 	var/can_hear = (can_hear() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0

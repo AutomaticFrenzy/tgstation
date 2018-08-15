@@ -299,3 +299,6 @@ SUBSYSTEM_DEF(hullrot)
 
 /datum/controller/subsystem/hullrot/proc/check_connected(client/C)
 	control("CheckConnected", list("ckey" = C.ckey))
+
+/datum/controller/subsystem/hullrot/proc/set_admin(client/C, is_admin)
+	control("SetAdmin", list("ckey" = C.ckey, "is_admin" = is_admin))
