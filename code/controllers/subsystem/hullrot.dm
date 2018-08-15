@@ -121,6 +121,8 @@ SUBSYSTEM_DEF(hullrot)
 
 		else if ((data = event["Refresh"]))
 			var/client/C = GLOB.directory[data]
+			if (istype(C))
+				C.hullrot_unauthed = null  // they're authenticated
 			var/mob/living/L = C && C.mob
 			if (istype(L))
 				L.hullrot_reset()
@@ -180,6 +182,17 @@ SUBSYSTEM_DEF(hullrot)
 					L.client.images |= bubble
 				else
 					L.client.images -= bubble
+
+		else if ((data = event["NeedsRegistration"]))
+			var/name = data["untrusted_username"]
+			var/client/C = GLOB.directory[ckey(name)]
+			if(C)
+				INVOKE_ASYNC(C, /client.proc/hullrot_auth_prompt, "[name] connected to Hullrot. If this is you, provide the code:")
+
+		else if ((data = event["BadRegistration"]))
+			var/client/C = GLOB.directory[data["ckey"]]
+			if(C)
+				INVOKE_ASYNC(C, /client.proc/hullrot_auth_prompt, "That code does not appear to be valid. Try again:")
 
 /datum/controller/subsystem/hullrot/fire()
 	checked_events = FALSE
@@ -258,3 +271,6 @@ SUBSYSTEM_DEF(hullrot)
 
 /datum/controller/subsystem/hullrot/proc/set_ghost_ears(client/C, ears)
 	control("SetGhostEars", list("who" = C.ckey, "ears" = ears))
+
+/datum/controller/subsystem/hullrot/proc/register(client/C, code)
+	control("Register", list("cert_hash" = code, "ckey" = C.ckey))
