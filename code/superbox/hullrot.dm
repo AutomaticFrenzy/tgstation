@@ -105,6 +105,10 @@
 /client
 	var/hullrot_authed = FALSE
 
+/client/New()
+	. = ..()
+	SShullrot.check_connected(src)
+
 /obj/effect/statclick/hullrot_auth
 
 /obj/effect/statclick/hullrot_auth/Click()

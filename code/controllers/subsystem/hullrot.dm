@@ -12,6 +12,7 @@ SUBSYSTEM_DEF(hullrot)
 	var/const/expected_minor = 0  // Minor version must be at least this
 	var/loaded_version  // For VV inspection
 	var/server_version
+	var/dead_because
 
 	var/currently_playing = -1
 	var/checked_events = FALSE
@@ -28,7 +29,7 @@ SUBSYSTEM_DEF(hullrot)
 	dll_connect()
 	return ..()
 
-/datum/controller/subsystem/hullrot/proc/dll_connect(message_on_success=FALSE)
+/datum/controller/subsystem/hullrot/proc/dll_connect()
 	// Load the DLL and check the version
 	var/list/version = get_dll_version()
 	if (version == null)
@@ -44,17 +45,20 @@ SUBSYSTEM_DEF(hullrot)
 	if (error || !res["Version"])
 		return abort("[name] failed to initialize: [error]")
 	server_version = res["Version"]["version"]
-	var/msg = "[name] active: dll [loaded_version], server [server_version]"
-	log_world(msg)
-	if (message_on_success)
-		message_admins(msg)
+	dead_because = null
+	log_world("[name] active: dll [loaded_version], server [server_version]")
 
+	for (var/client/C in GLOB.clients)
+		check_connected(C)
 	for (var/mob/living/L in GLOB.player_list)
 		L.hullrot_reset()
 
 /datum/controller/subsystem/hullrot/proc/get_dll_version()
 	// In its own proc so if it crashes, dll_initialize can check for null.
 	return json_decode(call(dll, "hullrot_dll_version")())
+
+/datum/controller/subsystem/hullrot/stat_entry(msg)
+	..(dead_because || "C:[loaded_version] S:[server_version]")
 
 // ----------------------------------------------------------------------------
 // Shutdown
@@ -75,6 +79,7 @@ SUBSYSTEM_DEF(hullrot)
 // Error handling
 
 /datum/controller/subsystem/hullrot/proc/abort(msg)
+	dead_because = msg
 	log_world(msg)
 	message_admins("(<a href='?src=[REF(src)];[HrefToken(TRUE)];restart=1'>restart</a>) [msg]")
 	can_fire = FALSE
@@ -206,6 +211,11 @@ SUBSYSTEM_DEF(hullrot)
 			if(C)
 				INVOKE_ASYNC(C, /client.proc/hullrot_auth_prompt, "That code does not appear to be valid. Try again:")
 
+		else if ((data = event["IsConnected"]))
+			var/client/C = GLOB.directory[data["ckey"]]
+			if(C)
+				C.hullrot_authed = data["connected"]
+
 /datum/controller/subsystem/hullrot/fire()
 	checked_events = FALSE
 
@@ -286,3 +296,6 @@ SUBSYSTEM_DEF(hullrot)
 
 /datum/controller/subsystem/hullrot/proc/register(client/C, code)
 	control("Register", list("cert_hash" = code, "ckey" = C.ckey))
+
+/datum/controller/subsystem/hullrot/proc/check_connected(client/C)
+	control("CheckConnected", list("ckey" = C.ckey))
