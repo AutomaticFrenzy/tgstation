@@ -11,18 +11,26 @@ SUBSYSTEM_DEF(hullrot)
 	var/const/expected_major = 0  // Major version must be exactly this
 	var/const/expected_minor = 0  // Minor version must be at least this
 	var/loaded_version  // For VV inspection
+	var/server_version
 
 	var/currently_playing = -1
 	var/checked_events = FALSE
 	var/subspace_ticker = 0
 	var/subspace_groups
 
+	var/obj/effect/statclick/hullrot_auth/auth_statclick
+
 // ----------------------------------------------------------------------------
 // Initialization
 
 /datum/controller/subsystem/hullrot/Initialize()
+	auth_statclick = new(null, "Connect to Hullrot and then click here to authenticate")
+	dll_connect()
+	return ..()
+
+/datum/controller/subsystem/hullrot/proc/dll_connect(message_on_success=FALSE)
 	// Load the DLL and check the version
-	var/list/version = get_version()
+	var/list/version = get_dll_version()
 	if (version == null)
 		return abort("[name] could not be loaded and has been disabled.")
 	if (version["error"])
@@ -35,13 +43,17 @@ SUBSYSTEM_DEF(hullrot)
 	var/error = res["error"] || res["Fatal"] || res["Debug"]
 	if (error || !res["Version"])
 		return abort("[name] failed to initialize: [error]")
+	server_version = res["Version"]["version"]
+	var/msg = "[name] active: dll [loaded_version], server [server_version]"
+	log_world(msg)
+	if (message_on_success)
+		message_admins(msg)
 
 	for (var/mob/living/L in GLOB.player_list)
 		L.hullrot_reset()
 
-	return ..()
-
-/datum/controller/subsystem/hullrot/proc/get_version()
+/datum/controller/subsystem/hullrot/proc/get_dll_version()
+	// In its own proc so if it crashes, dll_initialize can check for null.
 	return json_decode(call(dll, "hullrot_dll_version")())
 
 // ----------------------------------------------------------------------------
@@ -64,8 +76,7 @@ SUBSYSTEM_DEF(hullrot)
 
 /datum/controller/subsystem/hullrot/proc/abort(msg)
 	log_world(msg)
-	to_chat(world, "<span class='boldannounce'>[msg]</span>")
-	message_admins("[name] aborted, <a href='?src=[REF(src)];[HrefToken()];reconnect=1'>reconnect</a>?")
+	message_admins("(<a href='?src=[REF(src)];[HrefToken(TRUE)];restart=1'>restart</a>) [msg]")
 	can_fire = FALSE
 
 	var/list/images = list()
@@ -78,24 +89,24 @@ SUBSYSTEM_DEF(hullrot)
 /datum/controller/subsystem/hullrot/proc/warn(msg)
 	message_admins("[name] warning: [msg]")
 
-/datum/controller/subsystem/hullrot/proc/reconnect()
+/datum/controller/subsystem/hullrot/proc/restart()
 	message_admins("Admin [key_name_admin(usr)] is restarting [name].")
 	Shutdown()
 	can_fire = TRUE
 	currently_playing = initial(currently_playing)  // force a resend
-	Initialize(REALTIMEOFDAY)
+	dll_connect(TRUE)
 
 /datum/controller/subsystem/hullrot/vv_get_dropdown()
 	. = ..()
 	. += "---"
-	.["Reconnect"] = "?src=[REF(src)];[HrefToken()];reconnect=1"
+	.["Restart"] = "?src=[REF(src)];[HrefToken()];restart=1"
 
 /datum/controller/subsystem/hullrot/Topic(href, href_list)
 	if(..() || !check_rights(R_ADMIN, FALSE) || !usr.client.holder.CheckAdminHref(href, href_list))
 		return
 
-	if(href_list["reconnect"])
-		reconnect()
+	if(href_list["restart"])
+		restart()
 
 // ----------------------------------------------------------------------------
 // General processing
@@ -104,15 +115,16 @@ SUBSYSTEM_DEF(hullrot)
 	if (!loaded_version || !can_fire)
 		return
 
+	// Send the control command if specified, or just read events.
 	checked_events = TRUE
 	var/events
 	if (what)
-		//message_admins("[name] output: [what] [json_encode(data)]")
 		events = json_decode(call(dll, "hullrot_control")(json_encode(list("[what]" = data))))
 	else
 		events = json_decode(call(dll, "hullrot_control")())
+
+	// Handle the read events.
 	for (var/event in events)
-		//message_admins("[name]: event: [json_encode(event)]")
 		if ((data = event["Fatal"]))
 			abort("Hullrot has crashed: [data]")
 
@@ -122,7 +134,7 @@ SUBSYSTEM_DEF(hullrot)
 		else if ((data = event["Refresh"]))
 			var/client/C = GLOB.directory[data]
 			if (istype(C))
-				C.hullrot_unauthed = null  // they're authenticated
+				C.hullrot_authed = TRUE  // they're authenticated
 			var/mob/living/L = C && C.mob
 			if (istype(L))
 				L.hullrot_reset()

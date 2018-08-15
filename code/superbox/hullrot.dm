@@ -14,8 +14,8 @@
 		statpanel("Radio")  // process on the regular even if it's invisible
 		var/list/keys_used = list()
 
-		if (client.hullrot_unauthed)
-			stat(null, client.hullrot_unauthed)
+		if (!client.hullrot_authed)
+			stat(null, SShullrot.auth_statclick)
 			return
 
 		var/turf/T = get_turf(src)
@@ -102,14 +102,14 @@
 // ----------------------------------------------------------------------------
 // Authentication stat panel
 
+/client
+	var/hullrot_authed = FALSE
+
 /obj/effect/statclick/hullrot_auth
 
 /obj/effect/statclick/hullrot_auth/Click()
 	if (usr.client)
 		usr.client.hullrot_auth_prompt()
-
-/client
-	var/obj/effect/statclick/hullrot_auth/hullrot_unauthed = new(null, "Connect to Hullrot and then click here to authenticate")
 
 /client/proc/hullrot_auth_prompt(message = "Provide authentication code:")
 	var/code = input(src, message, "Hullrot Authentication") as text|null
@@ -135,8 +135,8 @@
 /mob/dead/Stat()
 	..()
 	if (client && SShullrot.initialized && SShullrot.can_fire)
-		if (client.hullrot_unauthed && statpanel("Radio"))
-			stat(null, client.hullrot_unauthed)
+		if (!client.hullrot_authed && statpanel("Radio"))
+			stat(null, SShullrot.auth_statclick)
 			return
 		if (check_rights_for(client, R_ADMIN) && statpanel("Radio"))
 			if (!client.hullrot_hear_all)
