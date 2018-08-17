@@ -161,13 +161,22 @@
 		hullrot_cache["admin"] = admin
 		SShullrot.set_admin(client, admin)
 
+	var/list/patch = hullrot_make_patch()
+	if (patch.len)
+		SShullrot.patch_mob_state(client, patch)
+
+/mob/living/proc/hullrot_make_patch()
+	. = list()
+
 	// Mob-level speaking and hearing
 	var/can_speak = (can_speak_basic(ignore_spam = TRUE) && can_speak_vocal() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0
 	var/can_hear = (can_hear() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0
-	if (hullrot_cache["can_speak"] != can_speak || hullrot_cache["can_hear"] != can_hear)
+	if (hullrot_cache["can_speak"] != can_speak)
 		hullrot_cache["can_speak"] = can_speak
+		.["mute"] = !can_speak
+	if (hullrot_cache["can_hear"] != can_hear)
 		hullrot_cache["can_hear"] = can_hear
-		SShullrot.set_mob_flags(client, can_speak, can_hear)
+		.["deaf"] = !can_hear
 	if (!can_speak && !can_hear)
 		return
 
@@ -179,18 +188,18 @@
 	var/stringified = list2params(language_names)
 	if (hullrot_cache["lang_known"] != stringified)
 		hullrot_cache["lang_known"] = stringified
-		SShullrot.set_languages(client, language_names)
+		.["known_languages"] = language_names
 
 	var/default_name = "[get_default_language()]"
 	if (hullrot_cache["lang_speaking"] != default_name)
 		hullrot_cache["lang_speaking"] = default_name
-		SShullrot.set_spoken_language(client, default_name)
+		.["current_language"] = default_name
 
 	// Position
 	var/turf/T = get_turf(src)
 	if (hullrot_cache["z"] != T.z)
 		hullrot_cache["z"] = T.z
-		SShullrot.set_z(client, T.z)
+		.["z"] = T.z
 
 	// Local hearers
 	var/speak_range = (client.keys_held["V"] || stat == SOFT_CRIT) ? 1 : 7
@@ -218,7 +227,7 @@
 					speaker.hullrot_needs_update = TRUE
 
 			hullrot_cache["local_with"] = new_local
-			SShullrot.set_local_with(client, local_with)
+			.["local_with"] = local_with
 
 	// Certain mobs can speak locally but not over the radio
 	if (!hullrot_radio_allowed())
@@ -233,10 +242,10 @@
 		if (R.subspace_transmission && !R.independent && (!SShullrot.subspace_groups || !SShullrot.subspace_groups["[T.z]"]))
 			continue
 
-		if (can_speak && R.broadcasting && !R.wires.is_cut(WIRE_TX) && get_dist(audio_source, R) <= speak_range)
+		if (can_speak && R.broadcasting && (!R.wires || !R.wires.is_cut(WIRE_TX)) && get_dist(audio_source, R) <= speak_range)
 			hot_freqs |= R.frequency
 
-		if (can_hear && R.listening && !R.wires.is_cut(WIRE_RX) && R.can_receive(R.frequency, list(R.z)))
+		if (can_hear && R.listening && (!R.wires || !R.wires.is_cut(WIRE_RX)) && R.can_receive(R.frequency, list(R.z)))
 			hear_freqs |= R.frequency
 			for (var/channel in R.channels)
 				if (R.channels[channel])
@@ -246,10 +255,10 @@
 	var/new_hear = list2params(hear_freqs)
 	if (hullrot_cache["hot"] != new_hot)
 		hullrot_cache["hot"] = new_hot
-		SShullrot.set_hot_freqs(client, hot_freqs)
+		.["hot_freqs"] = hot_freqs
 	if (hullrot_cache["hear"] != new_hear)
 		hullrot_cache["hear"] = new_hear
-		SShullrot.set_hear_freqs(client, hear_freqs)
+		.["hear_freqs"] = hear_freqs
 
 /mob/living/proc/hullrot_reset()
 	hullrot_stats = list()

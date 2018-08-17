@@ -266,29 +266,11 @@ SUBSYSTEM_DEF(hullrot)
 // ----------------------------------------------------------------------------
 // Controls
 
-/datum/controller/subsystem/hullrot/proc/set_mob_flags(client/C, can_speak, can_hear)
-	control("SetMobFlags", list("who" = C.ckey, "speak" = can_speak, "hear" = can_hear))
-
-/datum/controller/subsystem/hullrot/proc/set_languages(client/C, languages)
-	control("SetLanguages", list("who" = C.ckey, "known" = languages))
-
-/datum/controller/subsystem/hullrot/proc/set_spoken_language(client/C, current)
-	control("SetSpokenLanguage", list("who" = C.ckey, "spoken" = current))
+/datum/controller/subsystem/hullrot/proc/patch_mob_state(client/C, list/patch)
+	control("PatchMobState", list("ckey" = C.ckey, "patch" = patch))
 
 /datum/controller/subsystem/hullrot/proc/set_ptt(client/C, freq)
 	control("SetPTT", list("who" = C.ckey, "freq" = (freq && text2num(freq))))
-
-/datum/controller/subsystem/hullrot/proc/set_local_with(client/C, keylist)
-	control("SetLocalWith", list("who" = C.ckey, "with" = keylist))
-
-/datum/controller/subsystem/hullrot/proc/set_hear_freqs(client/C, freqlist)
-	control("SetHearFreqs", list("who" = C.ckey, "hear" = freqlist))
-
-/datum/controller/subsystem/hullrot/proc/set_hot_freqs(client/C, freqlist)
-	control("SetHotFreqs", list("who" = C.ckey, "hot" = freqlist))
-
-/datum/controller/subsystem/hullrot/proc/set_z(client/C, z)
-	control("SetZ", list("who" = C.ckey, "z" = z))
 
 /datum/controller/subsystem/hullrot/proc/set_ghost(client/C)
 	control("SetGhost", C.ckey)
