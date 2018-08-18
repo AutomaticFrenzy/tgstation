@@ -1,5 +1,9 @@
 // Used to manage the Hullrot process.
 
+/datum/config_entry/string/hullrot_control_addr
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+	config_entry_value = "127.0.0.1:10961"
+
 SUBSYSTEM_DEF(hullrot)
 	name = "Hullrot"
 	priority = 25
@@ -42,7 +46,7 @@ SUBSYSTEM_DEF(hullrot)
 		return abort("[name] [dll_major].[dll_minor] was expected, but incompatible [version["version"]] was supplied.")
 	loaded_version = version["version"]
 
-	var/list/res = json_decode(call(lib(), "hullrot_init")())
+	var/list/res = json_decode(call(lib(), "hullrot_init")(CONFIG_GET(string/hullrot_control_addr)))
 	var/error = res["error"] || res["Fatal"] || res["Debug"]
 	if (error || !res["Version"])
 		return abort("[name] failed to initialize: [error]")
