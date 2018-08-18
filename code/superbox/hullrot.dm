@@ -155,18 +155,18 @@
 	if (!SShullrot.can_fire || !client)
 		return
 
-	// Permissions
-	var/admin = check_rights_for(src, R_ADMIN)
-	if (hullrot_cache["admin"] != admin)
-		hullrot_cache["admin"] = admin
-		SShullrot.set_admin(client, admin)
-
 	var/list/patch = hullrot_make_patch()
 	if (patch.len)
 		SShullrot.patch_mob_state(client, patch)
 
 /mob/living/proc/hullrot_make_patch()
 	. = list()
+
+	// Permissions
+	var/admin = check_rights_for(client, R_ADMIN)
+	if (hullrot_cache["admin"] != admin)
+		hullrot_cache["admin"] = admin
+		.["is_admin"] = admin
 
 	// Mob-level speaking and hearing
 	var/can_speak = (can_speak_basic(ignore_spam = TRUE) && can_speak_vocal() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0
@@ -220,7 +220,7 @@
 		if (hullrot_cache["local_with"] != new_local)
 			// make sure that we propagate changes to others as well
 			var/previous = params2list(hullrot_cache["local_with"])
-			for(var/other_ckey in (previous - local_with) + (local_with - previous))
+			for(var/other_ckey in (previous ^ local_with))
 				var/client/C = GLOB.directory[other_ckey]
 				var/mob/living/speaker = C && C.mob
 				if (istype(speaker))

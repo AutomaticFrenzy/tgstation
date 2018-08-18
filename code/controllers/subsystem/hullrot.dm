@@ -271,7 +271,8 @@ SUBSYSTEM_DEF(hullrot)
 // Controls
 
 /datum/controller/subsystem/hullrot/proc/patch_mob_state(client/C, list/patch)
-	control("PatchMobState", list("ckey" = C.ckey, "patch" = patch))
+	patch["ckey"] = C.ckey
+	control("PatchMobState", patch)
 
 /datum/controller/subsystem/hullrot/proc/set_ptt(client/C, freq)
 	control("SetPTT", list("who" = C.ckey, "freq" = (freq && text2num(freq))))
@@ -280,13 +281,10 @@ SUBSYSTEM_DEF(hullrot)
 	control("SetGhost", C.ckey)
 
 /datum/controller/subsystem/hullrot/proc/set_ghost_ears(client/C, ears)
-	control("SetGhostEars", list("who" = C.ckey, "ears" = ears))
+	patch_mob_state(C, list("ghost_ears" = ears))
 
 /datum/controller/subsystem/hullrot/proc/register(client/C, code)
 	control("Register", list("cert_hash" = code, "ckey" = C.ckey))
 
 /datum/controller/subsystem/hullrot/proc/check_connected(client/C)
 	control("CheckConnected", list("ckey" = C.ckey))
-
-/datum/controller/subsystem/hullrot/proc/set_admin(client/C, is_admin)
-	control("SetAdmin", list("ckey" = C.ckey, "is_admin" = is_admin))
