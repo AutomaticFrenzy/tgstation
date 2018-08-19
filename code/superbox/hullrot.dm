@@ -131,7 +131,7 @@
 	enabled = !enabled
 	name = "[enabled ? "Enabled" : "Disabled"] (click to toggle)"
 	if (M.client && check_rights_for(M.client, R_ADMIN))
-		SShullrot.set_ghost_ears(M.client, enabled)
+		SShullrot.patch_mob_state(M.client, list("ghost_ears" = enabled))
 
 /client
 	var/obj/effect/statclick/dead_radio/hullrot_hear_all
@@ -155,27 +155,27 @@
 	if (!SShullrot.can_fire || !client)
 		return
 
-	var/list/patch = hullrot_make_patch()
+	var/list/patch = hullrot_make_patch(hullrot_cache)
 	if (patch.len)
 		SShullrot.patch_mob_state(client, patch)
 
-/mob/living/proc/hullrot_make_patch()
+/mob/living/proc/hullrot_make_patch(list/cache)
 	. = list()
 
 	// Permissions
 	var/admin = check_rights_for(client, R_ADMIN)
-	if (hullrot_cache["admin"] != admin)
-		hullrot_cache["admin"] = admin
+	if (cache["admin"] != admin)
+		cache["admin"] = admin
 		.["is_admin"] = admin
 
 	// Mob-level speaking and hearing
 	var/can_speak = (can_speak_basic(ignore_spam = TRUE) && can_speak_vocal() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0
 	var/can_hear = (can_hear() && (stat == CONSCIOUS || stat == SOFT_CRIT)) || 0
-	if (hullrot_cache["can_speak"] != can_speak)
-		hullrot_cache["can_speak"] = can_speak
+	if (cache["can_speak"] != can_speak)
+		cache["can_speak"] = can_speak
 		.["mute"] = !can_speak
-	if (hullrot_cache["can_hear"] != can_hear)
-		hullrot_cache["can_hear"] = can_hear
+	if (cache["can_hear"] != can_hear)
+		cache["can_hear"] = can_hear
 		.["deaf"] = !can_hear
 	if (!can_speak && !can_hear)
 		return
@@ -186,19 +186,19 @@
 	for (var/L in langs.languages)
 		language_names += "[L]"
 	var/stringified = list2params(language_names)
-	if (hullrot_cache["lang_known"] != stringified)
-		hullrot_cache["lang_known"] = stringified
+	if (cache["lang_known"] != stringified)
+		cache["lang_known"] = stringified
 		.["known_languages"] = language_names
 
 	var/default_name = "[get_default_language()]"
-	if (hullrot_cache["lang_speaking"] != default_name)
-		hullrot_cache["lang_speaking"] = default_name
+	if (cache["lang_speaking"] != default_name)
+		cache["lang_speaking"] = default_name
 		.["current_language"] = default_name
 
 	// Position
 	var/turf/T = get_turf(src)
-	if (hullrot_cache["z"] != T.z)
-		hullrot_cache["z"] = T.z
+	if (cache["z"] != T.z)
+		cache["z"] = T.z
 		.["z"] = T.z
 
 	// Local hearers
@@ -217,16 +217,16 @@
 						local_with += L.ckey
 
 		var/new_local = list2params(local_with)
-		if (hullrot_cache["local_with"] != new_local)
+		if (cache["local_with"] != new_local)
 			// make sure that we propagate changes to others as well
-			var/previous = params2list(hullrot_cache["local_with"])
+			var/previous = params2list(cache["local_with"])
 			for(var/other_ckey in (previous ^ local_with))
 				var/client/C = GLOB.directory[other_ckey]
 				var/mob/living/speaker = C && C.mob
 				if (istype(speaker))
 					speaker.hullrot_needs_update = TRUE
 
-			hullrot_cache["local_with"] = new_local
+			cache["local_with"] = new_local
 			.["local_with"] = local_with
 
 	// Certain mobs can speak locally but not over the radio
@@ -253,11 +253,11 @@
 
 	var/new_hot = list2params(hot_freqs)
 	var/new_hear = list2params(hear_freqs)
-	if (hullrot_cache["hot"] != new_hot)
-		hullrot_cache["hot"] = new_hot
+	if (cache["hot"] != new_hot)
+		cache["hot"] = new_hot
 		.["hot_freqs"] = hot_freqs
-	if (hullrot_cache["hear"] != new_hear)
-		hullrot_cache["hear"] = new_hear
+	if (cache["hear"] != new_hear)
+		cache["hear"] = new_hear
 		.["hear_freqs"] = hear_freqs
 
 /mob/living/proc/hullrot_reset()

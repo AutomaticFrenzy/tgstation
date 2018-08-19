@@ -280,9 +280,6 @@ SUBSYSTEM_DEF(hullrot)
 /datum/controller/subsystem/hullrot/proc/set_ghost(client/C)
 	control("SetGhost", C.ckey)
 
-/datum/controller/subsystem/hullrot/proc/set_ghost_ears(client/C, ears)
-	patch_mob_state(C, list("ghost_ears" = ears))
-
 /datum/controller/subsystem/hullrot/proc/register(client/C, code)
 	control("Register", list("cert_hash" = code, "ckey" = C.ckey))
 
