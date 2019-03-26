@@ -6305,24 +6305,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
-"anx" = (
-/obj/machinery/button/door{
-	desc = "A remote control switch for the medbay foyer.";
-	id = "MedbayFoyer";
-	name = "Medbay Doors Control";
-	normaldoorcontrol = 1;
-	pixel_x = 26;
-	pixel_y = -26
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/sleeper)
 "any" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 4
@@ -6776,6 +6758,9 @@
 	req_access_txt = "5"
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "aot" = (
@@ -7402,6 +7387,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 4
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "apL" = (
@@ -7431,6 +7419,9 @@
 	id_tag = "GeneticsDoor";
 	name = "Genetics";
 	req_access_txt = "5; 68"
+	},
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 4
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/genetics)
@@ -69626,7 +69617,7 @@ ajT
 alu
 amh
 amR
-anx
+anw
 aot
 wxO
 apI
