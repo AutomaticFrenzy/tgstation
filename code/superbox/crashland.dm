@@ -61,7 +61,6 @@
 	else
 		to_chat(user, "[src] is cold to the touch, and its controls are unresponsive.")
 
-/datum/controller/subsystem/job/SendToAtom(mob/M, atom/A, buckle)
-	var/obj/machinery/sleeper/crashland/CL = A
-	if (!istype(CL) || !CL.WakeMeUpInside(M))
+/obj/machinery/sleeper/crashland/JoinPlayerHere(mob/M, buckle)
+	if (!WakeMeUpInside(M))
 		..()

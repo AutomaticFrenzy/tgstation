@@ -197,9 +197,8 @@
 	else
 		icon_state = "control_boxp3"
 
-/datum/controller/subsystem/job/SendToAtom(mob/M, atom/A, buckle)
-	var/obj/machinery/latejoin_cryo_computer/C = A
-	if (!istype(C) || !C.emplace(M))
+/obj/machinery/latejoin_cryo_computer/JoinPlayerHere(mob/M, buckle)
+	if (!emplace(M))
 		..()
 
 // ----------------------------------------------------------------------------
