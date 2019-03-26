@@ -1553,7 +1553,7 @@
 "acP" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Security Maintenance";
-	req_access_txt = "63"
+	req_access_txt = "1"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1749,7 +1749,8 @@
 	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
-	name = "Delivery Door"
+	name = "delivery door";
+	req_one_access_txt = "290;1"
 	},
 /turf/open/floor/plasteel,
 /area/security/main)
@@ -5477,7 +5478,8 @@
 	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
-	name = "Delivery Door"
+	name = "delivery door";
+	req_one_access_txt = "290;25"
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
@@ -7277,6 +7279,10 @@
 	location = "Hydroponics"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/door/window/northright{
+	name = "delivery door";
+	req_one_access_txt = "290;35"
+	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "apw" = (
@@ -7778,7 +7784,8 @@
 	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
-	name = "Delivery Door"
+	name = "delivery door";
+	req_one_access_txt = "290;5"
 	},
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
@@ -13791,7 +13798,8 @@
 	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
-	name = "Delivery Door"
+	name = "delivery door";
+	req_one_access_txt = "290;47"
 	},
 /turf/open/floor/plasteel,
 /area/science/lab)
@@ -16194,7 +16202,8 @@
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/window/northleft{
 	dir = 4;
-	name = "Delivery Door"
+	name = "delivery door";
+	req_one_access_txt = "290;50"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -21455,7 +21464,8 @@
 	},
 /obj/machinery/door/window/northleft{
 	dir = 1;
-	name = "Delivery Door"
+	name = "delivery door";
+	req_one_access_txt = "290;10"
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
