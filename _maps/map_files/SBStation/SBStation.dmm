@@ -12763,17 +12763,16 @@
 /area/crew_quarters/heads/hop)
 "aBe" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/southright{
-	dir = 4;
-	name = "Research and Development Desk";
-	req_access_txt = "7"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "rnd";
 	name = "research lab shutters"
 	},
 /obj/item/pen,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/eastleft{
+	name = "Research and Development Desk";
+	req_access_txt = "7"
+	},
 /turf/open/floor/plating,
 /area/science/lab)
 "aBf" = (
@@ -13803,12 +13802,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/lab)
-"aDs" = (
-/obj/effect/turf_decal/loading_area/white{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/science/lab)
 "aDt" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -13825,9 +13818,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/computer/rdconsole/core{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 1
 	},
@@ -13842,11 +13832,10 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/scientist,
+/obj/structure/chair/stool,
 /turf/open/floor/plasteel,
 /area/science/lab)
 "aDw" = (
-/obj/machinery/rnd/production/circuit_imprinter,
-/obj/item/reagent_containers/glass/beaker/sulphuric,
 /obj/effect/turf_decal/stripes/line{
 	icon_state = "warningline";
 	dir = 1
@@ -13856,6 +13845,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
+	},
+/obj/machinery/computer/rdconsole/core{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/science/lab)
@@ -14558,32 +14550,26 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aEy" = (
+/obj/effect/turf_decal/loading_area/white{
+	dir = 4
+	},
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -25
 	},
-/obj/machinery/disposal/bin,
-/obj/effect/turf_decal/delivery,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
 /turf/open/floor/plasteel,
 /area/science/lab)
 "aEz" = (
-/obj/structure/table,
-/obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/plus,
-/obj/item/stock_parts/cell/high/plus,
-/obj/item/disk/tech_disk,
-/obj/item/disk/design_disk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
+	},
+/obj/effect/turf_decal/delivery,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
 /turf/open/floor/plasteel/white,
 /area/science/lab)
@@ -14591,11 +14577,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/rnd/destructive_analyzer,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/rnd/production/techfab/department/science,
 /turf/open/floor/plasteel,
 /area/science/lab)
 "aEB" = (
@@ -14612,6 +14598,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high/plus,
+/obj/item/disk/tech_disk,
+/obj/item/disk/design_disk,
 /turf/open/floor/plasteel,
 /area/science/lab)
 "aEC" = (
@@ -14621,7 +14613,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/rnd/production/techfab/department/science,
+/obj/machinery/rnd/destructive_analyzer,
 /turf/open/floor/plasteel,
 /area/science/lab)
 "aED" = (
@@ -30080,6 +30072,22 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
+"xLE" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/southright{
+	dir = 4;
+	name = "Research and Development Desk";
+	req_access_txt = "7"
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd";
+	name = "research lab shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/clipboard,
+/obj/item/folder/blue,
+/turf/open/floor/plating,
+/area/science/lab)
 "xNp" = (
 /turf/open/floor/plasteel/white/side,
 /area/crew_quarters/dorms)
@@ -69637,8 +69645,8 @@ ayt
 azO
 azO
 azO
-aDq
 azO
+aDq
 azO
 aGy
 aHF
@@ -69893,9 +69901,9 @@ axi
 ayu
 azP
 aBe
+xLE
 azP
 aDr
-azP
 ayu
 aGz
 aHG
@@ -70149,9 +70157,9 @@ awy
 axj
 ayv
 azQ
+aCr
 aBf
 aCr
-aDs
 aEy
 ayv
 aGA
