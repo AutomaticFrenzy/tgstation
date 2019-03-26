@@ -29239,6 +29239,10 @@
 /obj/structure/cable/white{
 	icon_state = "2-8"
 	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = -23
+	},
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "scm" = (
