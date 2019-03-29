@@ -9396,12 +9396,18 @@
 	pixel_y = -26
 	},
 /obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = -3
-	},
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
+	},
+/obj/item/reagent_containers/food/snacks/grown/wheat{
+	step_x = 5;
+	step_y = 3
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	step_x = -6;
+	step_y = 2;
+	pixel_x = -3
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
