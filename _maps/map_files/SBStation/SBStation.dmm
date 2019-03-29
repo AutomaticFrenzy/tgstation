@@ -9401,13 +9401,12 @@
 	dir = 8
 	},
 /obj/item/reagent_containers/food/snacks/grown/wheat{
-	step_x = 5;
-	step_y = 3
+	pixel_x = 14;
+	pixel_y = 3
 	},
 /obj/item/reagent_containers/glass/beaker/large{
-	step_x = -6;
-	step_y = 2;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 2
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
@@ -15279,7 +15278,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aGe" = (
 /obj/structure/table,
 /obj/structure/noticeboard{
@@ -15297,7 +15296,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aGf" = (
 /obj/machinery/autolathe{
 	icon_state = "autolathe";
@@ -15318,7 +15317,7 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aGg" = (
 /obj/machinery/computer/cargo/request,
 /obj/machinery/status_display/supply{
@@ -15333,7 +15332,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aGh" = (
 /obj/machinery/photocopier,
 /obj/effect/turf_decal/tile/brown{
@@ -15343,7 +15342,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aGi" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -15698,15 +15697,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
-"aHa" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
 "aHb" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -15757,15 +15747,7 @@
 "aHj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
-"aHk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
-"aHl" = (
-/obj/machinery/door/firedoor,
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aHm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -16217,11 +16199,11 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aIk" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden,
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aIl" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -16234,7 +16216,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aIn" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -16736,13 +16718,7 @@
 "aJq" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
-"aJr" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aJs" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters{
@@ -17235,7 +17211,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aKx" = (
 /obj/machinery/light{
 	light_color = "#c9d3e8"
@@ -17254,7 +17230,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aKy" = (
 /obj/structure/chair{
 	dir = 1
@@ -17269,7 +17245,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aKz" = (
 /obj/structure/chair{
 	dir = 1
@@ -17279,7 +17255,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aKA" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable/white,
@@ -17599,10 +17575,6 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
-"aLn" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/quartermaster/storage)
 "aLo" = (
 /obj/machinery/light{
 	light_color = "#cee5d2"
@@ -17639,11 +17611,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
-"aLs" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/closet/firecloset,
-/turf/open/floor/plasteel,
-/area/quartermaster/storage)
 "aLt" = (
 /obj/effect/turf_decal/bot{
 	dir = 1
@@ -17654,7 +17621,7 @@
 	pixel_y = -25
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "aLu" = (
 /turf/closed/wall,
 /area/security/detectives_office)
@@ -27513,6 +27480,13 @@
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/carpet,
 /area/crew_quarters/dorms)
+"hFR" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "hHX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -27856,6 +27830,19 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
+"jzr" = (
+/obj/machinery/light{
+	dir = 4;
+	light_color = "#e8eaff"
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/fore)
+"jDA" = (
+/obj/machinery/light{
+	light_color = "#d1dfff"
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "jFc" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 1
@@ -27962,6 +27949,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"jYu" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel,
+/area/hallway/primary/fore)
 "kdN" = (
 /obj/machinery/status_display/evac{
 	layer = 3.3
@@ -28766,7 +28760,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "ptb" = (
 /obj/structure/chair{
 	dir = 1
@@ -29287,6 +29281,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light{
+	light_color = "#c9d3e8"
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "sxt" = (
@@ -29746,7 +29743,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/quartermaster/storage)
+/area/hallway/primary/central)
 "vxD" = (
 /obj/structure/cable/white{
 	icon_state = "1-4"
@@ -60397,11 +60394,11 @@ aCV
 aEe
 axX
 aGd
-aHa
+aGi
 aIj
 vst
 aKw
-aLs
+awb
 aLu
 aMY
 aNL
@@ -60654,8 +60651,8 @@ aCW
 aEf
 aFm
 aGe
-aGb
-aIg
+arM
+hFR
 aJq
 psv
 aLt
@@ -60913,7 +60910,7 @@ axX
 aGf
 aHj
 aIk
-aFh
+avk
 aKx
 aLu
 aLu
@@ -61168,9 +61165,9 @@ aCY
 aEh
 aFn
 aGg
-aHk
+arE
 aIk
-aJr
+avl
 aKy
 aLu
 aMc
@@ -61425,9 +61422,9 @@ aCZ
 aEi
 axX
 aGh
-aFX
-aIl
-aFX
+arD
+awR
+arD
 aKz
 aLu
 aMd
@@ -61681,11 +61678,11 @@ aBV
 axX
 axX
 axX
-aLn
-aHl
+are
+atG
 aIm
-aHl
-aLn
+atG
+are
 aLu
 aMe
 aNd
@@ -61947,7 +61944,7 @@ atG
 aMf
 aMf
 aMf
-arD
+jDA
 aPs
 aQh
 fpI
@@ -66796,7 +66793,7 @@ aga
 aga
 aga
 aga
-aga
+jzr
 alZ
 aga
 aga
@@ -67046,7 +67043,7 @@ aeW
 afu
 afX
 rBW
-agM
+jYu
 aht
 aht
 aiy
