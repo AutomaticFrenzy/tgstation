@@ -3183,7 +3183,7 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "gM" = (
-/obj/structure/chair/office/dark,
+/obj/structure/chair/office,
 /obj/effect/landmark/start/security_officer,
 /turf/open/floor/plasteel,
 /area/security/brig)

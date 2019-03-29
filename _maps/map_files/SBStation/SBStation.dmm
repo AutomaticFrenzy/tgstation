@@ -1396,7 +1396,7 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "acA" = (
-/obj/structure/chair/office/dark,
+/obj/structure/chair/office,
 /obj/machinery/light_switch{
 	pixel_x = 38
 	},
@@ -13721,7 +13721,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hop)
 "aDm" = (
-/obj/structure/chair/office/dark{
+/obj/structure/chair/office{
 	dir = 4
 	},
 /obj/effect/landmark/start/head_of_personnel,
@@ -18956,7 +18956,7 @@
 /turf/open/floor/plasteel,
 /area/quartermaster/miningdock)
 "aOE" = (
-/obj/structure/chair/office/dark{
+/obj/structure/chair/office{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -25220,7 +25220,7 @@
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/server)
 "bbQ" = (
-/obj/structure/chair/office/dark{
+/obj/structure/chair/office{
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
