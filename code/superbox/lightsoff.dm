@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(lightsoff)
 		var/area/area = GLOB.areas_by_type[area_path]
 		if (area)
 			area.lightswitch = !area.lightswitch
-			area.updateicon()
+			area.update_icon()
 			for(var/obj/machinery/light_switch/L in area)
 				L.update_icon()
 			area.power_change()
