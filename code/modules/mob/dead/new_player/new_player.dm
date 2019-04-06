@@ -116,6 +116,12 @@
 			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
 			return
 
+		for(var/datum/data/record/R in GLOB.data_core.general)
+			if (R.fields["name"] == client.prefs.real_name)
+				alert(usr, "You must select a different character when respawning.", "Character Select")
+				client.prefs.ShowChoices(src)
+				return
+
 		if(href_list["late_join"] == "override")
 			LateChoices()
 			return
