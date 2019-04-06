@@ -5,15 +5,8 @@ SUBSYSTEM_DEF(lightsoff)
 	init_order = -50
 	wait = 10
 	runlevels = RUNLEVEL_GAME
-	var/datacore_len = -1
 
 /datum/controller/subsystem/lightsoff/fire(resumed)
-	if (GLOB.data_core.general.len != datacore_len)
-		datacore_len = GLOB.data_core.general.len
-		message_admins("Lightsoff debug: crew manifest contains [datacore_len] entries")
-		return
-	message_admins("Lightsoff debug: matched previous, turning off lights")
-
 	// Fires once after roundstart, due to the default runlevel.
 	can_fire = FALSE
 
