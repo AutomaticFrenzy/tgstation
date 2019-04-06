@@ -56,6 +56,7 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 			/area/security/main,
 			/area/security/brig,
 			"brigfront",
+			"hoslock",
 		),
 		// cargo
 		list(/datum/job/qm, /datum/job/cargo_tech, /datum/job/mining) = list(
@@ -110,6 +111,7 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 		list(/datum/job/hop) = list(
 			/area/crew_quarters/heads/hop,
 			"hopline",
+			"hopblast",
 		),
 		list(/datum/job/captain) = list(
 			/area/crew_quarters/heads/captain,
