@@ -17635,6 +17635,7 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "Qa" = (
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/black,
 /area/start)
 "Qe" = (
