@@ -544,6 +544,7 @@ SUBSYSTEM_DEF(ticker)
 		return
 
 	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)]. [reason]</span>")
+	message_admins("<a href='?_src_=holder;[HrefToken()];delay_round_end=1'>Delay round end</a>")
 
 	var/start_wait = world.time
 	UNTIL(round_end_sound_sent || (world.time - start_wait) > (delay * 2))	//don't wait forever
