@@ -3300,7 +3300,6 @@
 "ahb" = (
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -3713,7 +3712,6 @@
 	},
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
@@ -3730,7 +3728,6 @@
 /obj/structure/filingcabinet/employment,
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /turf/open/floor/wood,
@@ -4344,7 +4341,6 @@
 	},
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
@@ -4616,7 +4612,6 @@
 	},
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/machinery/disposal/bin,
@@ -4841,7 +4836,6 @@
 "aki" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/effect/turf_decal/tile/bar,
@@ -5953,7 +5947,6 @@
 /obj/structure/closet/wardrobe/chemistry_white,
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/item/circuitboard/machine/smoke_machine,
@@ -8114,7 +8107,6 @@
 "aro" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/machinery/disposal/bin,
@@ -8244,7 +8236,6 @@
 "arF" = (
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/effect/turf_decal/plaque{
@@ -8500,7 +8491,6 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/machinery/light{
@@ -8823,7 +8813,6 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /turf/open/floor/plasteel/dark,
@@ -10155,7 +10144,6 @@
 "avK" = (
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/effect/turf_decal/tile/purple{
@@ -10878,7 +10866,6 @@
 /area/bridge)
 "axc" = (
 /obj/machinery/door/airlock/highsecurity{
-	locked = 0;
 	name = "AI Upload";
 	req_access_txt = "16"
 	},
@@ -11910,7 +11897,6 @@
 /obj/structure/filingcabinet,
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /turf/open/floor/wood,
@@ -12112,7 +12098,6 @@
 	},
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/item/storage/box/silver_ids{
@@ -12255,7 +12240,6 @@
 /obj/item/reagent_containers/dropper,
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/machinery/camera{
@@ -14109,7 +14093,6 @@
 /obj/item/clothing/head/soft,
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/effect/turf_decal/tile/brown{
@@ -14777,7 +14760,6 @@
 /obj/structure/closet/crate,
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -15412,7 +15394,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/item/stack/sheet/metal{
@@ -15839,7 +15820,6 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/effect/turf_decal/delivery,
@@ -17449,7 +17429,6 @@
 "aKS" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /turf/open/floor/plasteel/white,
@@ -17808,7 +17787,6 @@
 	},
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /turf/open/floor/plasteel/white,
@@ -20757,7 +20735,6 @@
 	},
 /obj/machinery/airalarm{
 	frequency = 1439;
-	locked = 0;
 	pixel_y = 23
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -22857,7 +22834,6 @@
 "aWw" = (
 /obj/machinery/airalarm{
 	dir = 4;
-	locked = 0;
 	pixel_x = -23
 	},
 /obj/structure/disposalpipe/segment,
@@ -28341,7 +28317,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	locked = 0;
 	name = "Starboard Bow Solar Access";
 	req_access_txt = "10"
 	},
