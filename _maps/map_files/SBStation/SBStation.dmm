@@ -5358,13 +5358,10 @@
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "alv" = (
-/obj/machinery/sleeper{
-	dir = 1;
-	icon_state = "sleeper"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/machinery/stasis,
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "alw" = (
@@ -5379,13 +5376,10 @@
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "alx" = (
-/obj/machinery/sleeper{
-	dir = 1;
-	icon_state = "sleeper"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/machinery/stasis,
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "aly" = (
@@ -5691,10 +5685,10 @@
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "amj" = (
-/obj/machinery/sleeper,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/machinery/stasis,
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "amk" = (
@@ -5706,10 +5700,10 @@
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "aml" = (
-/obj/machinery/sleeper,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/machinery/stasis,
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "amm" = (
