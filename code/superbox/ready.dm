@@ -10,15 +10,7 @@
 			var/job = "no job"
 
 			for (var/datum/job/J in SSjob.occupations)
-				var/df
-				switch (J.department_flag)
-					if (ENGSEC)
-						df = player.client.prefs.job_engsec_high
-					if (MEDSCI)
-						df = player.client.prefs.job_medsci_high
-					if (CIVILIAN)
-						df = player.client.prefs.job_civilian_high
-				if (df & J.flag)
+				if (player.client.prefs.job_preferences[J.title] == JP_HIGH)
 					job = J.title
 					break
 
