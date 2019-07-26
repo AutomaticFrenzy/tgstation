@@ -980,7 +980,7 @@
 /datum/supply_pack/materials/bz
 	name = "BZ Canister Crate"
 	desc = "Contains a canister of BZ. Requires Toxins access to open."
-	cost = 4000
+	cost = 8000
 	access = ACCESS_TOX_STORAGE
 	contains = list(/obj/machinery/portable_atmospherics/canister/bz)
 	crate_name = "BZ canister crate"
@@ -1155,7 +1155,7 @@
 					/obj/item/reagent_containers/pill/insulin,
 					/obj/item/stack/medical/gauze,
 					/obj/item/storage/box/beakers,
-					/obj/item/storage/box/medsprays,
+					/obj/item/storage/box/medigels,
 					/obj/item/storage/box/syringes,
 					/obj/item/storage/box/bodybags,
 					/obj/item/storage/firstaid/regular,
@@ -1187,7 +1187,7 @@
 	desc = "Do you want to perform surgery, but don't have one of those fancy shmancy degrees? Just get started with this crate containing a medical duffelbag, Sterilizine spray and collapsible roller bed."
 	cost = 3000
 	contains = list(/obj/item/storage/backpack/duffelbag/med/surgery,
-					/obj/item/reagent_containers/medspray/sterilizine,
+					/obj/item/reagent_containers/medigel/sterilizine,
 					/obj/item/roller)
 	crate_name = "surgical supplies crate"
 
@@ -1299,10 +1299,10 @@
 	desc = "These high powered Shield Wall Generators are guaranteed to keep any unwanted lifeforms on the outside, where they belong! Contains four shield wall generators. Requires Teleporter access to open."
 	cost = 2000
 	access = ACCESS_TELEPORTER
-	contains = list(/obj/machinery/shieldwallgen,
-					/obj/machinery/shieldwallgen,
-					/obj/machinery/shieldwallgen,
-					/obj/machinery/shieldwallgen)
+	contains = list(/obj/machinery/power/shieldwallgen,
+					/obj/machinery/power/shieldwallgen,
+					/obj/machinery/power/shieldwallgen,
+					/obj/machinery/power/shieldwallgen)
 	crate_name = "shield generators crate"
 	crate_type = /obj/structure/closet/crate/secure/science
 
@@ -1437,15 +1437,6 @@
 					/obj/item/storage/box/lights/mixed)
 	crate_name = "replacement lights"
 
-/datum/supply_pack/service/minerkit
-	name = "Shaft Miner Starter Kit"
-	desc = "All the miners died too fast? Assistant wants to get a taste of life off-station? Either way, this kit is the best way to turn a regular crewman into an ore-producing, monster-slaying machine. Contains meson goggles, a pickaxe, advanced mining scanner, cargo headset, ore bag, gasmask, an explorer suit and a miner ID upgrade. Requires QM access to open."
-	cost = 2500
-	access = ACCESS_QM
-	contains = list(/obj/item/storage/backpack/duffelbag/mining_conscript)
-	crate_name = "shaft miner starter kit"
-	crate_type = /obj/structure/closet/crate/secure
-
 /datum/supply_pack/service/vending/bartending
 	name = "Booze-o-mat and Coffee Supply Crate"
 	desc = "Bring on the booze and coffee vending machine refills."
@@ -1514,6 +1505,13 @@
 	cost = 1000
 	contains = list(/obj/item/vending_refill/assist)
 	crate_name = "vendomat supply crate"
+
+/datum/supply_pack/service/emptycrate
+	name = "Empty Crate"
+	desc = "It's an empty crate, for all your storage needs."
+	cost = 700
+	contains = list()
+	crate_name = "crate"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Organic /////////////////////////////////////////
@@ -2051,6 +2049,16 @@
 	contraband = TRUE
 	contains = list(/obj/item/storage/box/lasertagpins)
 	crate_name = "laser tag crate"
+
+/datum/supply_pack/costumes_toys/mech_suits
+	name = "Mech Pilot's Suit Crate"
+	desc = "Suits for piloting big robots. Contains all three colors!"
+	cost = 1500 //state-of-the-art technology doesn't come cheap
+	contains = list(/obj/item/clothing/under/mech_suit,
+					/obj/item/clothing/under/mech_suit/white,
+					/obj/item/clothing/under/mech_suit/blue)
+	crate_name = "mech pilot's suit crate"
+	crate_type = /obj/structure/closet/crate/wooden
 
 /datum/supply_pack/costumes_toys/costume_original
 	name = "Original Costume Crate"
