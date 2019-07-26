@@ -15436,7 +15436,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
 "aGu" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/power/shieldwallgen,
 /obj/effect/turf_decal/bot,
 /obj/structure/window/reinforced{
 	dir = 4;
@@ -15868,7 +15868,7 @@
 /turf/closed/wall/r_wall,
 /area/teleporter)
 "aHA" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/power/shieldwallgen,
 /obj/effect/turf_decal/bot,
 /obj/structure/window/reinforced{
 	dir = 4;
