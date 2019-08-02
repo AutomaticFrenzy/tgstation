@@ -23,17 +23,25 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	var/linked_dirs = 0 //bitflag
 	var/node = FALSE //used for sprites display
 	var/datum/powernet/powernet
+	var/killed = FALSE
 
 /obj/structure/cable/Initialize(mapload, param_color)
 	. = ..()
+	if (killed)
+		return INITIALIZE_HINT_QDEL
 
 	var/turf/T = get_turf(src)			// hide if turf is not intact
+
+	for(var/obj/structure/cable/C in T.contents)
+		if (C != src)
+			C.killed = TRUE
+
 	if(level==1)
 		hide(T.intact)
 	GLOB.cable_list += src //add it to the global cable list
-	connect_wire()
+	connect_wire(mapload = mapload)
 
-/obj/structure/cable/proc/connect_wire(clear_before_updating = FALSE)
+/obj/structure/cable/proc/connect_wire(clear_before_updating = FALSE, mapload = FALSE)
 	var/under_thing = NONE
 	if(clear_before_updating)
 		linked_dirs = 0
@@ -68,6 +76,8 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 						continue
 		var/inverse = turn(check_dir, 180)
 		for(var/obj/structure/cable/C in TB)
+			if (mapload && (C.category != category || killed || C.killed))  // dirty superbox hack
+				continue
 			linked_dirs |= check_dir
 			C.linked_dirs |= inverse
 			C.update_icon()
@@ -75,6 +85,9 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	update_icon()
 
 /obj/structure/cable/Destroy()					// called when a cable is deleted
+	if (killed)
+		return ..()
+
 	//Clear the linked indicator bitflags
 	for(var/check_dir in GLOB.cardinals)
 		var/inverse = turn(check_dir, 180)
