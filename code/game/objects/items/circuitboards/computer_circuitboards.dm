@@ -392,12 +392,12 @@
 /obj/item/circuitboard/computer/gulag_teleporter_console
 	name = "Labor Camp teleporter console (Computer Board)"
 	icon_state = "security"
-	build_path = /obj/machinery/computer/gulag_teleporter_computer
+	build_path = /obj/machinery/computer/prisoner/gulag_teleporter_computer
 
 /obj/item/circuitboard/computer/prisoner
 	name = "Prisoner Management Console (Computer Board)"
 	icon_state = "security"
-	build_path = /obj/machinery/computer/prisoner
+	build_path = /obj/machinery/computer/prisoner/management
 
 /obj/item/circuitboard/computer/secure_data
 	name = "Security Records Console (Computer Board)"
@@ -435,6 +435,7 @@
 	var/contraband = FALSE
 
 /obj/item/circuitboard/computer/cargo/multitool_act(mob/living/user)
+	. = ..()
 	if(!(obj_flags & EMAGGED))
 		contraband = !contraband
 		to_chat(user, "<span class='notice'>Receiver spectrum set to [contraband ? "Broad" : "Standard"].</span>")
@@ -452,6 +453,7 @@
 	build_path = /obj/machinery/computer/cargo/express
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
+	. = ..()
 	if (!(obj_flags & EMAGGED))
 		to_chat(user, "<span class='notice'>Routing protocols are already set to: \"factory defaults\".</span>")
 	else

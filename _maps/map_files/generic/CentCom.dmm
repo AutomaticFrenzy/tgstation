@@ -1699,6 +1699,20 @@
 	icon_state = "dark"
 	},
 /area/holodeck/rec_center/chapelcourt)
+"eC" = (
+/obj/structure/table,
+/obj/item/paper,
+/obj/item/pen,
+/obj/item/clothing/under/costume/schoolgirl,
+/turf/open/floor/holofloor,
+/area/holodeck/rec_center/school)
+"eD" = (
+/obj/structure/table,
+/obj/item/paper,
+/obj/item/pen,
+/obj/item/clothing/under/costume/schoolgirl/green,
+/turf/open/floor/holofloor,
+/area/holodeck/rec_center/school)
 "eE" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1806,6 +1820,20 @@
 	icon_state = "chapel"
 	},
 /area/holodeck/rec_center/chapelcourt)
+"eT" = (
+/obj/structure/table,
+/obj/item/paper,
+/obj/item/pen,
+/obj/item/clothing/under/costume/schoolgirl/orange,
+/turf/open/floor/holofloor,
+/area/holodeck/rec_center/school)
+"eU" = (
+/obj/structure/table,
+/obj/item/paper,
+/obj/item/pen,
+/obj/item/clothing/under/costume/schoolgirl/red,
+/turf/open/floor/holofloor,
+/area/holodeck/rec_center/school)
 "eV" = (
 /obj/structure/window/reinforced,
 /turf/open/floor/holofloor/plating,
@@ -1894,6 +1922,14 @@
 	},
 /turf/open/floor/holofloor/plating,
 /area/holodeck/rec_center/kobayashi)
+"ff" = (
+/obj/structure/table,
+/obj/item/paper,
+/obj/item/pen,
+/obj/item/clothing/under/costume/schoolgirl,
+/obj/item/toy/katana,
+/turf/open/floor/holofloor,
+/area/holodeck/rec_center/school)
 "fg" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -3195,23 +3231,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"ix" = (
-/obj/item/storage/box/emps{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/flashbangs,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/structure/table/reinforced,
-/obj/item/clothing/ears/earmuffs,
-/obj/structure/reagent_dispensers/peppertank{
-	pixel_y = 32
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel,
-/area/centcom/control)
 "iy" = (
 /obj/structure/table/reinforced,
 /obj/item/restraints/handcuffs/cable/zipties,
@@ -3810,11 +3829,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
-"jS" = (
-/obj/machinery/computer/prisoner,
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "jT" = (
@@ -5850,15 +5864,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"nY" = (
-/obj/machinery/computer/prisoner{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
 "nZ" = (
 /obj/machinery/computer/security{
 	dir = 1
@@ -6927,6 +6932,30 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
+	},
+/turf/open/floor/plasteel/grimy,
+/area/centcom/ferry)
+"pN" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/clothing/under/rank/civilian/curator/treasure_hunter,
+/obj/item/clothing/under/dress/skirt,
+/obj/item/clothing/under/shorts/black,
+/obj/item/clothing/under/pants/track,
+/obj/item/clothing/accessory/armband/deputy,
+/obj/item/clothing/accessory/waistcoat,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/neck/stripedredscarf,
+/obj/item/clothing/neck/tie/red,
+/obj/item/clothing/head/helmet/space/beret,
+/obj/item/clothing/suit/curator,
+/obj/item/clothing/suit/space/officer,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/glasses/eyepatch,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
 	},
 /turf/open/floor/plasteel/grimy,
 /area/centcom/ferry)
@@ -8907,25 +8936,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/ferry)
-"tI" = (
-/obj/item/storage/box/emps{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/flashbangs,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/item/grenade/plastic/x4,
-/obj/structure/table/reinforced,
-/obj/item/clothing/ears/earmuffs,
-/obj/structure/reagent_dispensers/peppertank{
-	pixel_x = 32
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/centcom/ferry)
 "tJ" = (
 /obj/item/twohanded/required/kirbyplants{
 	icon_state = "plant-22"
@@ -9072,13 +9082,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/syndicate_mothership/control)
-"uf" = (
-/obj/structure/table,
-/obj/item/paper,
-/obj/item/pen,
-/obj/item/clothing/under/costume/schoolgirl,
-/turf/open/floor/holofloor,
-/area/holodeck/rec_center/school)
 "ui" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -10830,23 +10833,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
-"yv" = (
-/obj/machinery/computer/prisoner{
-	dir = 1
-	},
-/obj/machinery/light,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/centcom/control)
 "yw" = (
 /obj/machinery/computer/secure_data{
 	dir = 1
@@ -11134,20 +11120,6 @@
 /obj/item/flashlight/seclite,
 /obj/structure/noticeboard{
 	pixel_y = 28
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel,
-/area/centcom/ferry)
-"zh" = (
-/obj/structure/table/reinforced,
-/obj/item/grenade/plastic/c4{
-	pixel_x = 6
-	},
-/obj/item/grenade/plastic/c4{
-	pixel_x = -4
-	},
-/obj/machinery/firealarm{
-	pixel_y = 24
 	},
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
@@ -11455,14 +11427,6 @@
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/three)
-"Aa" = (
-/obj/item/clothing/under/costume/jabroni,
-/obj/item/clothing/under/costume/geisha,
-/obj/item/clothing/under/costume/kilt,
-/obj/structure/closet,
-/obj/item/clothing/under/costume/roman,
-/turf/open/floor/wood,
-/area/centcom/holding)
 "Ab" = (
 /obj/machinery/photocopier,
 /turf/open/floor/plasteel/grimy,
@@ -13806,13 +13770,6 @@
 /obj/item/reagent_containers/food/snacks/sashimi,
 /turf/open/floor/wood,
 /area/centcom/holding)
-"Fg" = (
-/obj/structure/table,
-/obj/item/paper,
-/obj/item/pen,
-/obj/item/clothing/under/costume/schoolgirl/orange,
-/turf/open/floor/holofloor,
-/area/holodeck/rec_center/school)
 "Fh" = (
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
@@ -13972,14 +13929,20 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/tdome/tdomeobserve)
-"FB" = (
-/obj/structure/table,
-/obj/item/paper,
-/obj/item/pen,
-/obj/item/clothing/under/costume/schoolgirl,
-/obj/item/toy/katana,
-/turf/open/floor/holofloor,
-/area/holodeck/rec_center/school)
+"FA" = (
+/obj/structure/table/reinforced,
+/obj/item/grenade/c4{
+	pixel_x = 6
+	},
+/obj/item/grenade/c4{
+	pixel_x = -4
+	},
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
+/area/centcom/ferry)
 "FD" = (
 /obj/machinery/shower{
 	dir = 4
@@ -17107,6 +17070,25 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"Nt" = (
+/obj/item/storage/box/emps{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/box/flashbangs,
+/obj/item/grenade/c4/x4,
+/obj/item/grenade/c4/x4,
+/obj/item/grenade/c4/x4,
+/obj/structure/table/reinforced,
+/obj/item/clothing/ears/earmuffs,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = 32
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/centcom/ferry)
 "Nv" = (
 /obj/structure/table,
 /turf/open/floor/plasteel/cafeteria,
@@ -17246,14 +17228,18 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/centcom/ferry)
+"OU" = (
+/obj/item/clothing/under/costume/jabroni,
+/obj/item/clothing/under/costume/geisha,
+/obj/item/clothing/under/costume/kilt,
+/obj/structure/closet,
+/obj/item/clothing/under/costume/roman,
+/turf/open/floor/wood,
+/area/centcom/holding)
 "Pa" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
-"Pb" = (
-/obj/structure/fans/tiny/invisible,
-/turf/open/floor/black,
-/area/start)
 "Ph" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood,
@@ -17407,13 +17393,6 @@
 /obj/structure/window/reinforced/fulltile,
 /turf/open/floor/grass,
 /area/centcom/holding)
-"Qn" = (
-/obj/structure/table,
-/obj/item/paper,
-/obj/item/pen,
-/obj/item/clothing/under/costume/schoolgirl/red,
-/turf/open/floor/holofloor,
-/area/holodeck/rec_center/school)
 "Qq" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -17567,6 +17546,10 @@
 /obj/effect/spawner/xmastree,
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"RH" = (
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/black,
+/area/start)
 "RM" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -17701,6 +17684,23 @@
 /obj/item/pen/fountain,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"SV" = (
+/obj/item/storage/box/emps{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/box/flashbangs,
+/obj/item/grenade/c4/x4,
+/obj/item/grenade/c4/x4,
+/obj/item/grenade/c4/x4,
+/obj/structure/table/reinforced,
+/obj/item/clothing/ears/earmuffs,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 32
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "SW" = (
 /obj/machinery/seed_extractor,
 /obj/effect/turf_decal/tile/green{
@@ -17871,6 +17871,15 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plasteel,
 /area/tdome/tdomeobserve)
+"Up" = (
+/obj/machinery/computer/prisoner/management{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "Uw" = (
 /obj/machinery/light{
 	dir = 8
@@ -17894,6 +17903,17 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"UL" = (
+/obj/structure/table/wood,
+/obj/item/storage/photo_album/syndicate{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/camera{
+	pixel_x = -2
+	},
+/turf/open/floor/wood,
+/area/syndicate_mothership/control)
 "UM" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -17999,6 +18019,23 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/basketball)
+"VO" = (
+/obj/machinery/computer/prisoner/management{
+	dir = 1
+	},
+/obj/machinery/light,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/centcom/control)
 "VP" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
@@ -18131,6 +18168,11 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"Xx" = (
+/obj/machinery/computer/prisoner/management,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "Xy" = (
 /obj/machinery/door/airlock/external{
 	name = "Ferry Airlock"
@@ -18246,13 +18288,6 @@
 /obj/item/reagent_containers/glass/beaker,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
-"YR" = (
-/obj/structure/table,
-/obj/item/paper,
-/obj/item/pen,
-/obj/item/clothing/under/costume/schoolgirl/green,
-/turf/open/floor/holofloor,
-/area/holodeck/rec_center/school)
 "YV" = (
 /obj/machinery/light{
 	dir = 8
@@ -18335,30 +18370,6 @@
 	},
 /turf/open/floor/holofloor/carpet,
 /area/holodeck/rec_center/photobooth)
-"ZO" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
-/obj/item/clothing/under/rank/civilian/curator/treasure_hunter,
-/obj/item/clothing/under/dress/skirt,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/accessory/armband/deputy,
-/obj/item/clothing/accessory/waistcoat,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/laceup,
-/obj/item/clothing/neck/stripedredscarf,
-/obj/item/clothing/neck/tie/red,
-/obj/item/clothing/head/helmet/space/beret,
-/obj/item/clothing/suit/curator,
-/obj/item/clothing/suit/space/officer,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/color/black,
-/obj/item/clothing/glasses/eyepatch,
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = -24
-	},
-/turf/open/floor/plasteel/grimy,
-/area/centcom/ferry)
 "ZQ" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
@@ -18470,21 +18481,21 @@ aa
 aa
 aa
 aa
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
 aa
 aa
 aa
@@ -22582,21 +22593,21 @@ aa
 aa
 aa
 aa
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
-Pb
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
 aa
 aa
 aa
@@ -36557,7 +36568,7 @@ sg
 tf
 pZ
 rf
-vv
+vx
 wn
 tQ
 ng
@@ -36814,7 +36825,7 @@ sh
 sh
 pZ
 pZ
-vx
+UL
 wo
 tZ
 ng
@@ -44817,8 +44828,8 @@ CT
 NT
 vt
 YV
-Aa
-Aa
+OU
+OU
 RS
 VF
 Nd
@@ -57623,7 +57634,7 @@ mD
 oo
 oI
 pf
-ZO
+pN
 qj
 nU
 Uf
@@ -58664,7 +58675,7 @@ su
 ws
 ts
 mD
-zh
+FA
 uU
 Ak
 AR
@@ -59170,7 +59181,7 @@ mg
 nT
 rE
 sw
-tI
+Nt
 mD
 va
 oe
@@ -61490,7 +61501,7 @@ vK
 wD
 km
 nN
-yv
+VO
 im
 nq
 xT
@@ -64291,7 +64302,7 @@ jw
 iC
 jG
 iu
-jS
+Xx
 iC
 kx
 kT
@@ -64301,7 +64312,7 @@ im
 mS
 iC
 nN
-nY
+Up
 iu
 jw
 jG
@@ -64794,7 +64805,7 @@ aa
 aa
 aa
 io
-ix
+SV
 iE
 iE
 iW
@@ -81130,11 +81141,11 @@ bj
 dA
 dX
 dA
-uf
+eC
 eO
-Fg
+eT
 eO
-YR
+eD
 eO
 dA
 fx
@@ -81644,11 +81655,11 @@ bj
 dA
 dZ
 dA
-YR
+eD
 eO
-Qn
+eU
 eO
-FB
+ff
 eO
 dA
 fx
