@@ -61,6 +61,14 @@
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/atmos_control
 
+/obj/item/circuitboard/computer/atmos_control/incinerator
+	name = "Incinerator Air Control (Computer Board)"
+	build_path = /obj/machinery/computer/atmos_control/incinerator
+
+/obj/item/circuitboard/computer/atmos_control/toxinsmix
+	name = "Toxins Mixing Air Control (Computer Board)"
+	build_path = /obj/machinery/computer/atmos_control/toxinsmix
+
 /obj/item/circuitboard/computer/atmos_control/tank
 	name = "Tank Control (Computer Board)"
 	build_path = /obj/machinery/computer/atmos_control/tank
@@ -92,10 +100,6 @@
 /obj/item/circuitboard/computer/atmos_control/tank/carbon_tank
 	name = "Carbon Dioxide Supply Control (Computer Board)"
 	build_path = /obj/machinery/computer/atmos_control/tank/carbon_tank
-
-/obj/item/circuitboard/computer/atmos_control/tank/incinerator
-	name = "Incinerator Air Control (Computer Board)"
-	build_path = /obj/machinery/computer/atmos_control/tank/incinerator
 
 /obj/item/circuitboard/computer/auxillary_base
 	name = "Auxillary Base Management Console (Computer Board)"
