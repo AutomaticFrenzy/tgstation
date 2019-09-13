@@ -6236,7 +6236,7 @@
 "anq" = (
 /obj/structure/closet/secure_closet/medical1,
 /obj/item/reagent_containers/glass/bottle/epinephrine,
-/obj/item/reagent_containers/glass/bottle/charcoal{
+/obj/item/reagent_containers/glass/bottle/multiver{
 	pixel_x = 6
 	},
 /obj/effect/turf_decal/tile/yellow{
