@@ -90,7 +90,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 						continue
 		var/inverse = turn(check_dir, 180)
 		for(var/obj/structure/cable/C in TB)
-			if (mapload && (C.category != category || killed || C.killed))  // dirty superbox hack
+			if (mapload && (killed || C.killed))  // dirty superbox hack
 				continue
 			if(C.cable_layer == cable_layer)
 				linked_dirs |= check_dir
