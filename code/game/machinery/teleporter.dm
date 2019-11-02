@@ -78,7 +78,7 @@
 				if(ishuman(M))//don't remove people from the round randomly you jerks
 					var/mob/living/carbon/human/human = M
 					if(human.dna && human.dna.species.id == "human")
-						to_chat(M, "<span class='italics'>You hear a buzzing in your ears.</span>")
+						to_chat(M, "<span class='hear'>You hear a buzzing in your ears.</span>")
 						human.set_species(/datum/species/fly)
 
 					human.apply_effect((rand(120 - accuracy * 40, 180 - accuracy * 60)), EFFECT_IRRADIATE, 0)
@@ -92,10 +92,6 @@
 		icon_state = "tele1"
 	else
 		icon_state = "tele0"
-
-/obj/machinery/teleport/hub/power_change()
-	..()
-	update_icon()
 
 /obj/machinery/teleport/hub/proc/is_ready()
 	. = !panel_open && !(stat & (BROKEN|NOPOWER)) && power_station && power_station.engaged && !(power_station.stat & (BROKEN|NOPOWER))
@@ -172,13 +168,13 @@
 		var/obj/item/multitool/M = W
 		if(panel_open)
 			M.buffer = src
-			to_chat(user, "<span class='caution'>You download the data to the [W.name]'s buffer.</span>")
+			to_chat(user, "<span class='notice'>You download the data to the [W.name]'s buffer.</span>")
 		else
 			if(M.buffer && istype(M.buffer, /obj/machinery/teleport/station) && M.buffer != src)
 				if(linked_stations.len < efficiency)
 					linked_stations.Add(M.buffer)
 					M.buffer = null
-					to_chat(user, "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>")
+					to_chat(user, "<span class='notice'>You upload the data from the [W.name]'s buffer.</span>")
 				else
 					to_chat(user, "<span class='alert'>This station can't hold more information, try to use better parts.</span>")
 		return
@@ -192,7 +188,7 @@
 	else if(W.tool_behaviour == TOOL_WIRECUTTER)
 		if(panel_open)
 			link_console_and_hub()
-			to_chat(user, "<span class='caution'>You reconnect the station to nearby machinery.</span>")
+			to_chat(user, "<span class='notice'>You reconnect the station to nearby machinery.</span>")
 			return
 	else
 		return ..()
@@ -217,8 +213,7 @@
 	add_fingerprint(user)
 
 /obj/machinery/teleport/station/power_change()
-	..()
-	update_icon()
+	. = ..()
 	if(teleporter_hub)
 		teleporter_hub.update_icon()
 

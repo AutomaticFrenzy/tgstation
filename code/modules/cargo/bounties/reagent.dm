@@ -136,7 +136,7 @@
 		/datum/reagent/medicine/diphenhydramine,\
 		/datum/reagent/drug/space_drugs,\
 		/datum/reagent/drug/crank,\
-		/datum/reagent/blackpowder,\
+		/datum/reagent/gunpowder,\
 		/datum/reagent/napalm,\
 		/datum/reagent/firefighting_foam,\
 		/datum/reagent/consumable/mayonnaise,\
@@ -175,7 +175,6 @@
 		/datum/reagent/consumable/frostoil,\
 		/datum/reagent/toxin/slimejelly,\
 		/datum/reagent/teslium/energized_jelly,\
-		/datum/reagent/toxin/skewium,\
 		/datum/reagent/toxin/mimesbane,\
 		/datum/reagent/medicine/strange_reagent,\
 		/datum/reagent/nitroglycerin,\

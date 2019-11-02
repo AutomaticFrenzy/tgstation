@@ -1,4 +1,9 @@
 /mob/living/carbon/human
+	name = "Unknown"
+	real_name = "Unknown"
+	icon = 'icons/mob/human.dmi'
+	icon_state = "human_basic"
+	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPCHEM_HUD,IMPTRACK_HUD, NANITE_HUD, DIAG_NANITE_FULL_HUD,ANTAG_HUD,GLAND_HUD,SENTIENT_DISEASE_HUD)
 	hud_type = /datum/hud/human
 	possible_a_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
@@ -51,7 +56,6 @@
 
 	var/list/datum/bioware = list()
 
-	var/creamed = FALSE //to use with creampie overlays
 	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human, /mob/living/simple_animal/slime, /mob/living/simple_animal/parrot))
 	var/lastpuke = 0
 	var/last_fire_update

@@ -124,6 +124,15 @@
 	category = list("initial","Tools","Tool Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/plunger
+	name = "Plunger"
+	id = "plunger"
+	build_type = AUTOLATHE | PROTOLATHE
+	materials = list(/datum/material/iron = 150)
+	build_path = /obj/item/plunger
+	category = list("initial","Tools","Tool Designs")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/welding_helmet
 	name = "Welding Helmet"
 	id = "welding_helmet"
@@ -262,6 +271,14 @@
 	build_path = /obj/item/tank/internals/plasmaman/belt/empty
 	category = list("hacked","Misc","Equipment")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
+
+/datum/design/generic_gas_tank
+	name = "Generic Gas Tank"
+	id = "generic_tank"
+	build_type = AUTOLATHE | PROTOLATHE
+	materials = list(/datum/material/iron = 1000)
+	build_path = /obj/item/tank/internals/generic
+	category = list("initial","Misc","Equipment")
 
 /datum/design/metal
 	name = "Metal"
@@ -488,15 +505,6 @@
 	category = list("initial", "Medical", "Medical Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
 
-/datum/design/healthanalyzer
-	name = "Health Analyzer"
-	id = "healthanalyzer"
-	build_type = AUTOLATHE | PROTOLATHE
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 50)
-	build_path = /obj/item/healthanalyzer
-	category = list("initial", "Medical", "Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
-
 /datum/design/pillbottle
 	name = "Pill Bottle"
 	id = "pillbottle"
@@ -683,14 +691,6 @@
 	materials = list(/datum/material/iron = 500)
 	build_path = /obj/item/flamethrower/full
 	category = list("hacked", "Security")
-
-/datum/design/rcd
-	name = "Rapid Construction Device (RCD)"
-	id = "rcd"
-	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 30000)
-	build_path = /obj/item/construction/rcd
-	category = list("hacked", "Construction")
 
 /datum/design/rpd
 	name = "Rapid Pipe Dispenser (RPD)"
@@ -975,3 +975,28 @@
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000)
 	build_path = /obj/item/vending_refill/custom
 	category = list("initial", "Misc")
+
+/datum/design/ducts
+	name = "Fluid Ducts"
+	id = "fluid_ducts"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 500)
+	build_path = /obj/item/stack/ducts
+	category = list("initial", "Construction")
+	maxstack = 50
+
+/datum/design/toygun
+	name = "Cap Gun"
+	id = "toygun"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	build_path = /obj/item/toy/gun
+	category = list("hacked", "Misc")
+
+/datum/design/capbox
+	name = "Box of Cap Gun Shots"
+	id = "capbox"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 20, /datum/material/glass = 5)
+	build_path = /obj/item/toy/ammo/gun
+	category = list("hacked", "Misc")
