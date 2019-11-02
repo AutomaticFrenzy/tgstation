@@ -205,7 +205,8 @@
 	desc = "A rechargeable transdimensional power cell."
 	icon_state = "bscell"
 	maxcharge = 400000
-	materials = null
+	custom_materials = null
+	grind_results = null
 	chargerate = 4000
 
 /obj/item/stock_parts/cell/syndicate/Initialize(mapload, override_maxcharge)
