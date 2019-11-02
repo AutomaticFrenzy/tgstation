@@ -2962,7 +2962,7 @@
 	codes_txt = "patrol;next_patrol=Bar";
 	location = "Security"
 	},
-/mob/living/simple_animal/bot/ed209{
+/mob/living/simple_animal/bot/secbot/ed209{
 	auto_patrol = 1;
 	desc = "Officer Griggs.  He looks less than thrilled.";
 	name = "Officer Griggs";
@@ -7017,11 +7017,11 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/assembly/igniter,
-/obj/item/stack/cable_coil/white{
+/obj/item/stack/cable_coil{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stack/cable_coil/white{
+/obj/item/stack/cable_coil{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -7503,7 +7503,7 @@
 /turf/closed/wall,
 /area/maintenance/starboard/fore)
 "apY" = (
-/obj/structure/chair/wood/normal{
+/obj/structure/chair/wood{
 	dir = 1;
 	icon_state = "wooden_chair"
 	},
@@ -7512,7 +7512,7 @@
 	},
 /area/chapel/main)
 "apZ" = (
-/obj/structure/chair/wood/normal{
+/obj/structure/chair/wood{
 	dir = 1;
 	icon_state = "wooden_chair"
 	},
@@ -7873,7 +7873,7 @@
 /turf/open/floor/plating,
 /area/chapel/main)
 "aqM" = (
-/obj/structure/chair/wood/normal{
+/obj/structure/chair/wood{
 	dir = 1;
 	icon_state = "wooden_chair"
 	},
@@ -7886,7 +7886,7 @@
 	},
 /area/chapel/main)
 "aqN" = (
-/obj/structure/chair/wood/normal{
+/obj/structure/chair/wood{
 	dir = 1;
 	icon_state = "wooden_chair"
 	},
@@ -7895,7 +7895,7 @@
 	},
 /area/chapel/main)
 "aqO" = (
-/obj/structure/chair/wood/normal{
+/obj/structure/chair/wood{
 	dir = 1;
 	icon_state = "wooden_chair"
 	},
@@ -11850,7 +11850,7 @@
 /obj/item/stack/rods{
 	amount = 25
 	},
-/obj/item/stack/cable_coil/white{
+/obj/item/stack/cable_coil{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -15383,7 +15383,7 @@
 	pixel_y = 3
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/stack/cable_coil/white,
+/obj/item/stack/cable_coil,
 /obj/item/multitool,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm{
@@ -18168,7 +18168,7 @@
 	},
 /obj/item/assembly/flash/handheld,
 /obj/item/assembly/flash/handheld,
-/obj/item/stack/cable_coil/white,
+/obj/item/stack/cable_coil,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
