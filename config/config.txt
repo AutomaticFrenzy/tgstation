@@ -26,10 +26,10 @@ STATIONNAME Superbox Station 13
 #HUB
 
 ## Lobby time: This is the amount of time between rounds that players have to setup their characters and be ready.
-LOBBY_COUNTDOWN 70
+LOBBY_COUNTDOWN 50000
 
 ## Round End Time: This is the amount of time after the round ends that players have to murder death kill each other.
-ROUND_END_COUNTDOWN 30
+ROUND_END_COUNTDOWN 50
 
 ## Comment this out if you want to use the SQL based admin system, the legacy system uses admins.txt.
 ## You need to set up your database to use the SQL based system.
@@ -159,7 +159,7 @@ ALLOW_ADMIN_OOCCOLOR
 ALLOW_ADMIN_ASAYCOLOR
 
 ## Job slot open/close by identification consoles delay in seconds
-ID_CONSOLE_JOBSLOT_DELAY 30
+ID_CONSOLE_JOBSLOT_DELAY 5
 
 ## allow players to initiate a restart vote
 ALLOW_VOTE_RESTART
@@ -287,11 +287,11 @@ ALLOW_HOLIDAYS
 
 ## Defines the ticklimit for subsystem initialization (In percents of a byond tick). Lower makes world start smoother. Higher makes it faster.
 ##This is currently a testing optimized setting. A good value for production would be 98.
-TICK_LIMIT_MC_INIT 500
+TICK_LIMIT_MC_INIT 98
 
 ##Defines the ticklag for the world. Ticklag is the amount of time between game ticks (aka byond ticks) (in 1/10ths of a second).
 ##	This also controls the client network update rate, as well as the default client fps
-TICKLAG 0.5
+TICKLAG 0.2
 
 ##Can also be set as per-second value, the following value is identical to the above.
 #FPS 20
@@ -422,9 +422,9 @@ CLIENT_ERROR_BUILD 1421
 ## Admins are exempt from these limits.
 ## Hitting the minute limit notifies admins.
 ## Set to 0 or comment out to disable.
-SECOND_TOPIC_LIMIT 10
+SECOND_TOPIC_LIMIT 0
 
-MINUTE_TOPIC_LIMIT 100
+MINUTE_TOPIC_LIMIT 0
 
 
 ## CLICK RATE LIMITING

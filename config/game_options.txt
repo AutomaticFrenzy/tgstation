@@ -32,7 +32,7 @@ EMOJIS
 ## To speed things up make the number negative, to slow things down, make the number positive.
 
 ## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied.
-RUN_DELAY 1
+RUN_DELAY 1.5
 WALK_DELAY 4
 
 ## The variables below affect the movement of specific mob types. THIS AFFECTS ALL SUBTYPES OF THE TYPE YOU CHOOSE!
@@ -98,10 +98,10 @@ PROBABILITY CULT 2
 PROBABILITY CHANGELING 2
 PROBABILITY WIZARD 4
 PROBABILITY MONKEY 0
-PROBABILITY METEOR 1
+PROBABILITY METEOR 0
 PROBABILITY EXTENDED 0
 PROBABILITY SECRET_EXTENDED 0
-PROBABILITY DEVIL 0
+PROBABILITY DEVIL 1
 PROBABILITY DEVIL_AGENTS 0
 PROBABILITY CLOWNOPS 0
 
@@ -158,34 +158,34 @@ MIDROUND_ANTAG ABDUCTION
 MIN_POP TRAITOR 0
 MAX_POP TRAITOR -1
 
-MIN_POP TRAITORBRO 10
+MIN_POP TRAITORBRO 5
 MAX_POP TRAITORBRO -1
 
-MIN_POP TRAITORCHAN 15
+MIN_POP TRAITORCHAN 13
 MAX_POP TRAITORCHAN -1
 
-MIN_POP NUCLEAR 15
+MIN_POP NUCLEAR 14
 MAX_POP NUCLEAR -1
 
 MIN_POP REVOLUTION 12
 MAX_POP REVOLUTION -1
 
-MIN_POP CULT 7
+MIN_POP CULT 5
 MAX_POP CULT -1
 
 MIN_POP CLOCKWORK_CULT 30
 MAX_POP CLOCKWORK_CULT -1
 
-MIN_POP CHANGELING 8
+MIN_POP CHANGELING 9
 MAX_POP CHANGELING -1
 
-MIN_POP WIZARD 8
+MIN_POP WIZARD 6
 MAX_POP WIZARD -1
 
 MIN_POP MONKEY 20
 MAX_POP MONKEY -1
 
-MIN_POP METEOR 6
+MIN_POP METEOR 12
 MAX_POP METEOR -1
 
 MIN_POP DEVIL 0
@@ -201,7 +201,7 @@ MAX_POP DEVIL_AGENTS -1
 
 
 ## The amount of time it takes for the emergency shuttle to be called, from round start.
-SHUTTLE_REFUEL_DELAY 12000
+SHUTTLE_REFUEL_DELAY 6000
 
 ## Variables calculate how number of antagonists will scale to population.
 ## Used as (Antagonists = Population / Coeff)
@@ -217,12 +217,12 @@ SECURITY_SCALING_COEFF 8
 
 ## The number of objectives traitors get.
 ## Not including escaping/hijacking.
-TRAITOR_OBJECTIVES_AMOUNT 2
-BROTHER_OBJECTIVES_AMOUNT 2
+TRAITOR_OBJECTIVES_AMOUNT 3
+BROTHER_OBJECTIVES_AMOUNT 5
 
 ## Uncomment to prohibit jobs that start with loyalty
 ## implants from being most antagonists.
-#PROTECT_ROLES_FROM_ANTAGONIST
+PROTECT_ROLES_FROM_ANTAGONIST
 
 ## Uncomment to prohibit assistants from becoming most antagonists.
 #PROTECT_ASSISTANT_FROM_ANTAGONIST
@@ -260,7 +260,7 @@ ALLOW_RANDOM_EVENTS
 
 ## Multiplier for earliest start time of dangerous events.
 ## Set to 0 to make dangerous events avaliable from round start.
-EVENTS_MIN_TIME_MUL 1
+EVENTS_MIN_TIME_MUL .5
 
 ## Multiplier for minimal player count (players = alive non-AFK humans) for dangerous events to start.
 ## Set to 0 to make dangerous events avaliable for all populations.
@@ -293,7 +293,7 @@ ALLOW_AI_MULTICAM
 
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 ## 600 is one minute.
-GATEWAY_DELAY 18000
+GATEWAY_DELAY 10000
 
 
 ## ACCESS ###
@@ -313,10 +313,10 @@ MINIMAL_ACCESS_THRESHOLD 20
 ASSISTANTS_HAVE_MAINT_ACCESS
 
 ## Uncoment to give security maint access. Note that if you dectivate JOBS_HAVE_MINIMAL_ACCESS security already gets maint from that.
-#SECURITY_HAS_MAINT_ACCESS
+SECURITY_HAS_MAINT_ACCESS
 
 ## Uncomment to give everyone maint access.
-#EVERYONE_HAS_MAINT_ACCESS
+EVERYONE_HAS_MAINT_ACCESS
 
 ## Comment this out this to make security officers spawn in departmental security posts
 SEC_START_BRIG
@@ -348,7 +348,7 @@ NEAR_DEATH_EXPERIENCE
 ## Set to 1 for "custom", silicons will start with the custom laws defined in silicon_laws.txt. (If silicon_laws.txt is empty, the AI will spawn with asimov and Custom boards will auto-delete.)
 ## Set to 2 for "random", silicons will start with a random lawset picked from random laws specified below.
 ## Set to 3 for "weighted random", using values in "silicon_weights.txt", a law will be selected, with weights specifed in that file.
-DEFAULT_LAWS 0
+DEFAULT_LAWS 3
 
 ## RANDOM LAWS ##
 ## ------------------------------------------------------------------------------------------
@@ -385,22 +385,22 @@ RANDOM_LAWS corporate
 
 ## Make sure there are no spaces between the law_id and the number.
 
-LAW_WEIGHT custom,0
+#LAW_WEIGHT custom,0
 
 ## standard-ish laws. These are fairly ok to run
-LAW_WEIGHT asimov,32
-LAW_WEIGHT asimovpp,12
-LAW_WEIGHT paladin,12
-LAW_WEIGHT robocop,12
-LAW_WEIGHT corporate,12
+LAW_WEIGHT asimov,100
+LAW_WEIGHT asimovpp,10
+LAW_WEIGHT paladin,10
+LAW_WEIGHT robocop,2
+#LAW_WEIGHT corporate,
 
 ## Quirky laws. Shouldn't cause too much harm
-LAW_WEIGHT hippocratic,3
-LAW_WEIGHT maintain,4
-LAW_WEIGHT drone,3
-LAW_WEIGHT liveandletlive,3
-LAW_WEIGHT peacekeeper,3
-LAW_WEIGHT reporter,4
+LAW_WEIGHT hippocratic,2
+LAW_WEIGHT maintain,1
+#LAW_WEIGHT drone,3
+LAW_WEIGHT liveandletlive,1
+LAW_WEIGHT peacekeeper,1
+LAW_WEIGHT reporter,2
 LAW_WEIGHT hulkamania,4
 
 ## Bad idea laws. Probably shouldn't enable these
@@ -435,10 +435,11 @@ ROUNDSTART_RACES human
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
 ROUNDSTART_RACES lizard
-#ROUNDSTART_RACES fly
+ROUNDSTART_RACES fly
 ROUNDSTART_RACES moth
 ROUNDSTART_RACES plasmaman
 #ROUNDSTART_RACES shadow
+ROUNDSTART_RACES felinid
 
 ## Races that are better than humans in some ways, but worse in others
 ROUNDSTART_RACES ethereal
@@ -478,7 +479,7 @@ OVERFLOW_CAP -1
 
 ## Starlight for exterior walls and breaches. Uncomment for starlight!
 ## This is disabled by default to make testing quicker, should be enabled on production servers or testing servers messing with lighting
-#STARLIGHT
+STARLIGHT
 
 ## Uncomment to bring back old grey suit assistants instead of the now default rainbow colored assistants.
 #GREY_ASSISTANTS
@@ -521,10 +522,10 @@ BOMBCAP 20
 ## a less lootfilled or smaller or less round effecting ruin costs less to
 ## spawn, while the converse is true. Alter this number to affect the amount
 ## of ruins.
-LAVALAND_BUDGET 60
+LAVALAND_BUDGET 180
 
 ## Space Ruin Budged
-Space_Budget 16
+Space_Budget 40
 
 ## Time in ds from when a player latejoins till the arrival shuttle docks at the station
 ## Must be at least 30. At least 55 recommended to be visually/aurally appropriate
@@ -541,7 +542,7 @@ ARRIVALS_SHUTTLE_DOCK_WINDOW 55
 MICE_ROUNDSTART 10
 
 ## If the percentage of players alive (doesn't count conversions) drops below this threshold the emergency shuttle will be forcefully called (provided it can be)
-#EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.2
+#EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.4
 
 ## Determines if players are allowed to print integrated circuits, uncomment to allow.
 IC_PRINTING
