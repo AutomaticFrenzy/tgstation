@@ -40,7 +40,7 @@ MAP_REMOVE_JOB(cargo_tech)
 /datum/outfit/job/mining/New()
 	..()
 	MAP_JOB_CHECK
-	box = /obj/item/storage/box/survival_mining
+	box = /obj/item/storage/box/survival/mining
 
 // Engineering
 /datum/job/engineer/New()
