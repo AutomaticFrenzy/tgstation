@@ -99,8 +99,7 @@
 	if(!has_cover)
 		INVOKE_ASYNC(src, .proc/popUp)
 
-/obj/machinery/porta_turret/update_icon()
-	cut_overlays()
+/obj/machinery/porta_turret/update_icon_state()
 	if(!anchored)
 		icon_state = "turretCover"
 		return
@@ -118,7 +117,6 @@
 				icon_state = "[base_icon_state]_off"
 		else
 			icon_state = "[base_icon_state]_unpowered"
-
 
 /obj/machinery/porta_turret/proc/setup(obj/item/gun/turret_gun)
 	if(stored_gun)
@@ -961,8 +959,7 @@
 	lethal = leth
 	update_icon()
 
-/obj/machinery/turretid/update_icon()
-	..()
+/obj/machinery/turretid/update_icon_state()
 	if(stat & NOPOWER)
 		icon_state = "control_off"
 	else if (enabled)
