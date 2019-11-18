@@ -16923,28 +16923,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"aMH" = (
-/obj/structure/cable,
-/obj/structure/rack{
-	dir = 1
-	},
-/obj/effect/spawner/lootdrop/maintenance{
-	lootcount = 2;
-	name = "2maintenance loot spawner"
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/aft)
-"aMI" = (
-/obj/structure/cable,
-/obj/structure/rack{
-	dir = 1
-	},
-/obj/effect/spawner/lootdrop/maintenance{
-	lootcount = 3;
-	name = "3maintenance loot spawner"
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/aft)
 "aMJ" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -19870,7 +19848,6 @@
 /obj/structure/plasticflaps{
 	opacity = 1
 	},
-/obj/structure/cable,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
 	dir = 2;
@@ -24912,9 +24889,6 @@
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "fil" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -62745,7 +62719,7 @@ aSP
 aTT
 aUn
 aUN
-bdj
+aUh
 aVG
 aUh
 aWD
@@ -63773,7 +63747,7 @@ aTt
 aTT
 aUr
 aUN
-bdj
+aUh
 aVJ
 aUh
 aWD
@@ -64235,7 +64209,7 @@ afx
 uDh
 agu
 agN
-ghd
+afR
 agJ
 aga
 aga
@@ -72244,7 +72218,7 @@ cFF
 cFF
 nQg
 aNx
-aMH
+aMF
 aMM
 nKr
 nKr
@@ -72501,7 +72475,7 @@ aNx
 aNx
 aNx
 aNx
-aMI
+iFt
 aMM
 aZc
 aZc
