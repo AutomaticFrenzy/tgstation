@@ -139,14 +139,15 @@
 	// Languages
 	var/datum/language_holder/langs = get_language_holder()
 	var/list/language_names = list()
-	for (var/L in langs.languages)
+	for (var/L in langs.understood_languages)
 		language_names += "[L]"
 	var/stringified = list2params(language_names)
 	if (hullrot_cache["lang_known"] != stringified)
 		hullrot_cache["lang_known"] = stringified
 		SShullrot.set_languages(client, language_names)
 
-	var/default_name = "[get_default_language()]"
+	var/datum/language/default_lang = langs.get_selected_language()
+	var/default_name = default_lang.name
 	if (hullrot_cache["lang_speaking"] != default_name)
 		hullrot_cache["lang_speaking"] = default_name
 		SShullrot.set_spoken_language(client, default_name)
