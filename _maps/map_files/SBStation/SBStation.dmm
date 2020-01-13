@@ -1991,21 +1991,27 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "adX" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/plating,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel,
 /area/security/courtroom)
 "adY" = (
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/window/brigdoor/northleft{
 	name = "Courtroom";
 	req_access_txt = "42"
 	},
 /turf/open/floor/plasteel,
 /area/security/courtroom)
 "adZ" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/plating,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel,
 /area/security/courtroom)
 "aea" = (
 /turf/closed/wall,
@@ -25091,6 +25097,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
+"gQp" = (
+/obj/structure/cable,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel,
+/area/security/courtroom)
 "gTk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -25660,6 +25674,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
+"kkX" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel,
+/area/security/courtroom)
 "klC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/disposalpipe/segment{
@@ -65229,7 +65250,7 @@ mKI
 ada
 adv
 bec
-beh
+gQp
 bei
 bei
 aeY
@@ -65486,7 +65507,7 @@ ack
 adb
 beb
 bed
-abS
+kkX
 ady
 aeF
 ack
@@ -66514,7 +66535,7 @@ ack
 adf
 adw
 adM
-abS
+kkX
 ady
 aeJ
 ack
@@ -66771,7 +66792,7 @@ abT
 adg
 adA
 adN
-abS
+kkX
 ady
 aeK
 ack
