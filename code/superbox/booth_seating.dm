@@ -22,16 +22,16 @@
 	. = ..()
 	add_overlay(mutable_appearance(icon, "[icon_state]_overlay", layer=ABOVE_MOB_LAYER))
 
-/obj/structure/booth_seating/CanPass(atom/movable/mover, turf/target)
+/obj/structure/booth_seating/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
-		return 1
-	if(get_dir(target, loc) & dir)
-		return !density
-	return 1
+		return TRUE
+	if(!(get_dir(target, loc) & dir))
+		return TRUE
 
 /obj/structure/booth_seating/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && (O.pass_flags & PASSGLASS))
-		return 1
+		return TRUE
 	if(get_dir(target, O) & dir)
 		return !density
-	return 1
+	return TRUE
