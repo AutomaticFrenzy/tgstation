@@ -3840,7 +3840,7 @@
 /area/crew_quarters/heads/cmo)
 "aiH" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12
 	},
 /turf/open/floor/plasteel/dark,
@@ -4344,7 +4344,7 @@
 	dir = 5
 	},
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12
 	},
 /obj/item/radio/intercom{
@@ -4809,7 +4809,7 @@
 	pixel_x = -32
 	},
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -5024,7 +5024,7 @@
 /area/medical/sleeper)
 "aly" = (
 /obj/structure/sink{
-	dir = 4;
+	dir = 8;
 	pixel_x = 12
 	},
 /obj/machinery/light{
@@ -11553,7 +11553,7 @@
 /area/crew_quarters/dorms)
 "aAy" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -17632,7 +17632,7 @@
 /area/janitor)
 "aOZ" = (
 /obj/structure/sink{
-	dir = 4;
+	dir = 8;
 	pixel_x = 12
 	},
 /turf/open/floor/plasteel,
@@ -24268,7 +24268,7 @@
 "bfa" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -26276,7 +26276,7 @@
 /area/crew_quarters/bar)
 "pbV" = (
 /obj/structure/sink{
-	dir = 4;
+	dir = 8;
 	pixel_x = 12
 	},
 /obj/structure/mirror{
