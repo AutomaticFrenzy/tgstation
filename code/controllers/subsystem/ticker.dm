@@ -616,7 +616,7 @@ SUBSYSTEM_DEF(ticker)
 			if(1) //sound.ogg -- common sound
 				sounds += S
 
-	if(dont_use && lentext(dont_use) > 1)
+	if(dont_use && length(dont_use) > 1)
 		sounds -= dont_use
 
 	for(var/S in sounds)
