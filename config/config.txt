@@ -140,6 +140,9 @@ LOG_VIRUS
 ## log cloning actions
 LOG_CLONING
 
+# log shuttle actions
+LOG_SHUTTLE
+
 ##Log camera pictures - Must have picture logging enabled
 PICTURE_LOGGING_CAMERA
 
@@ -507,3 +510,6 @@ DEFAULT_VIEW_SQUARE 15x15
 ## Where lobby music is located. MUST HAVE A TRAILING SLASH!
 ## Uncomment to change it from the default of 'config/sounds/title/'.
 #LOBBY_MUSIC_FOLDER
+
+## Enable automatic profiling - Byond 513.1506 and newer only.
+#AUTO_PROFILE
