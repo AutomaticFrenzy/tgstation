@@ -132,7 +132,7 @@ Difficulty: Hard
 	var/mob/living/L
 	if(isliving(target))
 		L = target
-		target_slowness += L.movement_delay()
+		target_slowness += L.cached_multiplicative_slowdown
 	if(client)
 		target_slowness += 1
 
@@ -528,7 +528,8 @@ Difficulty: Hard
 	queue_smooth_neighbors(src)
 	return ..()
 
-/obj/effect/temp_visual/hierophant/wall/CanPass(atom/movable/mover, turf/target)
+/obj/effect/temp_visual/hierophant/wall/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(QDELETED(caster))
 		return FALSE
 	if(mover == caster.pulledby)
@@ -539,7 +540,6 @@ Difficulty: Hard
 			return TRUE
 	if(mover == caster)
 		return TRUE
-	return FALSE
 
 /obj/effect/temp_visual/hierophant/chaser //a hierophant's chaser. follows target around, moving and producing a blast every speed deciseconds.
 	duration = 98

@@ -183,14 +183,15 @@
 	// Languages
 	var/datum/language_holder/langs = get_language_holder()
 	var/list/language_names = list()
-	for (var/L in langs.languages)
+	for (var/L in langs.understood_languages)
 		language_names += "[L]"
 	var/stringified = list2params(language_names)
 	if (cache["lang_known"] != stringified)
 		cache["lang_known"] = stringified
 		.["known_languages"] = language_names
 
-	var/default_name = "[get_default_language()]"
+	var/datum/language/default_lang = langs.get_selected_language()
+	var/default_name = default_lang.name
 	if (cache["lang_speaking"] != default_name)
 		cache["lang_speaking"] = default_name
 		.["current_language"] = default_name

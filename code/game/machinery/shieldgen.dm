@@ -215,7 +215,7 @@
 	name = "shield wall generator"
 	desc = "A shield generator."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "Shield_Gen"
+	icon_state = "shield_wall_gen"
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_TELEPORTER)
@@ -234,7 +234,6 @@
 /obj/machinery/power/shieldwallgen/xenobiologyaccess		//use in xenobiology containment
 	name = "xenobiology shield wall generator"
 	desc = "A shield generator meant for use in xenobiology."
-	icon_state = "Shield_Gen"
 	req_access = list(ACCESS_XENOBIOLOGY)
 
 /obj/machinery/power/shieldwallgen/Initialize()
@@ -452,11 +451,10 @@
 		if(gen_secondary) //using power may cause us to be destroyed
 			gen_secondary.add_load(drain_amount * 0.5)
 
-/obj/machinery/shieldwall/CanPass(atom/movable/mover, turf/target)
+/obj/machinery/shieldwall/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
 		return prob(20)
 	else
 		if(istype(mover, /obj/projectile))
 			return prob(10)
-		else
-			return !density
