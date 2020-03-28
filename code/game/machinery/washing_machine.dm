@@ -230,14 +230,14 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	return
 
 /obj/item/stack/sheet/hairlesshide/machine_wash(obj/machinery/washing_machine/WM)
-	new /obj/item/stack/sheet/wetleather(drop_location(), amount)
+	new /obj/item/stack/sheet/wethide(drop_location(), amount)
 	qdel(src)
 
 /obj/item/clothing/suit/hooded/ian_costume/machine_wash(obj/machinery/washing_machine/WM)
 	new /obj/item/reagent_containers/food/snacks/meat/slab/corgi(loc)
 	qdel(src)
 
-/mob/living/simple_animal/pet/dog/corgi/machine_wash(obj/machinery/washing_machine/WM)
+/mob/living/simple_animal/pet/machine_wash(obj/machinery/washing_machine/WM)
 	WM.bloody_mess = TRUE
 	gib()
 
@@ -257,6 +257,10 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	freshly_laundered = TRUE
 	addtimer(VARSET_CALLBACK(src, freshly_laundered, FALSE), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 	..()
+
+/obj/item/clothing/head/mob_holder/machine_wash(obj/machinery/washing_machine/WM)
+	..()
+	held_mob.machine_wash(WM)
 
 /obj/item/clothing/shoes/sneakers/machine_wash(obj/machinery/washing_machine/WM)
 	if(chained)
@@ -311,7 +315,6 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		if(!user.transferItemToLoc(W, src))
 			to_chat(user, "<span class='warning'>\The [W] is stuck to your hand, you cannot put it in the washing machine!</span>")
 			return TRUE
-
 		if(W.dye_color)
 			color_source = W
 		update_icon()
@@ -332,7 +335,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		if(L.buckled || L.has_buckled_mobs())
 			return
 		if(state_open)
-			if(iscorgi(L))
+			if(istype(L, /mob/living/simple_animal/pet))
 				L.forceMove(src)
 				update_icon()
 		return
