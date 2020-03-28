@@ -4,6 +4,7 @@ MAP_REMOVE_JOB(curator)
 MAP_REMOVE_JOB(virologist)
 MAP_REMOVE_JOB(paramedic)
 MAP_REMOVE_JOB(warden)
+MAP_REMOVE_JOB(prisoner)
 
 // With no curator, give the soapstone to the chaplain
 /datum/outfit/job/chaplain/New()
