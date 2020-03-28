@@ -62,7 +62,6 @@
 		/obj/machinery/chem_dispenser,
 		/obj/machinery/sleeper,
 		/obj/machinery/atmospherics/components/unary/cryo_cell,
-		/obj/machinery/clonepod,
 		/obj/machinery/computer/operating,
 		// service
 		/obj/machinery/hydroponics/constructable,

@@ -205,8 +205,9 @@
 		if (!wizard.wizard_versus_team)
 			continue
 
-		var/turf/T = safepick(used_teams[wizard.wizard_versus_team])
-		if(T)
+		var/list/L = used_teams[wizard.wizard_versus_team]
+		if(length(L))
+			var/turf/T = pick(L)
 			wizard.current.forceMove(T)
 			var/datum/effect_system/smoke_spread/smoke = new
 			smoke.set_up(2, wizard.current.loc)
