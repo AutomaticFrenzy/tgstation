@@ -2,6 +2,7 @@
 
 MAP_REMOVE_JOB(curator)
 MAP_REMOVE_JOB(virologist)
+MAP_REMOVE_JOB(paramedic)
 MAP_REMOVE_JOB(warden)
 
 // With no curator, give the soapstone to the chaplain
@@ -21,6 +22,11 @@ MAP_REMOVE_JOB(warden)
 	spawn_positions = 1
 
 /datum/job/lawyer/New()
+	..()
+	MAP_JOB_CHECK
+	spawn_positions = 1
+
+/datum/job/prisoner/New()
 	..()
 	MAP_JOB_CHECK
 	spawn_positions = 1

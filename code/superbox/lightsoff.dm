@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 			/area/security/courtroom,
 		),
 		// security
-		list(/datum/job/hos, /datum/job/officer, /datum/job/warden) = list(
+		list(/datum/job/hos, /datum/job/officer, /datum/job/warden, /datum/job/prisoner) = list(
 			/area/crew_quarters/heads/hos,
 			/area/security/main,
 			/area/security/brig,
