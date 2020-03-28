@@ -23427,7 +23427,7 @@
 "bcQ" = (
 /obj/machinery/power/emitter/welded{
 	dir = 4;
-	!INVALID_VAR! = 2
+	
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -23435,7 +23435,7 @@
 "bcR" = (
 /obj/machinery/power/emitter/welded{
 	dir = 8;
-	!INVALID_VAR! = 2
+	
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
