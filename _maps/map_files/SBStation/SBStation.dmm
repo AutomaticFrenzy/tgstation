@@ -21637,7 +21637,7 @@
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
 "aXU" = (
-/obj/machinery/telecomms/message_server,
+/obj/machinery/telecomms/message_server/preset,
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
 "aXV" = (
@@ -23426,16 +23426,14 @@
 /area/engine/engineering)
 "bcQ" = (
 /obj/machinery/power/emitter/welded{
-	dir = 4;
-	
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engine/engineering)
 "bcR" = (
 /obj/machinery/power/emitter/welded{
-	dir = 8;
-	
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
