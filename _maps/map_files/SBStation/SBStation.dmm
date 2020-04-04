@@ -7898,7 +7898,6 @@
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "asj" = (
-/obj/machinery/plantgenes,
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
 "ask" = (
@@ -8215,6 +8214,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/item/secateurs{
+	step_x = 5;
+	step_y = 17
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
@@ -22296,7 +22299,7 @@
 /area/engine/supermatter)
 "aZH" = (
 /obj/structure/cable,
-/obj/structure/cable_bridge,
+/obj/structure/cable/multilayer,
 /obj/structure/cable/layer3,
 /turf/open/floor/engine,
 /area/engine/supermatter)
@@ -24663,7 +24666,7 @@
 	dir = 1
 	},
 /obj/structure/cable/layer3,
-/obj/structure/cable_bridge,
+/obj/structure/cable/multilayer,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/engineering)
@@ -24911,7 +24914,7 @@
 /area/crew_quarters/dorms)
 "fRq" = (
 /obj/structure/cable/layer3,
-/obj/structure/cable_bridge,
+/obj/structure/cable/multilayer,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engine/supermatter)
