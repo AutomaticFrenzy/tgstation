@@ -8216,8 +8216,8 @@
 	dir = 4
 	},
 /obj/item/secateurs{
-	step_x = 5;
-	step_y = 17
+	pixel_x = 5;
+	pixel_y = 17
 	},
 /turf/open/floor/plasteel/dark,
 /area/hydroponics)
@@ -26716,10 +26716,7 @@
 /turf/open/space/basic,
 /area/maintenance/solars/starboard/fore)
 "stv" = (
-/obj/machinery/light{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "svI" = (
