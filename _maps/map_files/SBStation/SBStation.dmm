@@ -22298,9 +22298,9 @@
 /turf/open/floor/plating,
 /area/engine/supermatter)
 "aZH" = (
-/obj/structure/cable,
-/obj/structure/cable/multilayer,
-/obj/structure/cable/layer3,
+/obj/structure/cable/multilayer{
+	cable_layer = 6
+	},
 /turf/open/floor/engine,
 /area/engine/supermatter)
 "aZI" = (
@@ -24665,9 +24665,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/cable/layer3,
-/obj/structure/cable/multilayer,
-/obj/structure/cable,
+/obj/structure/cable/multilayer{
+	cable_layer = 6
+	},
 /turf/open/floor/engine,
 /area/engine/engineering)
 "ebL" = (
@@ -24912,12 +24912,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms)
-"fRq" = (
-/obj/structure/cable/layer3,
-/obj/structure/cable/multilayer,
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/engine/supermatter)
 "fRG" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -27555,7 +27549,7 @@
 "xYM" = (
 /obj/machinery/door/airlock/research/glass{
 	name = "Genetics Research";
-	req_access_txt = "5; 9; 68"
+	req_access_txt = "5;9"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/white,
@@ -64042,7 +64036,7 @@ aYm
 aYV
 aYR
 aZN
-fRq
+aZH
 aZK
 aYR
 bbk
