@@ -6985,6 +6985,7 @@
 	pixel_x = 28;
 	pixel_y = 5
 	},
+/obj/structure/altar_of_gods,
 /turf/open/floor/plasteel/dark,
 /area/chapel/main)
 "aqb" = (
@@ -26742,6 +26743,7 @@
 	name = "Psychology";
 	req_access_txt = "70"
 	},
+/obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/plasteel/white,
 /area/medical/psychology)
 "swP" = (
