@@ -191,7 +191,7 @@
 		.["known_languages"] = language_names
 
 	var/datum/language/default_lang = langs.get_selected_language()
-	var/default_name = default_lang.name
+	var/default_name = "[default_lang]"
 	if (cache["lang_speaking"] != default_name)
 		cache["lang_speaking"] = default_name
 		.["current_language"] = default_name
