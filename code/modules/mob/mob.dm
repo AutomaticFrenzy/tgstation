@@ -19,8 +19,6 @@
   * Ghostizes the client attached to this mob
   *
   * Parent call
-  *
-  * Returns QDEL_HINT_HARDDEL (don't change this)
   */
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	remove_from_mob_list()
@@ -39,8 +37,8 @@
 	qdel(hud_used)
 	QDEL_LIST(client_colours)
 	ghostize()
-	..()
-	return QDEL_HINT_HARDDEL
+	return ..()
+
 
 /**
   * Intialize a mob
@@ -291,17 +289,17 @@
   *
   * Initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
   */
-/mob/proc/equip_to_slot_if_possible(obj/item/W, slot, qdel_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_equip_delay_self = FALSE, initial = FALSE)
+/mob/proc/equip_to_slot_if_possible(obj/item/W, slot, qdel_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_equip_delay_self = FALSE, initial = FALSE, swap = FALSE)
 	if(!istype(W))
 		return FALSE
-	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self))
+	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self, swap))
 		if(qdel_on_fail)
 			qdel(W)
 		else
 			if(!disable_warning)
 				to_chat(src, "<span class='warning'>You are unable to equip that!</span>")
 		return FALSE
-	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
+	equip_to_slot(W, slot, initial, redraw_mob, swap) //This proc should not ever fail.
 	return TRUE
 
 /**
@@ -334,7 +332,7 @@
   *
   * returns 0 if it cannot, 1 if successful
   */
-/mob/proc/equip_to_appropriate_slot(obj/item/W)
+/mob/proc/equip_to_appropriate_slot(obj/item/W, swap=FALSE)
 	if(!istype(W))
 		return 0
 	var/slot_priority = W.slot_equipment_priority
@@ -352,7 +350,7 @@
 		)
 
 	for(var/slot in slot_priority)
-		if(equip_to_slot_if_possible(W, slot, 0, 1, 1)) //qdel_on_fail = 0; disable_warning = 1; redraw_mob = 1
+		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE, FALSE, FALSE, swap)) //qdel_on_fail = FALSE; disable_warning = TRUE; redraw_mob = TRUE;
 			return 1
 
 	return 0
@@ -397,6 +395,7 @@
 /mob/proc/show_inv(mob/user)
 	return
 
+
 /**
   * Examine a mob
   *
@@ -417,9 +416,54 @@
 		return
 
 	face_atom(A)
-	var/list/result = A.examine(src)
+	var/list/result
+	if(client)
+		LAZYINITLIST(client.recent_examines)
+		if(isnull(client.recent_examines[A]) || client.recent_examines[A] < world.time)
+			result = A.examine(src)
+			client.recent_examines[A] = world.time + EXAMINE_MORE_TIME // set the value to when the examine cooldown ends
+			RegisterSignal(A, COMSIG_PARENT_QDELETING, .proc/clear_from_recent_examines, override=TRUE) // to flush the value if deleted early
+			addtimer(CALLBACK(src, .proc/clear_from_recent_examines, A), EXAMINE_MORE_TIME)
+			handle_eye_contact(A)
+		else
+			result = A.examine_more(src)
+	else
+		result = A.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
+
 	to_chat(src, result.Join("\n"))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
+
+/mob/proc/clear_from_recent_examines(atom/A)
+	if(!client)
+		return
+	UnregisterSignal(A, COMSIG_PARENT_QDELETING)
+	LAZYREMOVE(client.recent_examines, A)
+
+/**
+  * handle_eye_contact() is called when we examine() something. If we examine an alive mob with a mind who has examined us in the last second within 5 tiles, we make eye contact!
+  *
+  * Note that if either party has their face obscured, the other won't get the notice about the eye contact
+  * Also note that examine_more() doesn't proc this or extend the timer, just because it's simpler this way and doesn't lose much.
+  *	The nice part about relying on examining is that we don't bother checking visibility, because we already know they were both visible to each other within the last second, and the one who triggers it is currently seeing them
+  */
+/mob/proc/handle_eye_contact(mob/living/examined_mob)
+	return
+
+/mob/living/handle_eye_contact(mob/living/examined_mob)
+	if(!istype(examined_mob) || src == examined_mob || examined_mob.stat >= UNCONSCIOUS || !client || !examined_mob.client?.recent_examines || !(src in examined_mob.client.recent_examines))
+		return
+
+	if(get_dist(src, examined_mob) > EYE_CONTACT_RANGE)
+		return
+
+	// check to see if their face is blocked or, if not, a signal blocks it
+	if(examined_mob.is_face_visible() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
+		var/msg = "<span class='smallnotice'>You make eye contact with [examined_mob].</span>"
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, src, msg), 3) // so the examine signal has time to fire and this will print after
+
+	if(is_face_visible() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
+		var/msg = "<span class='smallnotice'>[src] makes eye contact with you.</span>"
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, examined_mob, msg), 3)
 
 /**
   * Point at an atom
@@ -445,11 +489,13 @@
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
 
-	var/tile = get_turf(A)
+	var/turf/tile = get_turf(A)
 	if (!tile)
 		return FALSE
 
-	new /obj/effect/temp_visual/point(A,invisibility)
+	var/turf/our_tile = get_turf(src)
+	var/obj/visual = new /obj/effect/temp_visual/point(our_tile, invisibility)
+	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y, time = 1.7, easing = EASE_OUT)
 
 	return TRUE
 
@@ -737,7 +783,7 @@
 			if(statpanel("SDQL2"))
 				stat("Access Global SDQL2 List", GLOB.sdql2_vv_statobj)
 				for(var/i in GLOB.sdql2_queries)
-					var/datum/SDQL2_query/Q = i
+					var/datum/sdql2_query/Q = i
 					Q.generate_stat()
 
 	if(listed_turf && client)
@@ -938,7 +984,7 @@
 /mob/post_buckle_mob(mob/living/M)
 	var/height = M.get_mob_buckling_height(src)
 	M.pixel_y = initial(M.pixel_y) + height
-	if(M.layer < layer)
+	if(M.layer <= layer) //make sure they stay above our current layer
 		M.layer = layer + 0.1
 ///Call back post unbuckle from a mob, (reset your visual height here)
 /mob/post_unbuckle_mob(mob/living/M)

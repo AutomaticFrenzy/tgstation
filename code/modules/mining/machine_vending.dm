@@ -36,6 +36,7 @@
 		new /datum/data/mining_equipment("Kinetic Accelerator",			/obj/item/gun/energy/kinetic_accelerator,							750),
 		new /datum/data/mining_equipment("Advanced Scanner",			/obj/item/t_scanner/adv_mining_scanner,								800),
 		new /datum/data/mining_equipment("Resonator",					/obj/item/resonator,												800),
+		new /datum/data/mining_equipment("Luxury Medipen",				/obj/item/reagent_containers/hypospray/medipen/survival/luxury,		1000),
 		new /datum/data/mining_equipment("Fulton Pack",					/obj/item/extraction_pack,											1000),
 		new /datum/data/mining_equipment("Lazarus Injector",			/obj/item/lazarus_injector,											1000),
 		new /datum/data/mining_equipment("Silver Pickaxe",				/obj/item/pickaxe/silver,											1000),
@@ -99,7 +100,7 @@
 	if(!ui)
 		var/datum/asset/assets = get_asset_datum(/datum/asset/spritesheet/vending)
 		assets.send(user)
-		ui = new(user, src, ui_key, "mining_vendor", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, ui_key, "MiningVendor", name, ui_x, ui_y, master_ui, state)
 		ui.open()
 
 /obj/machinery/mineral/equipment_vendor/ui_static_data(mob/user)

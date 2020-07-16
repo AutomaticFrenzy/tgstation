@@ -238,7 +238,7 @@
 	desc = "Rubber ducky you're so fine, you make bathtime lots of fuuun. Rubber ducky I'm awfully fooooond of yooooouuuu~"	//thanks doohl
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "rubberducky"
-	item_state = "rubberducky"
+	inhand_icon_state = "rubberducky"
 
 /obj/structure/sink
 	name = "sink"
@@ -281,6 +281,8 @@
 
 	user.visible_message("<span class='notice'>[user] washes [user.p_their()] [washing_face ? "face" : "hands"] using [src].</span>", \
 						"<span class='notice'>You wash your [washing_face ? "face" : "hands"] using [src].</span>")
+
+
 	if(washing_face)
 		SEND_SIGNAL(user, COMSIG_COMPONENT_CLEAN_FACE_ACT, CLEAN_STRENGTH_BLOOD)
 		if(ishuman(user))
@@ -290,7 +292,7 @@
 			H.regenerate_icons()
 		user.drowsyness = max(user.drowsyness - rand(2,3), 0) //Washing your face wakes you up if you're falling asleep
 	else
-		SEND_SIGNAL(user, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)
+		user.washed(src)
 
 /obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
 	if(busy)
@@ -336,7 +338,7 @@
 		to_chat(user, "<span class='notice'>You tear off a strip of gauze and make a rag.</span>")
 		G.use(1)
 		return
-	
+
 	if(istype(O, /obj/item/stack/ore/glass))
 		new /obj/item/stack/sheet/sandblock(loc)
 		to_chat(user, "<span class='notice'>You wet the sand in the sink and form it into a block.</span>")
@@ -355,11 +357,11 @@
 			busy = FALSE
 			return 1
 		busy = FALSE
-		SEND_SIGNAL(O, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)
+		O.washed(src)
 		O.acid_level = 0
 		create_reagents(5)
 		reagents.add_reagent(dispensedreagent, 5)
-		reagents.reaction(O, TOUCH)
+		reagents.expose(O, TOUCH)
 		user.visible_message("<span class='notice'>[user] washes [O] using [src].</span>", \
 							"<span class='notice'>You wash [O] using [src].</span>")
 		return 1
@@ -422,9 +424,11 @@
 	alpha = 200 //Mappers can also just set this to 255 if they want curtains that can't be seen through
 	layer = SIGN_LAYER
 	anchored = TRUE
-	opacity = 0
+	opacity = FALSE
 	density = FALSE
 	var/open = TRUE
+	/// if it can be seen through when closed
+	var/opaque_closed = FALSE
 
 /obj/structure/curtain/proc/toggle()
 	open = !open
@@ -436,12 +440,14 @@
 		layer = WALL_OBJ_LAYER
 		density = TRUE
 		open = FALSE
-
+		if(opaque_closed)
+			opacity = TRUE
 	else
 		icon_state = "[icon_type]-open"
 		layer = SIGN_LAYER
 		density = FALSE
 		open = TRUE
+		opacity = FALSE
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/toy/crayon))
@@ -496,3 +502,18 @@
 	icon_state = "bounty-open"
 	color = null
 	alpha = 255
+	opaque_closed = TRUE
+
+/obj/structure/curtain/cloth/
+	color = null
+	alpha = 255
+	opaque_closed = TRUE
+
+/obj/structure/curtain/cloth/deconstruct(disassembled = TRUE)
+	new /obj/item/stack/sheet/cloth (loc, 4)
+	new /obj/item/stack/rods (loc, 1)
+	qdel(src)
+
+/obj/structure/curtain/cloth/fancy
+	icon_type = "cur_fancy"
+	icon_state = "cur_fancy-open"

@@ -43,6 +43,9 @@
 
 	var/zfalling = FALSE
 
+	///Last location of the atom for demo recording purposes
+	var/atom/demo_last_loc
+
 	/// Either FALSE, [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = FALSE
 	///Internal holder for emissive blocker object, do not use directly use blocks_emissive
@@ -97,7 +100,6 @@
 			if(A.layer > highest.layer)
 				highest = A
 	INVOKE_ASYNC(src, .proc/SpinAnimation, 5, 2)
-	throw_impact(highest)
 	return TRUE
 
 //For physical constraints to travelling up/down.
@@ -125,25 +127,25 @@
 	if((var_name in careful_edits) && (var_value % world.icon_size) != 0)
 		return FALSE
 	switch(var_name)
-		if("x")
+		if(NAMEOF(src, x))
 			var/turf/T = locate(var_value, y, z)
 			if(T)
 				forceMove(T)
 				return TRUE
 			return FALSE
-		if("y")
+		if(NAMEOF(src, y))
 			var/turf/T = locate(x, var_value, z)
 			if(T)
 				forceMove(T)
 				return TRUE
 			return FALSE
-		if("z")
+		if(NAMEOF(src, z))
 			var/turf/T = locate(x, y, var_value)
 			if(T)
 				forceMove(T)
 				return TRUE
 			return FALSE
-		if("loc")
+		if(NAMEOF(src, loc))
 			if(istype(var_value, /atom))
 				forceMove(var_value)
 				return TRUE
@@ -409,6 +411,7 @@
 		loc.handle_atom_del(src)
 	for(var/atom/movable/AM in contents)
 		qdel(AM)
+	LAZYCLEARLIST(client_mobs_in_contents)
 	moveToNullspace()
 	invisibility = INVISIBILITY_ABSTRACT
 	if(pulledby)
@@ -571,7 +574,7 @@
 	if(impact_signal & COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH)
 		hitpush = FALSE // hacky, tie this to something else or a proper workaround later
 
-	if(impact_signal & ~COMPONENT_MOVABLE_IMPACT_NEVERMIND) // in case a signal interceptor broke or deleted the thing before we could process our hit
+	if(!(impact_signal && (impact_signal & COMPONENT_MOVABLE_IMPACT_NEVERMIND))) // in case a signal interceptor broke or deleted the thing before we could process our hit
 		return hit_atom.hitby(src, throwingdatum=throwingdatum, hitpush=hitpush)
 
 /atom/movable/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked, datum/thrownthing/throwingdatum)
@@ -585,7 +588,7 @@
 	return throw_at(target, range, speed, thrower, spin, diagonals_first, callback, force, gentle)
 
 ///If this returns FALSE then callback will not be called.
-/atom/movable/proc/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE)
+/atom/movable/proc/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	. = FALSE
 	if (!target || speed <= 0)
 		return
@@ -670,7 +673,8 @@
 	SSthrowing.processing[src] = TT
 	if (SSthrowing.state == SS_PAUSED && length(SSthrowing.currentrun))
 		SSthrowing.currentrun[src] = TT
-	TT.tick()
+	if (quickstart)
+		TT.tick()
 
 /atom/movable/proc/handle_buckled_mob_movement(newloc,direct)
 	for(var/m in buckled_mobs)
@@ -763,7 +767,7 @@
 		pixel_x_diff = -8
 
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
-	animate(src, pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
 
 /atom/movable/proc/do_item_attack_animation(atom/A, visual_effect_icon, obj/item/used_item)
 	var/image/I

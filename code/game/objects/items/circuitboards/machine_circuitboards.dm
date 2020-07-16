@@ -115,45 +115,6 @@
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
 	needs_anchored = FALSE
 
-#define PATH_POWERCOIL /obj/machinery/power/tesla_coil/power
-#define PATH_RPCOIL /obj/machinery/power/tesla_coil/research
-
-/obj/item/circuitboard/machine/tesla_coil/Initialize()
-	. = ..()
-	if(build_path)
-		build_path = PATH_POWERCOIL
-
-/obj/item/circuitboard/machine/tesla_coil/attackby(obj/item/I, mob/user, params)
-	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		var/obj/item/circuitboard/new_type
-		var/new_setting
-		switch(build_path)
-			if(PATH_POWERCOIL)
-				new_type = /obj/item/circuitboard/machine/tesla_coil/research
-				new_setting = "Research"
-			if(PATH_RPCOIL)
-				new_type = /obj/item/circuitboard/machine/tesla_coil/power
-				new_setting = "Power"
-		name = initial(new_type.name)
-		build_path = initial(new_type.build_path)
-		I.play_tool_sound(src)
-		to_chat(user, "<span class='notice'>You change the circuitboard setting to \"[new_setting]\".</span>")
-	else
-		return ..()
-
-/obj/item/circuitboard/machine/tesla_coil/power
-	name = "Tesla Coil (Machine Board)"
-	build_path = PATH_POWERCOIL
-
-/obj/item/circuitboard/machine/tesla_coil/research
-	name = "Tesla Corona Researcher (Machine Board)"
-	build_path = PATH_RPCOIL
-
-#undef PATH_POWERCOIL
-#undef PATH_RPCOIL
-
-
-
 /obj/item/circuitboard/machine/cell_charger
 	name = "Cell Charger (Machine Board)"
 	icon_state = "engineering"
@@ -467,6 +428,19 @@
 		/obj/item/stack/cable_coil = 3)
 	needs_anchored = FALSE
 
+/obj/item/circuitboard/machine/electrolyzer
+	name = "Electrolyzer (Machine Board)"
+	icon_state = "generic"
+	build_path = /obj/machinery/electrolyzer
+	req_components = list(
+		/obj/item/stock_parts/electrolite = 2,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stack/cable_coil = 5,
+		/obj/item/stack/sheet/glass = 1)
+
+	needs_anchored = FALSE
+
+
 /obj/item/circuitboard/machine/techfab
 	name = "\improper Techfab (Machine Board)"
 	icon_state = "generic"
@@ -622,17 +596,6 @@
 		to_chat(user, "<span class='notice'>You change the circuit board setting to \"[new_name]\".</span>")
 	else
 		return ..()
-
-/obj/item/circuitboard/machine/dnascanner
-	name = "DNA Scanner (Machine Board)"
-	icon_state = "medical"
-	build_path = /obj/machinery/dna_scannernew
-	req_components = list(
-		/obj/item/stock_parts/scanning_module = 1,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stack/sheet/glass = 1,
-		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/cryo_tube
 	name = "Cryotube (Machine Board)"
@@ -912,6 +875,17 @@
 		/obj/item/stock_parts/micro_laser = 1,
 		/obj/item/stock_parts/scanning_module = 1)
 
+/obj/item/circuitboard/machine/dnascanner
+	name = "DNA Scanner (Machine Board)"
+	icon_state = "science"
+	build_path = /obj/machinery/dna_scannernew
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stack/sheet/glass = 1,
+		/obj/item/stack/cable_coil = 2)
+
 //Security
 
 /obj/item/circuitboard/machine/protolathe/department/security
@@ -1073,6 +1047,13 @@
 	icon_state = "service"
 	build_path = /obj/machinery/rnd/production/techfab/department/service
 
+/obj/item/circuitboard/machine/vendatray
+	name = "Vend-A-Tray (Machine Board)"
+	icon_state = "service"
+	build_path = /obj/structure/displaycase/forsale
+	req_components = list(
+		/obj/item/stock_parts/card_reader = 1)
+
 //Supply
 
 /obj/item/circuitboard/machine/mining_equipment_vendor
@@ -1155,15 +1136,6 @@
 	def_components = list(
 		/obj/item/stock_parts/capacitor = /obj/item/stock_parts/capacitor/quadratic,
 		/obj/item/stock_parts/micro_laser = /obj/item/stock_parts/micro_laser/quadultra)
-
-/obj/item/circuitboard/machine/plantgenes/vault
-	name = "alien board (Plant DNA Manipulator)"
-	icon_state = "abductor_mod"
-	// It wasn't made by actual abductors race, so no abductor tech here.
-	def_components = list(
-		/obj/item/stock_parts/manipulator = /obj/item/stock_parts/manipulator/femto,
-		/obj/item/stock_parts/micro_laser = /obj/item/stock_parts/micro_laser/quadultra,
-		/obj/item/stock_parts/scanning_module = /obj/item/stock_parts/scanning_module/triphasic)
 
 /obj/item/circuitboard/machine/hypnochair
 	name = "Enhanced Interrogation Chamber (Machine Board)"

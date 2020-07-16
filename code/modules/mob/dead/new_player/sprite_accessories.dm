@@ -288,10 +288,6 @@
 	icon_state = "hair_dreads"
 
 /datum/sprite_accessory/hair/drillhair
-	name = "Drill Hair"
-	icon_state = "hair_drillhair"
-
-/datum/sprite_accessory/hair/drillhair
 	name = "Drillruru"
 	icon_state = "hair_drillruru"
 
@@ -347,7 +343,7 @@
 	name = "Flat Top (Big)"
 	icon_state = "hair_bigflattop"
 
-/datum/sprite_accessory/hair/fag
+/datum/sprite_accessory/hair/flow_hair
 	name = "Flow Hair"
 	icon_state = "hair_f"
 
@@ -403,7 +399,7 @@
 	name = "Jensen Hair"
 	icon_state = "hair_jensen"
 
-/datum/sprite_accessory/hair/Joestar
+/datum/sprite_accessory/hair/joestar
 	name = "Joestar"
 	icon_state = "hair_joestar"
 
@@ -475,7 +471,7 @@
 	name = "Mohawk (Shaved)"
 	icon_state = "hair_shavedmohawk"
 
-/datum/sprite_accessory/hair/shavedmohawk
+/datum/sprite_accessory/hair/unshavenmohawk
 	name = "Mohawk (Unshaven)"
 	icon_state = "hair_unshaven_mohawk"
 
