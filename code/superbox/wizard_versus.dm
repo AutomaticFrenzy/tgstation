@@ -146,8 +146,6 @@
 		check_counter = 0
 		if (started == 0)
 			check_begin()
-		else if (started == 2)
-			check_win()
 
 	return FALSE
 
@@ -217,9 +215,9 @@
 	// mark started
 	started = 2
 
-/datum/game_mode/wizard_versus/check_win()
-	if (winner || started != 2)
-		return
+/datum/game_mode/wizard_versus/check_finished()
+	if (started != 2)
+		return FALSE
 
 	var/list/teams_alive = list()
 	for(var/datum/mind/wizard in wizards)
@@ -235,12 +233,10 @@
 	else if (teams_alive.len == 1)
 		winner = "[teams_alive[1]]"
 	else
-		return
-	to_chat(world, "----------------<br>The winner of the wizard battle is: <b>[winner]</b>!<br>----------------")
+		return FALSE
 
-/datum/game_mode/wizard_versus/check_finished()
-	if (winner)
-		return TRUE
+	to_chat(world, "----------------<br>The winner of the wizard battle is: <b>[winner]</b>!<br>----------------")
+	return TRUE
 
 /datum/game_mode/wizard_versus/set_round_result()
 	..()

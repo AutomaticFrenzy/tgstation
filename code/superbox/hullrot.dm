@@ -341,7 +341,7 @@
 	return mainframe == null
 
 /mob/living/proc/hullrot_audio_source()
-	var/mob/camera/aiEye/remote/holo/holoEye = remote_control
+	var/mob/camera/ai_eye/remote/holo/holoEye = remote_control
 	if (istype(holoEye))
 		return holoEye.origin
 	return src
@@ -367,7 +367,7 @@
 
 	//Message
 	var/datum/language/D = GLOB.language_datum_instances[message_language]
-	var/verbpart = D.get_spoken_verb()
+	var/verbpart = speaker.verb_say
 	if (verbpart == "says")
 		verbpart = "speaks"
 
