@@ -294,7 +294,7 @@ function checkStatusTab() {
 		if(!verb_tabs.includes(menu.children[i].id) && !permanent_tabs.includes(menu.children[i].id))
 			removeStatusTab(menu.children[i].id);
 }
-}
+
 function remove_verb(v) {
 	var verb_to_remove = v; // to_remove = [verb:category, verb:name]
 	for(var i = verbs.length - 1; i >= 0; i--){
