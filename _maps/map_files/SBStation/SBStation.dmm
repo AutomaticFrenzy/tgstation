@@ -64,7 +64,7 @@
 "aas" = (
 /obj/structure/table/wood,
 /obj/item/taperecorder,
-/obj/item/storage/secure/safe/HoS{
+/obj/item/storage/secure/safe/hos{
 	pixel_x = 35
 	},
 /obj/item/book/manual/wiki/security_space_law,
@@ -3026,7 +3026,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
 "ahc" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/chief_medical,
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "CM Office APC";
@@ -3223,7 +3223,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/mob/living/simple_animal/pet/cat/Runtime,
+/mob/living/simple_animal/pet/cat/runtime,
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
 "ahC" = (
@@ -4574,7 +4574,7 @@
 	pixel_x = 28
 	},
 /obj/item/reagent_containers/food/snacks/pie/cream,
-/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/food/baguette,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/machinery/camera{
 	c_tag = "Theatre Backstage";
@@ -5169,7 +5169,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/structure/piano{
+/obj/structure/musician/piano{
 	icon_state = "piano"
 	},
 /turf/open/floor/wood,
@@ -10527,12 +10527,12 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "ayl" = (
 /obj/structure/rack,
-/obj/item/aiModule/reset/purge{
+/obj/item/ai_module/reset/purge{
 	pixel_x = -3;
 	pixel_y = -3
 	},
-/obj/item/aiModule/core/full/custom,
-/obj/item/aiModule/reset,
+/obj/item/ai_module/core/full/custom,
+/obj/item/ai_module/reset,
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
 	name = "Core Modules";
@@ -10954,8 +10954,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "azu" = (
-/obj/structure/sign/plaques/golden{
-	name = "The Most Robust Captain Award for Robustness";
+/obj/structure/plaque/static_plaque/golden/captain{
 	pixel_y = 32
 	},
 /obj/machinery/light{
@@ -11034,7 +11033,7 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "azD" = (
 /obj/structure/rack,
-/obj/item/aiModule/core/freeformcore{
+/obj/item/ai_module/core/freeformcore{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -11043,8 +11042,8 @@
 	name = "Core Modules";
 	req_access_txt = "20"
 	},
-/obj/item/aiModule/core/full/tyrant,
-/obj/item/aiModule/core/full/paladin{
+/obj/item/ai_module/core/full/tyrant,
+/obj/item/ai_module/core/full/paladin{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -11661,13 +11660,13 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "aAX" = (
 /obj/structure/rack,
-/obj/item/aiModule/core/full/corp,
-/obj/item/aiModule/core/full/antimov{
+/obj/item/ai_module/core/full/corp,
+/obj/item/ai_module/core/full/antimov{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/aiModule/zeroth/oneHuman,
-/obj/item/aiModule/supplied/oxygen,
+/obj/item/ai_module/zeroth/onehuman,
+/obj/item/ai_module/supplied/oxygen,
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
 	name = "Core Modules";
@@ -12083,8 +12082,8 @@
 "aBS" = (
 /obj/structure/table/reinforced,
 /obj/item/hand_labeler,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -12785,7 +12784,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/computer/rdconsole/core{
+/obj/machinery/computer/rdconsole{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -15241,7 +15240,7 @@
 	pixel_y = 30;
 	receive_ore_updates = 1
 	},
-/obj/machinery/computer/rdconsole/robotics,
+/obj/machinery/modular_computer/console/preset/civilian,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/science/robotics/lab)
@@ -16430,7 +16429,7 @@
 /turf/open/floor/plasteel,
 /area/science/robotics/lab)
 "aLN" = (
-/obj/structure/closet/secure_closet/RD,
+/obj/structure/closet/secure_closet/research_director,
 /obj/effect/turf_decal/stripes/line{
 	icon_state = "warningline";
 	dir = 1
@@ -17737,7 +17736,7 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/aiModule/reset,
+/obj/item/ai_module/reset,
 /obj/item/aicard,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel/dark,
@@ -18293,7 +18292,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 5
 	},
-/obj/machinery/disposal/deliveryChute{
+/obj/machinery/disposal/delivery_chute{
 	dir = 1
 	},
 /obj/structure/disposalpipe/trunk{
@@ -18980,7 +18979,7 @@
 "aSf" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/pump,
-/obj/structure/sign/plaques/atmos{
+/obj/structure/plaque/static_plaque/atmos{
 	pixel_y = 32
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -20228,7 +20227,7 @@
 /turf/open/floor/engine/n2o,
 /area/engine/atmos)
 "aUE" = (
-/obj/structure/sign/plaques/golden{
+/obj/structure/plaque/static_plaque/golden{
 	desc = "A plaque signed by Boznar Rodriguez, the chief designer and mapper of SBStation. Special thanks to SpaceManiac for constantly keeping things running smoothly with updates and code changes. AutoFrenzy for organizing and administrating weekly games. And the SuperBox community, for supporting SBStation and Space Station 13 and keeping the project alive.";
 	name = "SBStation Commemorative Plaque";
 	pixel_x = -30
@@ -21680,7 +21679,7 @@
 "aYa" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
-/mob/living/simple_animal/parrot/Poly{
+/mob/living/simple_animal/parrot/poly{
 	name = "Skittles"
 	},
 /turf/open/floor/plasteel,
@@ -24863,7 +24862,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "fFK" = (
-/obj/machinery/disposal/deliveryChute,
+/obj/machinery/disposal/delivery_chute,
 /obj/structure/window/reinforced{
 	dir = 8;
 	layer = 2.9
@@ -25629,7 +25628,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
 "kqk" = (
-/obj/machinery/droneDispenser,
+/obj/machinery/drone_dispenser,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
@@ -25758,7 +25757,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
-/obj/item/storage/box/PDAs{
+/obj/item/storage/box/pdas{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -25829,8 +25828,8 @@
 	pixel_x = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/item/destTagger,
-/obj/item/destTagger,
+/obj/item/dest_tagger,
+/obj/item/dest_tagger,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -26432,7 +26431,7 @@
 /turf/closed/wall/r_wall,
 /area/engine/engineering)
 "qvH" = (
-/obj/structure/sign/plaques/sciencestation{
+/obj/structure/plaque/static_plaque/sciencestation{
 	dir = 4;
 	pixel_x = -32
 	},
@@ -27192,7 +27191,7 @@
 /area/space/nearstation)
 "vCr" = (
 /obj/structure/table,
-/obj/item/stack/packageWrap{
+/obj/item/stack/package_wrap{
 	pixel_x = -1;
 	pixel_y = -1
 	},
@@ -27470,7 +27469,7 @@
 /area/hallway/primary/central)
 "xvk" = (
 /obj/structure/table,
-/obj/item/stack/packageWrap{
+/obj/item/stack/package_wrap{
 	pixel_x = -1;
 	pixel_y = -1
 	},

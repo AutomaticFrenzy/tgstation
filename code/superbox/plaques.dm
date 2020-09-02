@@ -1,4 +1,4 @@
-/obj/structure/sign/plaques/sciencestation
+/obj/structure/plaque/static_plaque/sciencestation
 	name = "Dimensional Research Asteroid Commemorative Plaque"
 	desc = {"\
 <hr>\
