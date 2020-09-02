@@ -10,15 +10,17 @@
 	desc = "A canister for the storage of gas."
 	icon_state = "yellow"
 	density = TRUE
-	ui_x = 300
-	ui_y = 232
+	base_icon_state = "yellow" //Used to make dealing with breaking the canister less hellish.
+	volume = 1000
+	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 80, ACID = 50)
+	max_integrity = 250
+	integrity_failure = 0.4
+	pressure_resistance = 7 * ONE_ATMOSPHERE
+	req_access = list()
 
-	///The base iconstate, used to make dealing with breaking the canister less hellish
-	var/base_icon_state = "yellow"
 	var/valve_open = FALSE
 	var/release_log = ""
 
-	volume = 1000
 	var/filled = 0.5
 	var/gas_type
 
@@ -30,10 +32,6 @@
 	///Max amount of pressure allowed inside of the canister before it starts to break (different tiers have different limits)
 	var/pressure_limit = 50000
 
-	armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 100, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 50)
-	max_integrity = 250
-	integrity_failure = 0.4
-	pressure_resistance = 7 * ONE_ATMOSPHERE
 	var/temperature_resistance = 1000 + T0C
 	var/starter_temp
 	// Prototype vars
@@ -47,7 +45,6 @@
 	var/restricted = FALSE
 	///Set the tier of the canister and overlay used
 	var/mode = CANISTER_TIER_1
-	req_access = list()
 
 	var/update = 0
 	var/static/list/label2types = list(
@@ -418,11 +415,13 @@
 		take_damage(clamp((our_temperature/heat_limit) * (our_pressure/pressure_limit), 5, 50), BURN, 0)
 	update_icon()
 
-/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \
-															datum/tgui/master_ui = null, datum/ui_state/state = GLOB.physical_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/machinery/portable_atmospherics/canister/ui_state(mob/user)
+	return GLOB.physical_state
+
+/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "Canister", name, ui_x, ui_y, master_ui, state)
+		ui = new(user, src, "Canister", name)
 		ui.open()
 
 /obj/machinery/portable_atmospherics/canister/ui_data()
