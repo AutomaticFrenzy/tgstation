@@ -117,7 +117,7 @@
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
 		diag_hud.add_to_hud(src)
 	diag_hud_set_electrified()
-	queue_smooth_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 	RegisterSignal(src, COMSIG_MACHINERY_BROKEN, .proc/on_break)
 

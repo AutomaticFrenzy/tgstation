@@ -289,7 +289,7 @@
 	var/turf/T = get_turf(B)
 	if(!T || !is_station_level(T.z))
 		return FALSE
-	if (is_blocked_turf(T))
+	if (T.is_blocked_turf())
 		return FALSE // blocked, try again soon
 
 	return do_teleport(it, T)

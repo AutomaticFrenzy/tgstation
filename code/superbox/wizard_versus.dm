@@ -68,7 +68,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = FALSE
 	has_gravity = TRUE
-	noteleport = TRUE
+	area_flags = UNIQUE_AREA | NOTELEPORT
 	flags_1 = NONE
 
 /area/wizard_versus/ready
@@ -193,7 +193,7 @@
 		while (!turfs.len && areas.len)
 			var/area/A = GLOB.teleportlocs[pick_n_take(areas)]
 			for(var/turf/T in get_area_turfs(A.type))
-				if (!is_blocked_turf(T))
+				if (!T.is_blocked_turf())
 					turfs += T
 		if (!turfs.len)
 			to_chat(world, "<B>Having trouble finding a drop point for [team]...<B>")
