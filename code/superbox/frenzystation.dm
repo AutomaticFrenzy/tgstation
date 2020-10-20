@@ -102,9 +102,9 @@
 /obj/machinery/latejoin_cryo/open_machine()
 	for(var/mob/M in contents) //only drop mobs
 		M.forceMove(get_turf(src))
-		if(isliving(M))
+		/*if(isliving(M))
 			var/mob/living/L = M
-			L.update_mobility()
+			L.update_mobility()*/
 	occupant = null
 	update_icon()
 

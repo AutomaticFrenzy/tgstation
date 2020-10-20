@@ -3,7 +3,7 @@
 // Clothier which automatically sets the colors of your robe.
 /obj/effect/wizard_clothier
 	name = "wizard clothier"
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "x2"
 	invisibility = INVISIBILITY_ABSTRACT
 	anchored = TRUE
