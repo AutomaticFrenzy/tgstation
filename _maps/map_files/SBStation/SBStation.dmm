@@ -27136,7 +27136,7 @@
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/structure/target_stake,
+/obj/structure/training_machine,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "vad" = (
