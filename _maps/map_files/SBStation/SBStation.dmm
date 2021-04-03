@@ -58,7 +58,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aar" = (
-/obj/machinery/computer/card/minor/hos,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aas" = (
@@ -140,7 +140,6 @@
 /turf/open/floor/iron/dark,
 /area/security/main)
 "aaw" = (
-/obj/structure/closet/secure_closet/lethalshots,
 /obj/machinery/camera/motion{
 	c_tag = "Security - Armory";
 	dir = 2;
@@ -3046,7 +3045,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/crew_quarters/heads/cmo)
 "ahd" = (
-/obj/machinery/computer/card/minor/cmo,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
@@ -3979,7 +3978,7 @@
 /turf/open/floor/wood,
 /area/lawoffice)
 "aja" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on{
 	dir = 2
 	},
 /turf/open/floor/iron,
@@ -4573,7 +4572,7 @@
 /obj/structure/mirror{
 	pixel_x = 28
 	},
-/obj/item/reagent_containers/food/snacks/pie/cream,
+/obj/item/food/pie/cream,
 /obj/item/food/baguette,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/machinery/camera{
@@ -4774,7 +4773,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "akV" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "akW" = (
@@ -7438,7 +7437,7 @@
 /obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
-/obj/item/reagent_containers/food/snacks/hotdog{
+/obj/item/food/hotdog{
 	desc = "Old nasty footlong, please don't eat this.";
 	name = "nasty month-old hotdog";
 	pixel_w = 0;
@@ -7458,7 +7457,7 @@
 	name = "kitchen shutters"
 	},
 /obj/item/storage/bag/tray,
-/obj/item/reagent_containers/food/snacks/pie/cream,
+/obj/item/food/pie/cream,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -7838,7 +7837,7 @@
 /area/chapel/main)
 "asc" = (
 /obj/structure/table/glass,
-/obj/item/reagent_containers/food/snacks/grown/harebell,
+/obj/item/food/grown/harebell,
 /turf/open/floor/iron/chapel{
 	dir = 1
 	},
@@ -8665,7 +8664,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/obj/item/reagent_containers/food/snacks/grown/wheat{
+/obj/item/food/grown/wheat{
 	pixel_x = 14;
 	pixel_y = 3
 	},
@@ -8694,7 +8693,7 @@
 /area/crew_quarters/kitchen)
 "aue" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/food/mint,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
@@ -9419,7 +9418,7 @@
 	light_color = "#d1dfff"
 	},
 /obj/structure/cable,
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -10818,7 +10817,7 @@
 /obj/item/stack/rods{
 	amount = 50
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
 /turf/open/floor/iron,
@@ -10871,7 +10870,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 30
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 30
 	},
 /obj/machinery/requests_console{
@@ -11204,7 +11203,7 @@
 /area/science/lab)
 "azR" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
 /obj/item/stack/sheet/glass{
@@ -11293,7 +11292,7 @@
 	},
 /area/science/research)
 "azW" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on{
 	dir = 2
 	},
 /turf/open/floor/iron/dark,
@@ -12274,7 +12273,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hop)
 "aCo" = (
-/obj/machinery/computer/card,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -12606,7 +12605,7 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
 "aDc" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/machinery/requests_console{
@@ -14220,7 +14219,7 @@
 	frequency = 1439;
 	pixel_y = 23
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
 /obj/item/stack/sheet/glass{
@@ -14424,7 +14423,7 @@
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
 "aGN" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/purple,
@@ -14450,7 +14449,7 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/exit)
 "aGS" = (
-/obj/machinery/vending/cola/random,
+/obj/effect/spawner/randomcolavend,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
@@ -15212,10 +15211,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
 /obj/item/stack/sheet/glass{
@@ -15738,7 +15737,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/crew_quarters/heads/hor)
 "aJX" = (
-/obj/machinery/computer/card/minor/rd{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/machinery/button/door{
@@ -17698,10 +17697,6 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/circuitboard/computer/card{
-	pixel_x = 2;
-	pixel_y = -2
-	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/storage/tech)
@@ -19345,13 +19340,13 @@
 /area/engine/engineering)
 "aSO" = (
 /obj/structure/table,
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50
 	},
 /obj/machinery/light{
@@ -20177,7 +20172,7 @@
 /turf/open/floor/iron,
 /area/engine/atmos)
 "aUx" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater{
+/obj/machinery/atmospherics/components/binary/thermomachine/heater{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -20366,7 +20361,7 @@
 /turf/open/floor/iron,
 /area/engine/atmos)
 "aUW" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer{
 	dir = 4;
 	on = 0;
 	target_temperature = 80
@@ -21127,7 +21122,7 @@
 /obj/item/stack/sheet/glass{
 	layer = 3.1
 	},
-/obj/item/stack/sheet/metal{
+/obj/item/stack/sheet/iron{
 	amount = 50;
 	pixel_x = 2;
 	pixel_y = 2
@@ -21410,7 +21405,7 @@
 /turf/open/floor/iron,
 /area/crew_quarters/heads/chief)
 "aXt" = (
-/obj/machinery/computer/card/minor/ce{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/machinery/power/apc{
@@ -26715,19 +26710,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/hallway/primary/fore)
-"svJ" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/obj/machinery/computer/bounty{
-	icon_state = "computer";
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/quartermaster/storage)
 "swm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -57325,7 +57307,7 @@ aHh
 aIh
 aJn
 aLr
-svJ
+aHh
 aMb
 aMX
 aNK
