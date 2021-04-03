@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 		// security
 		list(/datum/job/head_of_security, /datum/job/officer, /datum/job/warden, /datum/job/prisoner) = list(
 			/area/command/heads_quarters/hos,
-			/area/security,
+			/area/security/warden,
 			/area/security/brig,
 			"brigfront",
 			"hoslock",
