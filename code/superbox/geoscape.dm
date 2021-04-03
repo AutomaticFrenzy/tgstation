@@ -126,3 +126,5 @@
 		display.pixel_x = (64 - 72) / 2
 		display.pixel_y = 27
 		add_overlay(display)
+
+	return ..()

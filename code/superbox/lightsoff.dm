@@ -51,28 +51,28 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 			/area/security/courtroom,
 		),
 		// security
-		list(/datum/job/hos, /datum/job/officer, /datum/job/warden, /datum/job/prisoner) = list(
-			/area/crew_quarters/heads/hos,
-			/area/security/main,
+		list(/datum/job/head_of_security, /datum/job/officer, /datum/job/warden, /datum/job/prisoner) = list(
+			/area/command/heads_quarters/hos,
+			/area/security,
 			/area/security/brig,
 			"brigfront",
 			"hoslock",
 		),
 		// cargo
-		list(/datum/job/qm, /datum/job/cargo_tech, /datum/job/mining) = list(
-			/area/quartermaster/miningdock,
-			/area/quartermaster/storage,
+		list(/datum/job/quartermaster, /datum/job/cargo_technician, /datum/job/mining) = list(
+			/area/cargo/miningdock,
+			/area/cargo/storage,
 		),
 		// medical
-		list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/geneticist) = list(
-			/area/crew_quarters/heads/cmo,
+		list(/datum/job/chief_medical_officer, /datum/job/doctor, /datum/job/chemist, /datum/job/geneticist) = list(
+			/area/command/heads_quarters/cmo,
 			/area/medical/chemistry,
 			/area/medical/morgue,
-			/area/medical/genetics,
+			/area/science/genetics,
 		),
 		// science
-		list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist) = list(
-			/area/crew_quarters/heads/hor,
+		list(/datum/job/research_director, /datum/job/scientist, /datum/job/roboticist) = list(
+			/area/command/heads_quarters/rd,
 			/area/science/research,
 			/area/science/server,
 			/area/science/xenobiology,
@@ -82,20 +82,20 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 		),
 		// service
 		list(/datum/job/bartender, /datum/job/hydro, /datum/job/cook) = list(
-			/area/hydroponics,
-			/area/crew_quarters/kitchen,
+			/area/service/hydroponics,
+			/area/service/kitchen,
 			"kitchen",
 		),
 		// engineering
 		list(/datum/job/chief_engineer, /datum/job/engineer, /datum/job/atmos) = list(
-			/area/crew_quarters/heads/chief,
-			/area/engine/engineering,
-			/area/engine/atmos,
+			/area/command/heads_quarters/ce,
+			/area/engineering/main,
+			/area/engineering/atmos,
 			"ceblast",
 		),
 		// private offices
 		list(/datum/job/lawyer) = list(
-			/area/lawoffice,
+			/area/service/lawoffice,
 			"lawyer_blast",
 		),
 		list(/datum/job/detective) = list(
@@ -103,18 +103,18 @@ GLOBAL_LIST_INIT(lightsoff_info, list(
 			"kanyewest",
 		),
 		list(/datum/job/janitor) = list(
-			/area/janitor,
+			/area/service/janitor,
 		),
 		list(/datum/job/chaplain) = list(
-			/area/chapel/main,
+			/area/service/chapel/main,
 		),
-		list(/datum/job/hop) = list(
-			/area/crew_quarters/heads/hop,
+		list(/datum/job/head_of_personnel) = list(
+			/area/command/heads_quarters/hop,
 			"hopline",
 			"hopblast",
 		),
 		list(/datum/job/captain) = list(
-			/area/crew_quarters/heads/captain,
+			/area/command/heads_quarters/captain,
 			"captainhall",
 		),
 	)

@@ -54,8 +54,8 @@
 		/obj/machinery/power/emitter,
 		/obj/machinery/portable_atmospherics/pump,
 		/obj/machinery/portable_atmospherics/scrubber,
-		/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
-		/obj/machinery/atmospherics/components/unary/thermomachine/heater,
+		/obj/machinery/atmospherics/components/binary/thermomachine/freezer,
+		/obj/machinery/atmospherics/components/binary/thermomachine/heater,
 		// medbay
 		/obj/machinery/chem_heater,
 		/obj/machinery/chem_master,
@@ -80,7 +80,7 @@
 		/obj/machinery/computer/upload/ai,
 		/obj/machinery/computer/upload/borg,
 		/obj/machinery/computer/crew,
-		/obj/machinery/computer/card,
+		/obj/machinery/modular_computer/console/preset/id,
 		/obj/machinery/computer/communications,
 		/obj/machinery/blackbox_recorder,
 		// science

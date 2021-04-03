@@ -3,7 +3,7 @@
 /area/space/nearstation/frenzy
 
 /obj/effect/mapping_helpers
-	layer = POINT_LAYER
+	layer = DOOR_HELPER_LAYER
 
 // ----------------------------------------------------------------------------
 // Helper which marks the entire station as parallax in the given dir
@@ -114,7 +114,7 @@
 	if (!computer)
 		icon_state = "pod-off"
 		add_overlay("cover-off")
-		return
+		return ..()
 
 	// otherwise look like a cryo tube
 	if (!by_computer)
@@ -140,6 +140,8 @@
 		if (S_CHARGING)
 			icon_state = "pod-off"
 			add_overlay("cover-on")
+
+	return ..()
 
 /obj/machinery/latejoin_cryo/Destroy()
 	if (computer)
@@ -196,6 +198,8 @@
 		icon_state = "control_boxp1"
 	else
 		icon_state = "control_boxp3"
+
+	return ..()
 
 /obj/machinery/latejoin_cryo_computer/JoinPlayerHere(mob/M, buckle)
 	if (!emplace(M))
