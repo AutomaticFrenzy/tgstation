@@ -17,16 +17,16 @@ map metastation
 	#default
 	minplayers 25
 	#voteweight 0.5
-	disabled
-endmap
-
-map pubbystation
-	disabled
+	votable
 endmap
 
 map deltastation
 	minplayers 50
-	disabled
+	votable
+endmap
+
+map kilostation
+	votable
 endmap
 
 map icebox
@@ -34,10 +34,18 @@ map icebox
 	votable
 endmap
 
-map runtimestation
-	disabled
+map tramstation
+	minplayers 35
+	votable
 endmap
 
+map runtimestation
+endmap
+
+map multiz_debug
+endmap
+
+# Superbox maps
 map sbstation
 	default
 	maxplayers 35
@@ -45,7 +53,4 @@ endmap
 
 map nssfrenzy
 	maxplayers 20
-endmap
-
-map multiz_debug
 endmap
