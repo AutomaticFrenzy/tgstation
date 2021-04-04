@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>code&#x2F;__DEFINES&#x2F;layers.dm - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="code/__DEFINES/layers.html#define">Define Details</a></header>
+<main>
+<h1>code/__DEFINES/layers.dm 
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm"/></a></h1>
+
+<table class="summary" cellspacing="0">
+        <tr><th><a href="code/__DEFINES/layers.html#define/LIGHTING_PLANE">LIGHTING_PLANE</a></th><td>Normal 1 per turf dynamic lighting objects</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/O_LIGHTING_VISUAL_PLANE">O_LIGHTING_VISUAL_PLANE</a></th><td>Lighting objects that are &quot;free floating&quot;</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/ABOVE_LIGHTING_PLANE">ABOVE_LIGHTING_PLANE</a></th><td>Things that should render ignoring lighting</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/BYOND_LIGHTING_PLANE">BYOND_LIGHTING_PLANE</a></th><td>visibility + hiding of things outside of light source range</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/EMISSIVE_PLANE">EMISSIVE_PLANE</a></th><td>This plane masks out lighting to create an &quot;emissive&quot; effect, ie for glowing lights in otherwise dark areas</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/EMISSIVE_BLOCKER_PLANE">EMISSIVE_BLOCKER_PLANE</a></th><td>This plane masks the emissive plane to &quot;block&quot; it. Byond is wacky, this is the only way to get things to look like they're actually blocking said glowing lights.</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/EMISSIVE_UNBLOCKABLE_PLANE">EMISSIVE_UNBLOCKABLE_PLANE</a></th><td>This plane is &quot;unblockable&quot; emissives. It does the same thing as the emissive plane but isn't masked by the emissive blocker plane. Use for on-mob and movable emissives.</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/CAMERA_STATIC_PLANE">CAMERA_STATIC_PLANE</a></th><td>---------------- MISC -----------------------
+AI Camera Static</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/RUNECHAT_PLANE">RUNECHAT_PLANE</a></th><td>Popup Chat Messages</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/ATMOS_GROUP_PLANE">ATMOS_GROUP_PLANE</a></th><td>Debug Atmos Overlays</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/FULLSCREEN_PLANE">FULLSCREEN_PLANE</a></th><td>--------------- FULLSCREEN IMAGES ------------</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/RADIAL_LAYER">RADIAL_LAYER</a></th><td>1000 is an unimportant number, it's just to normalize copied layers</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/SPLASHSCREEN_PLANE">SPLASHSCREEN_PLANE</a></th><td>Plane of the &quot;splash&quot; icon used that shows on the lobby screen. Nothing should ever be above this.</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/CINEMATIC_LAYER">CINEMATIC_LAYER</a></th><td>cinematics are &quot;below&quot; the splash screen</td></tr>
+        <tr><th><a href="code/__DEFINES/layers.html#define/PLANE_MASTERS_GAME">PLANE_MASTERS_GAME</a></th><td>Plane master controller keys</td></tr></table><h2 id="define">Define Details</h2>
+<h3 id="define/ABOVE_LIGHTING_PLANE"><aside class="declaration">#define </aside>ABOVE_LIGHTING_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L119">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 119"/></a>
+    </h3>
+    <p>Things that should render ignoring lighting</p><h3 id="define/ATMOS_GROUP_PLANE"><aside class="declaration">#define </aside>ATMOS_GROUP_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L153">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 153"/></a>
+    </h3>
+    <p>Debug Atmos Overlays</p><h3 id="define/BYOND_LIGHTING_PLANE"><aside class="declaration">#define </aside>BYOND_LIGHTING_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L123">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 123"/></a>
+    </h3>
+    <p>visibility + hiding of things outside of light source range</p><h3 id="define/CAMERA_STATIC_PLANE"><aside class="declaration">#define </aside>CAMERA_STATIC_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L146">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 146"/></a>
+    </h3>
+    <p>---------------- MISC -----------------------
+AI Camera Static</p><h3 id="define/CINEMATIC_LAYER"><aside class="declaration">#define </aside>CINEMATIC_LAYER
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L183">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 183"/></a>
+    </h3>
+    <p>cinematics are &quot;below&quot; the splash screen</p><h3 id="define/EMISSIVE_BLOCKER_PLANE"><aside class="declaration">#define </aside>EMISSIVE_BLOCKER_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L136">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 136"/></a>
+    </h3>
+    <p>This plane masks the emissive plane to &quot;block&quot; it. Byond is wacky, this is the only way to get things to look like they're actually blocking said glowing lights.</p><h3 id="define/EMISSIVE_PLANE"><aside class="declaration">#define </aside>EMISSIVE_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L132">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 132"/></a>
+    </h3>
+    <p>This plane masks out lighting to create an &quot;emissive&quot; effect, ie for glowing lights in otherwise dark areas</p><h3 id="define/EMISSIVE_UNBLOCKABLE_PLANE"><aside class="declaration">#define </aside>EMISSIVE_UNBLOCKABLE_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L140">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 140"/></a>
+    </h3>
+    <p>This plane is &quot;unblockable&quot; emissives. It does the same thing as the emissive plane but isn't masked by the emissive blocker plane. Use for on-mob and movable emissives.</p><h3 id="define/FULLSCREEN_PLANE"><aside class="declaration">#define </aside>FULLSCREEN_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L156">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 156"/></a>
+    </h3>
+    <p>--------------- FULLSCREEN IMAGES ------------</p><h3 id="define/LIGHTING_PLANE"><aside class="declaration">#define </aside>LIGHTING_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L111">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 111"/></a>
+    </h3>
+    <p>Normal 1 per turf dynamic lighting objects</p><h3 id="define/O_LIGHTING_VISUAL_PLANE"><aside class="declaration">#define </aside>O_LIGHTING_VISUAL_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L115">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 115"/></a>
+    </h3>
+    <p>Lighting objects that are &quot;free floating&quot;</p><h3 id="define/PLANE_MASTERS_GAME"><aside class="declaration">#define </aside>PLANE_MASTERS_GAME
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L186">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 186"/></a>
+    </h3>
+    <p>Plane master controller keys</p><h3 id="define/RADIAL_LAYER"><aside class="declaration">#define </aside>RADIAL_LAYER
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L173">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 173"/></a>
+    </h3>
+    <p>1000 is an unimportant number, it's just to normalize copied layers</p><h3 id="define/RUNECHAT_PLANE"><aside class="declaration">#define </aside>RUNECHAT_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L150">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 150"/></a>
+    </h3>
+    <p>Popup Chat Messages</p><h3 id="define/SPLASHSCREEN_PLANE"><aside class="declaration">#define </aside>SPLASHSCREEN_PLANE
+            <a href="https://github.com/AutomaticFrenzy/tgstation/blob/d5844b7cf76252caff3d03df2da51fe9c324a0fa/code/__DEFINES/layers.dm#L179">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__DEFINES&#x2F;layers.dm 179"/></a>
+    </h3>
+    <p>Plane of the &quot;splash&quot; icon used that shows on the lobby screen. Nothing should ever be above this.</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/AutomaticFrenzy/tgstation/tree/d5844b7cf76252caff3d03df2da51fe9c324a0fa">d5844b7</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>
