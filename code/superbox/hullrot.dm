@@ -315,7 +315,7 @@
 		hullrot_update()
 
 /mob/dead/Login()
-	..()
+	. = ..()
 	SShullrot.set_ghost(client)
 
 /obj/machinery/door/open()
